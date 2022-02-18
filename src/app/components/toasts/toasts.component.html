@@ -1,0 +1,11 @@
+<ngb-toast *ngFor="let toast of toastService.toasts" [class]="toast.classname || 'custom'" [autohide]="toast.showAlways" [delay]="toast.delay || 10000" (hidden)="toastService.remove(toast)">
+    <ng-template [ngIf]="!isTemplate(toast)" [ngIfElse]="text">
+        <img class="icon contain" [src]="toast.icon" />
+        <div class="w-100 p-3">
+            <h6>{{toast.title}}</h6>
+            <p class="small-text o-8">{{toast.description}}</p>
+        </div>
+    </ng-template>
+
+    <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+</ngb-toast>

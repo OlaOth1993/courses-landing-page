@@ -1,0 +1,132 @@
+@use './../../../../../styles/abstract/variables' as *;
+// @import './../../../../../styles/components/progresses';
+
+.border-redues-top {
+  border-radius: 12px 12px 0px 0px;
+}
+
+.center {
+  text-align: -webkit-center !important;
+  text-align: center;
+}
+
+.height-video {
+  height: 423px;
+}
+
+.btn-botton {
+  bottom: -21px;
+}
+
+// ==========================all
+.icon {
+  width: auto;
+}
+.card .card-body .title {
+  line-height: 52px;
+  font-weight: 700;
+  font-size: 19px;
+  color: #4d5160;
+}
+// ==========================me
+
+.xlarge {
+  padding: 0.9em 28% !important;
+}
+
+.img-box {
+  width: 70px;
+  height: 60px;
+  border-radius: 12px;
+}
+
+// image list circle
+.img-circle-m {
+  margin-left: -12px;
+  background: #cdd5f3;
+}
+.circle-icon {
+  margin-left: -10px;
+  display: inline-block;
+  width: 40px !important;
+  height: 40px;
+  margin-left: -12px;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 50%;
+  border: 2px solid #9b9ca0;
+  background: #9b9ca0;
+}
+.icon {
+  color: white !important;
+}
+//end image list circle
+
+.border-width-multi {
+  width: 100%;
+  border: solid #4d5160;
+  border-radius: 11px;
+  padding: 8px 15px;
+  border-width: 1px 1px 1px 5px;
+}
+
+// .card-instruct{
+
+//     position: absolute;
+
+//     z-index: 2;
+// }
+.down-card-instruct {
+  height: 300px;
+  background: $primary-color;
+  position: absolute;
+  border-radius: 12px;
+  // width: 100%;
+}
+
+// .col-md-3 {
+//     flex: 0 0 auto;
+//     width: 21%;
+// }
+// .col-md-9 {
+//     flex: 0 0 auto;
+//     width: 79%;
+// }
+// .col-12 {
+//     flex: 0 0 auto;
+//     width: 100%;
+// }
+.card {
+  border-radius: 12px !important;
+  overflow: visible;
+}
+
+.mt-65 {
+  margin-top: 65px !important;
+}
+
+.light-btn,
+.secondary-grey-btn,
+.secondary-btn,
+.primary-btn {
+  border-radius: 12px;
+}
+
+.list li {
+  line-height: 28px;
+}
+
+.active > a {
+  color: $primary-color !important;
+  // font-weight: bolder;
+  // font-size: 18px;
+}
+
+.card-nav {
+  position: sticky;
+  top: 14%;
+}
+
+mat-slider {
+  width: 300px;
+}

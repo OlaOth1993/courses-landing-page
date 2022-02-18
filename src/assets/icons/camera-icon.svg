@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+  <g id="Group_6316" data-name="Group 6316" transform="translate(-204 -307)">
+    <circle id="Ellipse_237" data-name="Ellipse 237" cx="17.5" cy="17.5" r="17.5" transform="translate(204 307)" fill="#2f57e5"/>
+    <g id="Icon_ionic-md-camera" data-name="Icon ionic-md-camera" transform="translate(212.599 316.88)">
+      <path id="Path_18356" data-name="Path 18356" d="M18.615,17.78a2.522,2.522,0,1,1-2.522-2.522,2.522,2.522,0,0,1,2.522,2.522Z" transform="translate(-7.124 -9.132)" fill="#fff"/>
+      <path id="Path_18357" data-name="Path 18357" d="M18.586,5.781H15.062L13.781,4.5H8.656L7.375,5.781H3.852a1.6,1.6,0,0,0-1.6,1.6V18.273a1.6,1.6,0,0,0,1.6,1.6H18.586a1.6,1.6,0,0,0,1.6-1.6V7.383A1.6,1.6,0,0,0,18.586,5.781ZM11.219,17.633A4.484,4.484,0,1,1,15.7,13.148,4.484,4.484,0,0,1,11.219,17.633Z" transform="translate(-2.25 -4.5)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

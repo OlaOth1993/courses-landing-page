@@ -1,0 +1,296 @@
+<div class="card mt-4 p-0" style="height: auto;">
+    <div class="row  mb-4">
+        <div class="col-md-3 p-4 text-center border-right">
+            <div class="mb-2" *ngIf="teacher">
+                <img *ngIf="teacher.profile_img == null" class="avatar" src="assets/vectors/planet.svg" width="110px" height="110px" />
+                <img *ngIf="teacher.profile_img" class="avatar" width="110px" height="110px" src={{teacher.profile_img}}>
+
+
+            </div>
+            <p *ngIf="teacher" class="large-text uppercase m-1">{{teacher.full_name}}</p>
+            <span *ngIf="teacher" class="small-text uppercase">{{teacher.teacher_courses_model_count}} Courses</span>
+
+            <div class="align-vector">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71.47" height="106.252" viewBox="0 0 71.47 106.252">
+                    <defs>
+                      <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                        <stop offset="0" stop-color="#ffc444"/>
+                        <stop offset="0.996" stop-color="#f36f56"/>
+                      </linearGradient>
+                      <linearGradient id="linear-gradient-2" x1="-3.168" y1="3.007" x2="-7.712" y2="6.074" gradientUnits="objectBoundingBox">
+                        <stop offset="0" stop-color="#2f57e5"/>
+                        <stop offset="0.996" stop-color="#7398ff"/>
+                      </linearGradient>
+                    </defs>
+                    <g id="plant-vector" transform="translate(-18.43 -15.857)">
+                      <g id="Group_5703" data-name="Group 5703" transform="translate(20.752 22.832)">
+                        <path id="Path_18722" data-name="Path 18722" d="M48.255,73.617a6.259,6.259,0,0,1-.741,6.139c-3.62,6.2-8.957,11.492-4.849,16.639a19.766,19.766,0,0,1,1.5,2.062.66.66,0,0,1,.076.122c2.711,4.36,2.795,8.934-1.054,15.73q-2.52.378-5.047.71a.841.841,0,0,1-.137.015c-2.26.3-4.521.565-6.8.8-.046.069-3.337-6.834-1.626-12.256.015-.046.031-.084.046-.13a8.693,8.693,0,0,1,.382-.962c5.2-10.759-2.321-16.708-5.17-20.717a18.491,18.491,0,0,1-2.085-3.4c-.137-.3-.267-.6-.389-.886-.137-.367-.267-.733-.382-1.092-.046-.145-.084-.283-.122-.42a8.493,8.493,0,0,1,.16-5.567.931.931,0,0,1,.053-.13,3.912,3.912,0,0,1,.206-.4,1.931,1.931,0,0,1,.1-.168A5.72,5.72,0,0,1,26.8,67.493c5.162-.6,4.91-8.216,2.7-16.3a58.767,58.767,0,0,0-3.2-9.1,9.671,9.671,0,0,1-.878-5.567c.008-.038.008-.076.015-.115a14.857,14.857,0,0,1,5.277-9.667l.107-.084.367-.252c4.437-3.07,10.286-1.443,14.936,7.957.023.053.053.107.076.168.076.145.145.29.214.435,5.987,11.332-.6,21.274-2.008,28.292-.893,4.429,2.451,7.056,3.8,10.24A.591.591,0,0,0,48.255,73.617Z" transform="translate(-21.471 -24.991)" fill="url(#linear-gradient)"/>
+                        <path id="Path_18723" data-name="Path 18723" d="M41,115.535a.841.841,0,0,1-.137.015c-.046-.573-.084-1.153-.13-1.726v-.008c-.015-.191-.023-.382-.038-.573-.092-1.275-.168-2.55-.237-3.826,0-.038-.008-.084-.008-.122q-.481-8.8-.4-17.609c-.008-.214,0-.428,0-.634v-.015q.023-2.612.115-5.223h-.008c0-.008.008-.015.008-.023q.08-3.15.244-6.292c.031-3,.13-6.055.229-9,.244-7.315.481-14.868-.321-22.091-.008-.1-.015-.2-.031-.3V48.1c-.053-.466-.115-.939-.176-1.405a50.2,50.2,0,0,0-6.537-19.442l.107-.084A50.3,50.3,0,0,1,40.24,46.68c.367,2.734.573,5.513.68,8.323,0,.084,0,.176.008.26.168,5.07,0,10.21-.16,15.242-.1,2.948-.2,5.994-.229,9-.1,1.924-.176,3.841-.229,5.765-.008.176-.015.351-.015.527q-.332,11.271.237,22.534v.015c.023.313.038.619.053.932q.126,2.256.283,4.513v.038C40.9,114.4,40.95,114.97,41,115.535Z" transform="translate(-24.33 -25.506)" fill="#fcfdfe"/>
+                        <path id="Path_18724" data-name="Path 18724" d="M51.3,37.428c-.168.458-.359.977-.565,1.535C49.076,43.4,46,51.654,43.188,57.656l-.015-.008-.107-.046c.031-.069.069-.145.1-.214,2.78-5.979,5.8-14.1,7.438-18.472.252-.672.451-1.222.619-1.657C51.244,37.313,51.275,37.367,51.3,37.428Z" transform="translate(-26.576 -27.891)" fill="#fcfdfe"/>
+                        <path id="Path_18725" data-name="Path 18725" d="M38.762,51.379l-.092.046-.031.015a23.375,23.375,0,0,0-8.163-9.522,16.257,16.257,0,0,0-3.841-1.863c.008-.038.008-.076.015-.115a14.174,14.174,0,0,1,4.292,2.123,23.881,23.881,0,0,1,7.7,9.064C38.686,51.211,38.724,51.295,38.762,51.379Z" transform="translate(-22.692 -28.525)" fill="#fcfdfe"/>
+                        <path id="Path_18726" data-name="Path 18726" d="M37.474,105.167l-.13.023h-.008c-.924-5.208-3.742-10.255-8.369-15.005a48.344,48.344,0,0,0-6.789-5.758c-.008-.008-.015-.015-.023-.015a.306.306,0,0,1,.061-.122c.008,0,.008.008.015.008a49.016,49.016,0,0,1,6.834,5.788c4.459,4.582,7.239,9.438,8.278,14.455C37.4,104.747,37.436,104.961,37.474,105.167Z" transform="translate(-21.633 -39.009)" fill="#fcfdfe"/>
+                        <path id="Path_12076" data-name="Path 12076" d="M53.1,88.51a21.972,21.972,0,0,0-8.278,6.445c-.046.069-.1.13-.145.2a15.36,15.36,0,0,0-2.329,4.62c-.061.168-.107.344-.153.519,0,.008-.008.015-.008.023H42.2l.122.031c.008-.015.008-.031.015-.046a15.282,15.282,0,0,1,2.4-4.986,1.2,1.2,0,0,1,.145-.2,19.306,19.306,0,0,1,4.108-4.04,23.2,23.2,0,0,1,4.169-2.444A.591.591,0,0,1,53.1,88.51Z" transform="translate(-26.369 -40.006)" fill="#fcfdfe"/>
+                        <path id="Path_18727" data-name="Path 18727" d="M40.524,137.606h-.008l-.122.038c-.008-.015-.008-.031-.015-.046v-.008c-.6-2.214-2.535-5.689-8.293-9.721.015-.046.031-.084.046-.13.008.008.015.008.023.015,5.353,3.749,7.422,7.025,8.186,9.263.069.2.13.382.176.557v.015C40.524,137.6,40.524,137.6,40.524,137.606Z" transform="translate(-23.98 -49.28)" fill="#fcfdfe"/>
+                        <path id="Path_18728" data-name="Path 18728" d="M49.227,121.322c-5.559,4.887-6.5,8.407-6.514,10.187v.137h-.137v-.122a6.551,6.551,0,0,1,.084-.947v-.015c.336-1.962,1.741-5.17,6.491-9.362A.66.66,0,0,1,49.227,121.322Z" transform="translate(-26.46 -47.734)" fill="#fcfdfe"/>
+                      </g>
+                      <g id="Group_5701" data-name="Group 5701" transform="translate(18.43 15.857)">
+                        <path id="Path_18729" data-name="Path 18729" d="M89.9,36.293v.267c0,.237-.008.473-.015.71.29,18.777-14.89,27.391-21.412,35.623-4.116,5.193-1.481,10.851-1.833,15.906a1.608,1.608,0,0,0-.015.191c-.237,2.749-1.39,5.322-5.04,7.529-8.85,5.7-19.327,9.056-17.38,18.518a30.648,30.648,0,0,1,.6,3.7,1.738,1.738,0,0,0,.015.2,21.11,21.11,0,0,1,.046,3.177H18.43a18.582,18.582,0,0,1,3.91-6.369,1.235,1.235,0,0,1,.137-.145,12.845,12.845,0,0,1,1.138-1,29.542,29.542,0,0,0,2.909-2.52c.183-.183.367-.367.542-.55s.351-.374.519-.565c.221-.252.443-.5.657-.764.244-.3.473-.6.695-.916.344-.451.657-.916.955-1.4.137-.214.267-.435.389-.657s.237-.428.351-.641c.122-.244.237-.489.351-.733s.214-.473.313-.71c.122-.3.237-.6.344-.909.061-.176.115-.344.16-.519a.485.485,0,0,0,.046-.137c1.527-5.055.573-10.416-.42-15.547l-.206-1.054a40.031,40.031,0,0,1-.909-10.492c.008-.069.008-.13.015-.191.031-.321.061-.626.107-.939a.149.149,0,0,0,.008-.053,14.154,14.154,0,0,1,1.6-4.986l.023-.046a10.389,10.389,0,0,1,2.413-2.879,1.405,1.405,0,0,1,.168-.13c.168-.137.336-.267.519-.389a6.57,6.57,0,0,1,1.947-.771c.046-.015.092-.023.137-.038a9.43,9.43,0,0,1,5.422.687,6.8,6.8,0,0,0,2.4.5c5.742.031,8.98-8.705,10.553-14.3.084-.267.153-.535.221-.787.046-.168.092-.328.13-.489a3.3,3.3,0,0,0,.092-.344q.137-.527.252-.985c.015-.069.031-.13.046-.2.084-.344.168-.687.244-1.039.863-3.963,1.306-8.316,2-12.539a39.217,39.217,0,0,1,3.077-10.935c.031-.061.061-.13.092-.2a19.787,19.787,0,0,1,1.321-2.237c2.314-3.39,5.8-5.933,11.256-6.995.16-.038.321-.069.481-.1.069-.015.13-.023.191-.031.221-.038.435-.069.649-.092C83.505,14.92,90.065,20.922,89.9,36.293Z" transform="translate(-18.43 -15.857)" fill="url(#linear-gradient-2)"/>
+                        <path id="Path_18730" data-name="Path 18730" d="M74.828,45.972c-1.329,3.818-2.917,7.59-4.65,11.332-.046.107-.1.221-.16.336-3.131,6.735-6.766,13.333-10.316,19.8-2.085,3.788-4.238,7.712-6.277,11.615-1.4,2.444-2.78,4.895-4.124,7.369l-.008.008c-.13.229-.252.458-.374.687l-.008.008c-.145.26-.283.519-.42.787q-3.631,6.678-7,13.493a2.431,2.431,0,0,0-.122.244c-.229.458-.458.924-.68,1.39q-2.234,4.536-4.337,9.133H36.12q2.108-4.582,4.33-9.11c.29-.6.588-1.2.886-1.794,0-.008,0-.015.015-.015a1.95,1.95,0,0,1,.084-.183.191.191,0,0,1,.031-.053q1.581-3.207,3.23-6.376H44.7c.13-.275.275-.542.42-.809,0-.008.008-.023.008-.031,1.069-2.046,2.146-4.078,3.253-6.1.115-.221.229-.435.351-.657A.167.167,0,0,1,48.758,97L48.765,97c1.459-2.7,2.963-5.376,4.49-8.033,2.031-3.9,4.185-7.827,6.269-11.615,5.17-9.4,10.507-19.106,14.257-29.071.053-.13.1-.26.153-.389v-.008c.244-.657.481-1.321.71-1.978a73.79,73.79,0,0,0,4.368-29.743c.069-.015.13-.023.191-.031A73.852,73.852,0,0,1,74.828,45.972Z" transform="translate(-22.612 -15.921)" fill="#fcfdfe"/>
+                        <path id="Path_18731" data-name="Path 18731" d="M104.539,42.62v.267c-.535.489-1.13,1.039-1.772,1.626-5.1,4.7-14.608,13.432-22.267,19.411l-.023-.023-.1-.13c.084-.069.168-.137.26-.206,7.606-5.971,16.945-14.562,22-19.2C103.409,43.659,104.027,43.086,104.539,42.62Z" transform="translate(-33.074 -22.183)" fill="#fcfdfe"/>
+                        <path id="Path_18732" data-name="Path 18732" d="M83.139,50.779v.008c0,.13-.008.26-.008.389h-.2A34.323,34.323,0,0,0,78.588,33.3a23.335,23.335,0,0,0-3.52-4.711c.031-.061.061-.13.092-.2A24.593,24.593,0,0,1,79.1,33.8,35.036,35.036,0,0,1,83.139,50.779Z" transform="translate(-31.818 -18.819)" fill="#fcfdfe"/>
+                        <path id="Path_18733" data-name="Path 18733" d="M45.9,119.669c-.076.29-.16.58-.244.863l-.183-.053h-.008c2.245-7.422,1.917-15.891-.97-25.161A69.869,69.869,0,0,0,39.433,83.29c.008-.015,0-.023-.015-.038a1.165,1.165,0,0,1,.168-.122.04.04,0,0,1,.015.031,71.517,71.517,0,0,1,5.086,12.1C47.466,104.206,47.879,112.415,45.9,119.669Z" transform="translate(-23.391 -31.759)" fill="#fcfdfe"/>
+                        <path id="Path_12068" data-name="Path 12068" d="M53.2,118.929l-.008.008c-.183.183-.351.367-.527.565l-.008.008-.031.031.008.008.137.13a.2.2,0,0,0,.038-.046l.008-.008c6.376-7.1,15.677-8.094,20.381-8.094.573,0,1.084.015,1.5.031a1.608,1.608,0,0,1,.015-.191C70.873,111.186,60.358,111.5,53.2,118.929Z" transform="translate(-26.514 -38.427)" fill="#fcfdfe"/>
+                        <path id="Path_18734" data-name="Path 18734" d="M23.71,146.508a50.534,50.534,0,0,1,2.925,6.475h-.214a49.357,49.357,0,0,0-2.871-6.369,1.235,1.235,0,0,1,.137-.145C23.7,146.485,23.7,146.493,23.71,146.508Z" transform="translate(-19.64 -46.732)" fill="#fcfdfe"/>
+                        <path id="Path_18735" data-name="Path 18735" d="M50.165,150.779a40.472,40.472,0,0,0-8.659,3.177H41.07a39.832,39.832,0,0,1,9.079-3.375A1.739,1.739,0,0,0,50.165,150.779Z" transform="translate(-23.782 -47.704)" fill="#fcfdfe"/>
+                      </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 p-4 ">
+            <div class="mx-4 mb-3">
+                <span class="base-text  weight-semibold "> Teacher Name </span>
+
+            </div>
+            <form [formGroup]="messageSection" (ngSubmit)="sendMessage(messageSection.value)">
+                <div class="chat" style="overflow: scroll;     height: 530px;">
+                    <div class="row" *ngFor="let message of messageList">
+                        <div class="col-md-12">
+                            <div class="  small d-flex justify-content-end mb-1 flex-wrap ">
+                                <p class=" text-start text-white bg-primary p-3" style="border-radius:10px 0px 10px 10px ; width: fit-content;"> {{message.message}} </p>
+
+                            </div>
+                        </div>
+
+                        <div class="row" *ngFor="let rep of message.replies">
+                            <div class="col-md-12">
+
+                                <div class="d-flex  small justify-content-start mb-1 flex-wrap">
+                                    <img class="avatar d-inline mr-3" src="assets/vectors/planet.svg" width="30px" height="30px" />
+
+                                    <p class="text-start teacher-message d-inline bg-light p-3 text-dark " style="border-radius: 0px 10px 10px 10px; width: fit-content; "> {{rep.message}} </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!-- input message here -->
+                <div class="row m-2 write-here " style="height: 40px;">
+                    <div class="col-md-12 col-sm-12 text">
+                        <input #message class="message-input w-100" placeholder="Type a message" formControlName="message" />
+
+                        <button type="submit" [disabled]="message.value == ''">
+                        <svg class="field-icon" id="send-message-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                                <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash" width="30" height="30" rx="12" fill="#2f57e5"/>
+                                <path id="Icon_ionic-ios-send" data-name="Icon ionic-ios-send" d="M16.159,4.53,4.652,9.545a.264.264,0,0,0,.009.48l3.113,1.758a.5.5,0,0,0,.574-.056l6.137-5.291c.041-.034.138-.1.176-.063s-.022.135-.056.176l-5.31,5.981a.5.5,0,0,0-.05.6l2.034,3.263a.265.265,0,0,0,.476-.006L16.513,4.878A.264.264,0,0,0,16.159,4.53Z" transform="translate(3.817 5.095)" fill="#fff"/>
+                              </svg>
+                            </button>
+                    </div>
+
+                </div>
+                <!-- close input message here -->
+
+            </form>
+        </div>
+        <div class="seprate"></div>
+
+        <div class="col-md-3 p-4 ml-4 border-left " style="height: 680px; overflow: scroll;">
+            <p class="base-text m-1 mb-2">Homework File</p>
+            <div class="row " *ngFor="let homework of homeworkWithoutSol" style="height: 355px !important;">
+                <div class=" col-md-12" style=" height: 10px; line-height: 0px !important; ">
+                    <p class="text-left m-1 small-text gray d-inline lh-0">{{homework.name}}
+
+                        <a class="float-right d-inline lh-0" href={{homework.url}} target="_blank" class="btn btn-border" download="fileName">
+                            <svg class="float-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+                <defs>
+                  <filter id="joanna-kosinska-LAaSoL0LrYs-unsplash" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse">
+                    <feOffset dy="2" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="6" result="blur"/>
+                    <feFlood flood-color="#2f57e5" flood-opacity="0.102"/>
+                    <feComposite operator="in" in2="blur"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                </defs>
+                <g id="download-icon" transform="translate(-1135 -286)">
+                  <g transform="matrix(1, 0, 0, 1, 1135, 286)" filter="url(#joanna-kosinska-LAaSoL0LrYs-unsplash)">
+                    <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash-2" data-name="joanna-kosinska-LAaSoL0LrYs-unsplash" width="20" height="20" rx="10" transform="translate(18 16)" fill="#2f57e5" opacity="0"/>
+                  </g>
+                  <g id="Group_12253" data-name="Group 12253" transform="translate(1157.256 306.677)">
+                    <g id="Icon_feather-download" data-name="Icon feather-download">
+                      <g id="Path_18494" data-name="Path 18494">
+                        <path id="Path_18736" data-name="Path 18736" d="M1.782,11.593A1.884,1.884,0,0,1-.1,9.711V7.443a.75.75,0,1,1,1.5,0V9.707a.383.383,0,0,0,.382.386H9.707a.383.383,0,0,0,.382-.384V7.443a.75.75,0,0,1,1.5,0V9.707a1.884,1.884,0,0,1-1.876,1.886Z" fill="#2f57e5"/>
+                      </g>
+                      <g id="Path_18495" data-name="Path 18495">
+                        <path id="Path_18737" data-name="Path 18737" d="M9.1,5.14,6.27,7.97a.716.716,0,0,1-.53.22.749.749,0,0,1-.53-.22L2.38,5.14A.75.75,0,0,1,3.44,4.08L4.99,5.63V.65a.75.75,0,0,1,1.5,0V5.63L8.04,4.08a.754.754,0,0,1,1.06,0A.737.737,0,0,1,9.1,5.14Z" fill="#2f57e5"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                            </svg>
+                        </a>
+                        <br> <span class="xsmall-text mx-1 gray">{{homework.created_at | date:'dd/MM/yyyy'}}</span>
+
+                    </p>
+                    <div class="mb-4 mt-4 text-center">
+                        <div class=" border-dashed centerized">
+                            <div class="btn">
+                                <input hidden (change)="uploadFile($event, homework.id)" type="file" #file>
+                                <a class="" (click)="file.click()">
+                                    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event,homework.id)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                                        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="75.566" viewBox="0 0 164 79.566">
+                                      <g id="add-new-homework-vector" transform="translate(4.438 -4.098)">
+                                        <g id="Group_6046" data-name="Group 6046" transform="translate(-4.438 11.508)">
+                                          <path id="Fill_3" data-name="Fill 3" d="M6.933,0a6.933,6.933,0,1,0,0,13.866h8.05A6.933,6.933,0,0,0,14.983,0Z" transform="translate(12.379 55.465)" fill="#edeff7"/>
+                                          <path id="Fill_5" data-name="Fill 5" d="M131.456.071A6.985,6.985,0,0,0,130.518,0H42.783a6.933,6.933,0,0,0,0,13.866h3.342v.008a6.927,6.927,0,0,1,0,13.85v.008H6.933a6.933,6.933,0,0,0,0,13.866H56.392v.008a6.927,6.927,0,0,1,0,13.85v.008H54.857a6.933,6.933,0,1,0,0,13.866h75.662a6.986,6.986,0,0,0,.938-.071,34.659,34.659,0,0,0,0-69.189Z" fill="#edeff7"/>
+                                          <path id="Fill_28" data-name="Fill 28" d="M24.119,4.884H2.442A2.442,2.442,0,0,1,2.442,0H24.119a2.442,2.442,0,1,1,0,4.884" transform="translate(117.711 15.527)" fill="#fff"/>
+                                        </g>
+                                        <g id="Group_6155" data-name="Group 6155" transform="translate(29.806 4.098)">
+                                          <g id="Group_6155-2" data-name="Group 6155" transform="translate(16.202 0)">
+                                            <path id="Path" d="M7.474,0A7.445,7.445,0,0,0,0,7.4V59.2a7.445,7.445,0,0,0,7.474,7.4H48.664a7.444,7.444,0,0,0,7.474-7.4V7.4A7.444,7.444,0,0,0,48.664,0Z" transform="translate(5.282 7.744)" fill="#fff"/>
+                                            <path id="Path-2" data-name="Path" d="M53.946,77.051H12.757A12.706,12.706,0,0,1,0,64.425v-51.8A12.706,12.706,0,0,1,12.757,0H53.946A12.706,12.706,0,0,1,66.7,12.626v51.8A12.706,12.706,0,0,1,53.946,77.051Z" transform="translate(0 2.515)" fill="#fff"/>
+                                            <path id="Fill_12" data-name="Fill 12" d="M7.937,4.9H2.452a2.452,2.452,0,0,1,0-4.9H7.937a2.452,2.452,0,0,1,0,4.9" transform="translate(28.157 0)" fill="#4d5160"/>
+                                            <path id="Fill_8" data-name="Fill 8" d="M47.625,67.363H9.389A9.4,9.4,0,0,1,0,57.973V9.39A9.4,9.4,0,0,1,9.389,0H47.625a9.4,9.4,0,0,1,9.389,9.39V57.973A9.4,9.4,0,0,1,47.625,67.363ZM16.363,45.984a2.452,2.452,0,0,0,0,4.9h9.068a2.452,2.452,0,0,0,0-4.9Zm0-13.17a2.452,2.452,0,0,0,0,4.9h24.29a2.452,2.452,0,1,0,0-4.9Zm0-13.17a2.452,2.452,0,0,0,0,4.9h24.29a2.452,2.452,0,1,0,0-4.9Z" transform="translate(4.844 7.359)" fill="#2f57e5"/>
+                                            <path id="Fill_20" data-name="Fill 20" d="M5.751,12.936A5.757,5.757,0,0,1,0,7.185V2.452A2.452,2.452,0,0,1,2.452,0h19.46a2.452,2.452,0,0,1,2.452,2.452V7.185a5.757,5.757,0,0,1-5.751,5.751Z" transform="translate(21.171 2.515)" fill="#4d5160"/>
+                                          </g>
+                                          <g id="Group_6156" data-name="Group 6156" transform="translate(0 63.363)">
+                                            <path id="Fill_30" data-name="Fill 30" d="M13.517,5.372H2.686A2.686,2.686,0,0,1,2.686,0h10.83a2.686,2.686,0,0,1,0,5.372" transform="translate(0 5.415)" fill="#2f57e5"/>
+                                            <path id="Fill_32" data-name="Fill 32" d="M2.686,16.2A2.687,2.687,0,0,1,0,13.517V2.686a2.686,2.686,0,1,1,5.372,0V13.517A2.687,2.687,0,0,1,2.686,16.2" transform="translate(5.416 0)" fill="#2f57e5"/>
+                                          </g>
+                                        </g>
+                                      </g>
+                                                      </svg>
+                                            <p class="small gray mt-4 mb-2">Upload Homework Solutions</p>
+
+                                            <!--                                     <button type="button" (click)="openFileSelector()">Browse Files</button>
+   --></ng-template>
+                                    </ngx-file-drop>
+
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- not yet fro back-end -->
+            <div class="row mt-3" *ngFor="let homework of homeworkWithSol">
+                <div class="col-md-12">
+                    <p class="d-inline small text-left gray lh-74"> {{homework.name}} </p>
+                    <a class="float-right d-inline lh-0" href={{homework.url}} target="_blank" class="btn btn-border" download="fileName">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+                          <defs>
+                            <filter id="joanna-kosinska-LAaSoL0LrYs-unsplash" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse">
+                              <feOffset dy="2" input="SourceAlpha"/>
+                              <feGaussianBlur stdDeviation="6" result="blur"/>
+                              <feFlood flood-color="#2f57e5" flood-opacity="0.102"/>
+                              <feComposite operator="in" in2="blur"/>
+                              <feComposite in="SourceGraphic"/>
+                            </filter>
+                          </defs>
+                          <g id="download-icon" transform="translate(-1135 -286)">
+                            <g transform="matrix(1, 0, 0, 1, 1135, 286)" filter="url(#joanna-kosinska-LAaSoL0LrYs-unsplash)">
+                              <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash-2" data-name="joanna-kosinska-LAaSoL0LrYs-unsplash" width="20" height="20" rx="10" transform="translate(18 16)" fill="#2f57e5" opacity="0"/>
+                            </g>
+                            <g id="Group_12253" data-name="Group 12253" transform="translate(1157.256 306.677)">
+                              <g id="Icon_feather-download" data-name="Icon feather-download">
+                                <g id="Path_18494" data-name="Path 18494">
+                                  <path id="Path_18736" data-name="Path 18736" d="M1.782,11.593A1.884,1.884,0,0,1-.1,9.711V7.443a.75.75,0,1,1,1.5,0V9.707a.383.383,0,0,0,.382.386H9.707a.383.383,0,0,0,.382-.384V7.443a.75.75,0,0,1,1.5,0V9.707a1.884,1.884,0,0,1-1.876,1.886Z" fill="#2f57e5"/>
+                                </g>
+                                <g id="Path_18495" data-name="Path 18495">
+                                  <path id="Path_18737" data-name="Path 18737" d="M9.1,5.14,6.27,7.97a.716.716,0,0,1-.53.22.749.749,0,0,1-.53-.22L2.38,5.14A.75.75,0,0,1,3.44,4.08L4.99,5.63V.65a.75.75,0,0,1,1.5,0V5.63L8.04,4.08a.754.754,0,0,1,1.06,0A.737.737,0,0,1,9.1,5.14Z" fill="#2f57e5"/>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg></a>
+                    <p class="xsmall-text m-1 gray lh-0"> {{homework.created_at | date:'dd/MM/yyyy'}} </p>
+
+                </div>
+                <div class="row " *ngFor="let sol of homework.user_homework">
+                    <div class="m-1 col-12 text-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                              <g id="solution-icon" transform="translate(-1010 -492)">
+                                <rect id="Rectangle_2003" data-name="Rectangle 2003" width="30" height="30" rx="10" transform="translate(1010 492)" fill="#edeff7"/>
+                                <path id="Path_12508" data-name="Path 12508" d="M-3572.719,169.292c-.269.278-.521.571-.806.827a.848.848,0,0,1-1.182-.056c-.284-.27-.557-.553-.834-.83-.086-.086-.17-.173-.258-.257a.6.6,0,0,0-.65-.216c-.269.1-.332.328-.36.581a.924.924,0,0,1-.983.888,1.119,1.119,0,0,1-1-1.329.964.964,0,0,1,.87-.68.794.794,0,0,0,.42-.139c.259-.2.259-.531-.019-.82-.336-.35-.684-.688-1.026-1.031a.888.888,0,0,1,0-1.442q.491-.492.984-.983a.851.851,0,0,0,.215-.315.5.5,0,0,0-.365-.662,2.248,2.248,0,0,0-.232-.037.935.935,0,0,1-.854-.7,1,1,0,0,1,.375-1.049.932.932,0,0,1,1.012-.211.947.947,0,0,1,.6.86.576.576,0,0,0,.353.563.6.6,0,0,0,.652-.212q.507-.507,1.014-1.014a.878.878,0,0,1,1.4.007c.329.327.654.657.985.982a1.157,1.157,0,0,0,.251.2.492.492,0,0,0,.734-.3.964.964,0,0,0,.039-.209.926.926,0,0,1,.644-.873.975.975,0,0,1,1.065.318.943.943,0,0,1,.24,1.025.943.943,0,0,1-.829.616,2.135,2.135,0,0,0-.212.031.5.5,0,0,0-.341.761,1.235,1.235,0,0,0,.2.248c.341.345.687.685,1.027,1.031a.861.861,0,0,1,0,1.335c-.21.213-.426.422-.634.637-.084.087-.127.132-.2-.025a1.7,1.7,0,0,0-2.173-.967,1.919,1.919,0,0,0-1.268,2.221,1.727,1.727,0,0,0,.964,1.138l.17.084C-3572.719,169.288-3572.716,169.3-3572.719,169.292Z" transform="translate(4596.719 338.606)" fill="#2f57e5"/>
+                                <path id="Path_12509" data-name="Path 12509" d="M-3436.851,305.362a.913.913,0,0,1-.9-.792,2.162,2.162,0,0,0-.082-.375.47.47,0,0,0-.713-.262,1.3,1.3,0,0,0-.3.238q-.483.485-.969.968a.857.857,0,0,1-1.335,0c-.33-.326-.656-.656-.985-.983a1.513,1.513,0,0,0-.192-.17.516.516,0,0,0-.856.369,2.607,2.607,0,0,1-.057.336.9.9,0,0,1-1.225.6,1.183,1.183,0,0,1-.675-.652.931.931,0,0,1,.726-1.294c.035-.006.071-.008.106-.012a.594.594,0,0,0,.575-.37.6.6,0,0,0-.208-.635c-.336-.349-.684-.688-1.026-1.032a.867.867,0,0,1-.006-1.367c.333-.342.674-.677,1.012-1.015a.85.85,0,0,0,.211-.293.486.486,0,0,0-.288-.663.91.91,0,0,0-.228-.053.949.949,0,0,1-.93-.793,1.112,1.112,0,0,1,.679-1.13.942.942,0,0,1,1.32.792c.01.07.01.143.027.212a.5.5,0,0,0,.773.344,1.117,1.117,0,0,0,.234-.184c.342-.334.679-.673,1.021-1.006a.873.873,0,0,1,1.355,0c.208.205.412.415.622.619.089.087.124.135-.027.207a1.713,1.713,0,0,0-1.038,1.855,2.012,2.012,0,0,0,1.559,1.6,1.706,1.706,0,0,0,1.863-.944c.125-.239.125-.24.314-.052s.365.361.544.546a.862.862,0,0,1,0,1.292c-.314.321-.635.636-.951.955a2.749,2.749,0,0,0-.214.239.52.52,0,0,0-.1.558.545.545,0,0,0,.492.321.923.923,0,0,1,.953,1.008A1.106,1.106,0,0,1-3436.851,305.362Z" transform="translate(4468.829 209.262)" fill="#4d5160"/>
+                              </g>
+                            </svg>
+
+                        <p class="d-inline small text-left gray lh-46"> Solution </p>
+
+                        <svg (click)="deleteSolution(sol, homework)" class="cursor mt-2 float-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+                          <defs>
+                            <filter id="joanna-kosinska-LAaSoL0LrYs-unsplash" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse">
+                              <feOffset dy="2" input="SourceAlpha"/>
+                              <feGaussianBlur stdDeviation="6" result="blur"/>
+                              <feFlood flood-color="#2f57e5" flood-opacity="0.102"/>
+                              <feComposite operator="in" in2="blur"/>
+                              <feComposite in="SourceGraphic"/>
+                            </filter>
+                          </defs>
+                          <g id="cancel-icon" transform="translate(-1142 -483)">
+                            <g transform="matrix(1, 0, 0, 1, 1142, 483)" filter="url(#joanna-kosinska-LAaSoL0LrYs-unsplash)">
+                              <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash-2" data-name="joanna-kosinska-LAaSoL0LrYs-unsplash" width="20" height="20" rx="10" transform="translate(18 16)" fill="#2f57e5" opacity="0"/>
+                            </g>
+                            <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M15.854,14.981l2.638-2.638a.618.618,0,1,0-.874-.874l-2.638,2.638-2.638-2.638a.618.618,0,1,0-.874.874l2.638,2.638-2.638,2.638a.618.618,0,1,0,.874.874l2.638-2.638,2.638,2.638a.618.618,0,0,0,.874-.874Z" transform="translate(1155.021 494.019)" fill="#4d5160"/>
+                          </g>
+                        </svg>
+                        <br>
+                        <p class="xsmall-text mx-3 d-inline gray lh-0"> {{sol.created_at | date:'dd/MM/yyyy'}} </p>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!--  <div class="row" style="margin: 0 auto;">
+                <div class="btn mt-3 col-12 text-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                            <g id="solution-icon" transform="translate(-1010 -492)">
+                              <rect id="Rectangle_2003" data-name="Rectangle 2003" width="30" height="30" rx="10" transform="translate(1010 492)" fill="#edeff7"/>
+                              <path id="Path_12508" data-name="Path 12508" d="M-3572.719,169.292c-.269.278-.521.571-.806.827a.848.848,0,0,1-1.182-.056c-.284-.27-.557-.553-.834-.83-.086-.086-.17-.173-.258-.257a.6.6,0,0,0-.65-.216c-.269.1-.332.328-.36.581a.924.924,0,0,1-.983.888,1.119,1.119,0,0,1-1-1.329.964.964,0,0,1,.87-.68.794.794,0,0,0,.42-.139c.259-.2.259-.531-.019-.82-.336-.35-.684-.688-1.026-1.031a.888.888,0,0,1,0-1.442q.491-.492.984-.983a.851.851,0,0,0,.215-.315.5.5,0,0,0-.365-.662,2.248,2.248,0,0,0-.232-.037.935.935,0,0,1-.854-.7,1,1,0,0,1,.375-1.049.932.932,0,0,1,1.012-.211.947.947,0,0,1,.6.86.576.576,0,0,0,.353.563.6.6,0,0,0,.652-.212q.507-.507,1.014-1.014a.878.878,0,0,1,1.4.007c.329.327.654.657.985.982a1.157,1.157,0,0,0,.251.2.492.492,0,0,0,.734-.3.964.964,0,0,0,.039-.209.926.926,0,0,1,.644-.873.975.975,0,0,1,1.065.318.943.943,0,0,1,.24,1.025.943.943,0,0,1-.829.616,2.135,2.135,0,0,0-.212.031.5.5,0,0,0-.341.761,1.235,1.235,0,0,0,.2.248c.341.345.687.685,1.027,1.031a.861.861,0,0,1,0,1.335c-.21.213-.426.422-.634.637-.084.087-.127.132-.2-.025a1.7,1.7,0,0,0-2.173-.967,1.919,1.919,0,0,0-1.268,2.221,1.727,1.727,0,0,0,.964,1.138l.17.084C-3572.719,169.288-3572.716,169.3-3572.719,169.292Z" transform="translate(4596.719 338.606)" fill="#2f57e5"/>
+                              <path id="Path_12509" data-name="Path 12509" d="M-3436.851,305.362a.913.913,0,0,1-.9-.792,2.162,2.162,0,0,0-.082-.375.47.47,0,0,0-.713-.262,1.3,1.3,0,0,0-.3.238q-.483.485-.969.968a.857.857,0,0,1-1.335,0c-.33-.326-.656-.656-.985-.983a1.513,1.513,0,0,0-.192-.17.516.516,0,0,0-.856.369,2.607,2.607,0,0,1-.057.336.9.9,0,0,1-1.225.6,1.183,1.183,0,0,1-.675-.652.931.931,0,0,1,.726-1.294c.035-.006.071-.008.106-.012a.594.594,0,0,0,.575-.37.6.6,0,0,0-.208-.635c-.336-.349-.684-.688-1.026-1.032a.867.867,0,0,1-.006-1.367c.333-.342.674-.677,1.012-1.015a.85.85,0,0,0,.211-.293.486.486,0,0,0-.288-.663.91.91,0,0,0-.228-.053.949.949,0,0,1-.93-.793,1.112,1.112,0,0,1,.679-1.13.942.942,0,0,1,1.32.792c.01.07.01.143.027.212a.5.5,0,0,0,.773.344,1.117,1.117,0,0,0,.234-.184c.342-.334.679-.673,1.021-1.006a.873.873,0,0,1,1.355,0c.208.205.412.415.622.619.089.087.124.135-.027.207a1.713,1.713,0,0,0-1.038,1.855,2.012,2.012,0,0,0,1.559,1.6,1.706,1.706,0,0,0,1.863-.944c.125-.239.125-.24.314-.052s.365.361.544.546a.862.862,0,0,1,0,1.292c-.314.321-.635.636-.951.955a2.749,2.749,0,0,0-.214.239.52.52,0,0,0-.1.558.545.545,0,0,0,.492.321.923.923,0,0,1,.953,1.008A1.106,1.106,0,0,1-3436.851,305.362Z" transform="translate(4468.829 209.262)" fill="#4d5160"/>
+                            </g>
+                          </svg>
+
+                    <p class="d-inline  small text-left gray lh-46"> Solution 1</p>
+                   
+
+                    <svg class="mt-2 float-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+                        <defs>
+                          <filter id="joanna-kosinska-LAaSoL0LrYs-unsplash" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse">
+                            <feOffset dy="2" input="SourceAlpha"/>
+                            <feGaussianBlur stdDeviation="6" result="blur"/>
+                            <feFlood flood-color="#2f57e5" flood-opacity="0.102"/>
+                            <feComposite operator="in" in2="blur"/>
+                            <feComposite in="SourceGraphic"/>
+                          </filter>
+                        </defs>
+                        <g id="cancel-icon" transform="translate(-1142 -483)">
+                          <g transform="matrix(1, 0, 0, 1, 1142, 483)" filter="url(#joanna-kosinska-LAaSoL0LrYs-unsplash)">
+                            <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash-2" data-name="joanna-kosinska-LAaSoL0LrYs-unsplash" width="20" height="20" rx="10" transform="translate(18 16)" fill="#2f57e5" opacity="0"/>
+                          </g>
+                          <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M15.854,14.981l2.638-2.638a.618.618,0,1,0-.874-.874l-2.638,2.638-2.638-2.638a.618.618,0,1,0-.874.874l2.638,2.638-2.638,2.638a.618.618,0,1,0,.874.874l2.638-2.638,2.638,2.638a.618.618,0,0,0,.874-.874Z" transform="translate(1155.021 494.019)" fill="#4d5160"/>
+                        </g>
+                      </svg>
+                </div>
+
+            </div> -->
+
+
+        </div>
+    </div>
+
+</div>
+<div class="mt-4">&nbsp;</div>

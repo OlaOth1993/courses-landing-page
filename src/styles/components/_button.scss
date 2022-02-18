@@ -1,0 +1,161 @@
+@use '../abstract' as *;
+@use 'bootstrap' as b;
+button {
+    @include reset-spaces;
+    border: none;
+}
+
+%btn {
+    display: inline-block;
+    text-align: center;
+    font-weight: $font-weight-medium;
+    font-size: $medium-text;
+    border-radius: $border-radius;
+    padding: $padding-btn-vertical $padding-btn-horizontal;
+}
+
+%grey-theme {
+    background-color: $dark-gray;
+    color: white;
+}
+
+%primary-theme {
+    background-color: $primary-color;
+    color: white;
+}
+
+.primary-btn {
+    @extend %btn;
+    @include primary-theme;
+    &:hover {
+        background-color: $white-blue;
+        transform: scale(0.98);
+    }
+    &:active {
+        background-color: $black-blue;
+    }
+    svg {
+        fill: white;
+        margin: 0 0.2em;
+    }
+}
+
+.secondary-btn {
+    @extend %btn;
+    background-color: white;
+    color: $primary-color !important;
+    border: 2px solid $primary-color;
+    border-radius: $border-radius;
+    &:hover {
+        @include primary-theme;
+        transform: scale(0.98);
+        svg {
+            fill: white;
+        }
+    }
+    &:active {
+        background-color: $black-blue;
+    }
+    svg {
+        fill: $primary-color;
+        margin: 0 0.2em;
+    }
+}
+
+.large {
+    padding: $padding-large-btn-vertical $padding-large-btn-horizontal;
+    font-size: $medium-text;
+}
+
+.secondary-grey-btn {
+    @extend %btn;
+    background-color: white;
+    color: $dark-gray;
+    border: 1px solid $dark-gray;
+    border-radius: $border-radius;
+    svg {
+        fill: $dark-gray;
+    }
+    &:hover {
+        @extend %grey-theme;
+        transform: scale(0.98);
+        svg {
+            fill: b.$white;
+        }
+        span {
+            color: white !important;
+        }
+    }
+    &:active {
+        background-color: $gray;
+    }
+}
+
+.light-btn {
+    @extend %btn;
+    background-color: white;
+    color: $dark-gray;
+    box-shadow: $box-shadow;
+    svg {
+        fill: $dark-gray;
+    }
+    &:hover {
+        @extend %grey-theme;
+        transform: scale(0.98);
+        svg {
+            fill: b.$white;
+        }
+    }
+    &:active {
+        background-color: $gray;
+    }
+}
+
+.gray-btn {
+    @extend %btn;
+    background-color: white;
+    color: $gray;
+    border: 1px solid $gray;
+    border-radius: $border-radius;
+    svg {
+        fill: $gray;
+    }
+    span {
+        color: $gray !important;
+    }
+    &:hover {
+        @extend %grey-theme;
+        transform: scale(0.98);
+        color: $dark-gray;
+        border: 1px solid $dark-gray;
+        svg {
+            fill: $white;
+        }
+        span {
+            color: $dark-gray !important;
+        }
+    }
+    &:active {
+        background-color: $dark-gray;
+    }
+}
+
+.light-primary-btn {
+    @extend %btn;
+    background-color: white;
+    color: $primary-color;
+    box-shadow: $primary-color;
+    svg {
+        fill: $primary-color;
+    }
+    &:hover {
+        @extend %primary-theme;
+        transform: scale(0.98);
+        svg {
+            fill: b.$white;
+        }
+    }
+    &:active {
+        background-color: $black-blue;
+    }
+}

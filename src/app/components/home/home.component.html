@@ -1,0 +1,636 @@
+<div class="">
+  <app-nav></app-nav>
+  <div class="container-fluid">
+    <section class="mt-4 introduction">
+      <div class="container card">
+        <div class="grid">
+          <div class="m-4 card-container">
+            <img class="" src="assets/images/home.jpg" />
+          </div>
+          <div class="m-4 p-lg-5 p-lg-2">
+            <h1 class="heading-1 pe-md-5">Grow with us</h1>
+            <p class="base-text">
+              Maecenas interdum lorem eleifend orci aliquam mollis Maecenas
+              interdum lorem eleifend orci aliquam mollis.
+            </p>
+            <a class="primary-btn large" routerLink="/category">Get Start</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-4 statistics">
+      <div class="container">
+        <div class="row m-0 p-0">
+          <div class="col-md-4 pb-3">
+            <div class="d-flex justify-content-center">
+              <div class="icon-box">
+                <img src="assets/icons/teacher-icon.svg" />
+              </div>
+              <div class="my-auto mx-2">
+                <h2 class="primary">+200</h2>
+                <p class="title-text">teachers</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 pb-3">
+            <div class="d-flex justify-content-center">
+              <div class="icon-box">
+                <img src="assets/icons/Student-icon.svg" />
+              </div>
+              <div class="my-auto mx-2">
+                <h2 class="primary">+2500</h2>
+                <p class="title-text">students</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 pb-3">
+            <div class="d-flex justify-content-center">
+              <div class="icon-box">
+                <img src="assets/icons/courses-icon.svg" />
+              </div>
+              <div class="my-auto mx-2">
+                <h2 class="primary">+420</h2>
+                <p class="title-text">courses</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-4 categories" id="category">
+      <div class="container">
+        <div class="row mb-3">
+          <h5 class="uppercase">Categories</h5>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-4" style="height: 324px">
+            <ngx-skeleton-loader
+              *ngIf="!isCategoriesLoaded"
+              appearance="circle"
+              [theme]="{
+                width: '100%',
+                height: '100%',
+                'border-radius': '12px'
+              }"
+            >
+            </ngx-skeleton-loader>
+
+            <div class="img-card" *ngIf="isCategoriesLoaded">
+              <img *ngIf="categories[0].img" src="{{ categories[0].img }}" />
+              <img
+                *ngIf="!categories[0].img"
+                src="assets/images/default/category.jpg"
+              />
+              <span>{{ categories[0].name }}</span>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-8 mb-4" style="height: 150px">
+                <ngx-skeleton-loader
+                  *ngIf="!isCategoriesLoaded"
+                  appearance="circle"
+                  [theme]="{
+                    width: '100%',
+                    height: '100%',
+                    'border-radius': '12px'
+                  }"
+                >
+                </ngx-skeleton-loader>
+                <div class="img-card" *ngIf="isCategoriesLoaded">
+                  <img
+                    *ngIf="categories[1].img"
+                    src="{{ categories[1].img }}"
+                  />
+                  <img
+                    *ngIf="!categories[1].img"
+                    src="assets/images/default/category.jpg"
+                  />
+                  <span>{{ categories[1].name }}</span>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4" style="height: 150px">
+                <ngx-skeleton-loader
+                  *ngIf="!isCategoriesLoaded"
+                  appearance="circle"
+                  [theme]="{
+                    width: '100%',
+                    height: '100%',
+                    'border-radius': '12px'
+                  }"
+                >
+                </ngx-skeleton-loader>
+                <div class="img-card" *ngIf="isCategoriesLoaded">
+                  <img
+                    *ngIf="categories[2].img"
+                    src="{{ categories[2].img }}"
+                  />
+                  <img
+                    *ngIf="!categories[2].img"
+                    src="assets/images/default/category.jpg"
+                  />
+                  <span>{{ categories[2].name }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 mb-4" style="height: 150px">
+                <ngx-skeleton-loader
+                  *ngIf="!isCategoriesLoaded"
+                  appearance="circle"
+                  [theme]="{
+                    width: '100%',
+                    height: '100%',
+                    'border-radius': '12px'
+                  }"
+                >
+                </ngx-skeleton-loader>
+                <div
+                  class="img-card"
+                  *ngIf="categories && categories.length > 3"
+                >
+                  <img
+                    *ngIf="categories[3].img"
+                    src="{{ categories[3].img }}"
+                  />
+                  <img
+                    *ngIf="!categories[3].img"
+                    src="assets/images/default/category.jpg"
+                  />
+                  <span>{{ categories[3].name }}</span>
+                </div>
+              </div>
+              <div class="col-md-8 mb-4" style="height: 150px">
+                <ngx-skeleton-loader
+                  *ngIf="!isCategoriesLoaded"
+                  appearance="circle"
+                  [theme]="{
+                    width: '100%',
+                    height: '100%',
+                    'border-radius': '12px'
+                  }"
+                >
+                </ngx-skeleton-loader>
+                <div
+                  class="img-card"
+                  *ngIf="categories && categories.length > 4"
+                >
+                  <img
+                    *ngIf="categories[4].img"
+                    src="{{ categories[4].img }}"
+                  />
+                  <img
+                    *ngIf="!categories[4].img"
+                    src="assets/images/default/category.jpg"
+                  />
+                  <span>{{ categories[4].name }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <button class="secondary-btn large" (click)="goToCategories()">
+            View all
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="23.098"
+              height="11.354"
+              viewBox="0 0 23.098 11.354"
+            >
+              <path
+                id="arrow-icon"
+                d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                transform="translate(0 -10.258)"
+                fill=""
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="courses" id="courses">
+      <div class="container">
+        <div class="row mb-3">
+          <h5 class="uppercase">courses</h5>
+        </div>
+        <div class="row mb-4" *ngIf="!isCoursesLoaded">
+          <div class="col-md-6 col-lg-4 mb-4" *ngFor="let course of [1, 2, 3]">
+            <app-skeleton-course-card></app-skeleton-course-card>
+          </div>
+        </div>
+        <div class="row mb-4" *ngIf="isCoursesLoaded">
+          <div class="col-md-6 col-lg-4 mb-4" *ngFor="let course of courses">
+            <div
+              class="card cursor-pointer"
+              (click)="goToCoursDetail(course.id)"
+            >
+              <img *ngIf="course.img" class="top-img" src="{{ course.img }}" />
+              <img
+                *ngIf="!course.img"
+                class="top-img"
+                src="assets/images/default/course.jpg"
+              />
+              <div class="card-body pb-0 px-2">
+                <span class="sticker">{{ course.price }} $</span>
+                <p class="title">{{ course.name }}</p>
+                <p class="subtitle">Keanu McCoy</p>
+              </div>
+              <div class="card-footer">
+                <div class="info d-flex">
+                  <div class="me-auto">
+                    <svg
+                      class="footer-icon me-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12.94"
+                      height="12.94"
+                      viewBox="0 0 12.94 12.94"
+                    >
+                      <path
+                        id="time-course-icon"
+                        d="M9.845,3.375a6.47,6.47,0,1,0,6.47,6.47A6.469,6.469,0,0,0,9.845,3.375Zm.435,7.03a.437.437,0,0,1-.435.435H6.859a.435.435,0,0,1,0-.871H9.41V5.864a.435.435,0,1,1,.871,0Z"
+                        transform="translate(-3.375 -3.375)"
+                        fill="#4d5160"
+                      />
+                    </svg>
+                    <span class="small-text"
+                      >{{ course.end_time | date: "d MMMM" }},({{
+                        course.number_hour
+                      }})</span
+                    >
+                  </div>
+                  <div class="me-auto">
+                    <img
+                      src="assets/icons/course-level-icon.svg"
+                      class="footer-icon me-2"
+                    />
+                    <span class="small-text">For {{ course.level }}</span>
+                  </div>
+                  <div class="me-auto">
+                    <img
+                      src="assets/icons/student-count-icon.svg"
+                      class="footer-icon me-2"
+                    />
+                    <span class="small-text">{{ course.student_number }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <button class="secondary-btn large" (click)="goToCourses()">
+            View all
+            <!-- <img src="assets/icons/arrow-icon.svg" /> -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="23.098"
+              height="11.354"
+              viewBox="0 0 23.098 11.354"
+            >
+              <path
+                id="arrow-icon"
+                d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                transform="translate(0 -10.258)"
+                fill=""
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="teacher bg-blue mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 p-md-5 mt-5">
+            <div class="p-md-5">
+              <h3 class="heading-1 mb-5">
+                Be a teacher on live with any field you want
+              </h3>
+              <p class="base-text mb-5">
+                Cras gravida bibendum dolor eu varius. Morbi fermentum velit
+                nisl, eget vehicula lorem sodales eget. Donec quis Cras gravida
+                bibendum dolor eu varius. Morbi fermentum velit nisl, eget
+                vehicula lorem sodales eget. Donec quis Cras gravida bibendum
+                dolor eu varius. Morbi fermentum velit nisl, eget
+              </p>
+              <button class="primary-btn large mb-2">Get Start</button>
+            </div>
+          </div>
+          <div class="col-md-6 p-md-5">
+            <img class="radius" height="599px" src="assets/images/img1.jpg" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="feedback mt-4">
+      <div class="container my-5">
+        <div
+          id="carouselTeacherCaptions"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <!-- <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselTeacherCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselTeacherCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselTeacherCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div> -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-4 p-md-5">
+                  <div class="p-md-5 text-center profile">
+                    <div class="carousel-img">
+                      <img
+                        src="assets/images/img1.jpg"
+                        class="d-block radius"
+                        alt="..."
+                      />
+                    </div>
+                    <h5>Kyle Foster</h5>
+                    <p class="title-text">Teacher</p>
+                  </div>
+                </div>
+                <div class="col-md-8 p-md-5 d-none d-md-block">
+                  <div class="p-md-5">
+                    <h3 class="heading-1">Our student & teachers Feedback</h3>
+                    <p class="base-text">
+                      Cras gravida bibendum dolor eu varius. Morbi fermentum
+                      velit nisl, eget vehicula lorem sodales eget. Donec quis
+                      Cras gravida bibendum dolor eu varius. Morbi fermentum
+                      velit nisl, eget vehicula lorem sodales
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4 p-md-5">
+                  <div class="p-md-5 text-center profile">
+                    <div class="carousel-img">
+                      <img
+                        src="assets/images/img1.jpg"
+                        class="d-block radius"
+                        alt="..."
+                      />
+                    </div>
+                    <h5>Kyle Foster</h5>
+                    <p class="title-text">Teacher</p>
+                  </div>
+                </div>
+                <div class="col-md-8 p-md-5 d-none d-md-block">
+                  <div class="p-md-5">
+                    <h3 class="heading-1">Our student & teachers Feedback</h3>
+                    <p class="base-text">
+                      Cras gravida bibendum dolor eu varius. Morbi fermentum
+                      velit nisl, eget vehicula lorem sodales eget. Donec quis
+                      Cras gravida bibendum dolor eu varius. Morbi fermentum
+                      velit nisl, eget vehicula lorem sodales
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-actions">
+            <button
+              class="carousel-control-prev p-0 secondary-grey-btn"
+              type="button"
+              data-bs-target="#carouselTeacherCaptions"
+              data-bs-slide="prev"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="23.098"
+                height="11.354"
+                viewBox="0 0 23.098 11.354"
+              >
+                <path
+                  id="arrow-icon"
+                  d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                  transform="translate(0 -10.258)"
+                  fill=""
+                />
+              </svg>
+            </button>
+            <button
+              class="carousel-control-next p-0 primary-btn"
+              type="button"
+              data-bs-target="#carouselTeacherCaptions"
+              data-bs-slide="next"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="23.098"
+                height="11.354"
+                viewBox="0 0 23.098 11.354"
+              >
+                <path
+                  id="arrow-icon"
+                  d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                  transform="translate(0 -10.258)"
+                  fill=""
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="quotes mt-4 bg-blue">
+      <div class="container my-5">
+        <div
+          id="carouselQuotesCaptions"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <!-- <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselQuotesCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselQuotesCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselQuotesCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div> -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row my-5">
+                <div class="col-md-4 p-md-5">
+                  <div class="p-md-4 carousel-img">
+                    <img
+                      src="assets/images/qouts.jpg"
+                      class="d-block radius"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col-md-8 p-md-5 d-none d-md-block">
+                  <div class="p-md-5">
+                    <h3 class="heading-1">inspirational Quotes learning</h3>
+                    <p class="base-text">
+                      Those people who develop the ability to continuously
+                      acquire new and better forms of knowledge that they can
+                      apply to their work and to their lives will be the movers
+                      and shakers in our society for the indefinite future
+                    </p>
+                    <p class="opacity-8">Doris Lessing</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row my-5">
+                <div class="col-md-4 p-md-5">
+                  <div class="p-md-4 carousel-img">
+                    <img
+                      src="assets/images/qouts.jpg"
+                      class="d-block radius"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col-md-8 p-md-5 d-none d-md-block">
+                  <div class="p-md-5">
+                    <h3 class="heading-1">inspirational Quotes learning</h3>
+                    <p class="base-text">
+                      Those people who develop the ability to continuously
+                      acquire new and better forms of knowledge that they can
+                      apply to their work and to their lives will be the movers
+                      and shakers in our society for the indefinite future
+                    </p>
+                    <p class="opacity-8">Doris Lessing</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-actions">
+            <button
+              class="carousel-control-prev p-0 secondary-grey-btn"
+              type="button"
+              data-bs-target="#carouselQuotesCaptions"
+              data-bs-slide="prev"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="23.098"
+                height="11.354"
+                viewBox="0 0 23.098 11.354"
+              >
+                <path
+                  id="arrow-icon"
+                  d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                  transform="translate(0 -10.258)"
+                  fill=""
+                />
+              </svg>
+            </button>
+            <button
+              class="carousel-control-next p-0 primary-btn"
+              type="button"
+              data-bs-target="#carouselQuotesCaptions"
+              data-bs-slide="next"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="23.098"
+                height="11.354"
+                viewBox="0 0 23.098 11.354"
+              >
+                <path
+                  id="arrow-icon"
+                  d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                  transform="translate(0 -10.258)"
+                  fill=""
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact-us mt-4" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 p-md-5">
+            <img class="radius" src="assets/images/contact.jpg" />
+          </div>
+          <div class="col-md-8 p-md-5">
+            <div class="p-3">
+              <h3 class="heading-1">Contact with us</h3>
+              <form
+                [formGroup]="contactForm"
+                #formDirective="ngForm"
+                (ngSubmit)="onSubmit(contactForm.value, formDirective)"
+              >
+                <mat-form-field appearance="outline">
+                  <mat-label>Full Name</mat-label>
+                  <input
+                    matInput
+                    placeholder="Placeholder"
+                    formControlName="name"
+                  />
+                  <mat-error *ngIf="contactForm.controls.email.invalid"
+                    >Name must have value</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input
+                    matInput
+                    placeholder="Placeholder"
+                    type="email"
+                    formControlName="email"
+                  />
+                  <mat-error
+                    *ngIf="
+                      contactForm.controls.email.invalid &&
+                      contactForm.controls.email.hasError('email')
+                    "
+                  >
+                    Email format is uncorrect</mat-error
+                  >
+                  <mat-error
+                    *ngIf="
+                      contactForm.controls.email.invalid &&
+                      contactForm.controls.email.hasError('required')
+                    "
+                  >
+                    Email must have value</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Message</mat-label>
+                  <textarea
+                    matInput
+                    style="height: 80px"
+                    placeholder="text here.."
+                    type="text"
+                    formControlName="description"
+                  ></textarea>
+                  <mat-error *ngIf="contactForm.controls.description.invalid"
+                    >Message must have value</mat-error
+                  >
+                </mat-form-field>
+
+                <button type="submit" class="primary-btn large mb-2">
+                  Send
+                  <i
+                    *ngIf="loading"
+                    class="fa fa-spinner faa-spin animated"
+                  ></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

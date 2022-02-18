@@ -1,0 +1,48 @@
+<div class="container-fluid p-1">
+  <!-- <app-path [title]="title"></app-path> -->
+  <div *ngIf="checkPageLoaded()">
+    <div class="row">
+      <div *ngIf="categories[0]" class="col-md-4 pb-4" (click)="goToSubCategory(categories[0])">
+        <div class="img-card cursor-pointer">
+          <img src={{categories[0].img}}>
+          <span>{{categories[0].name}}</span>
+        </div>
+      </div>
+      <div *ngIf="categories[1]" class="col-md-3 pb-4" (click)="goToSubCategory(categories[1])">
+        <div class="img-card cursor-pointer">
+          <img src={{categories[1].img}}>
+          <span>{{categories[1].name}}</span>
+        </div>
+      </div>
+      <div *ngIf="categories[2]" class="col-md-5 pb-4" (click)="goToSubCategory(categories[2])">
+        <div class="img-card cursor-pointer">
+          <img src={{categories[2].img}}>
+          <span>{{categories[2].name}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div *ngIf="categories[3]" class="col-md-5 pb-4" (click)="goToSubCategory(categories[3])">
+        <div class="img-card cursor-pointer">
+          <img src={{categories[3].img}}>
+          <span>{{categories[3].name}}</span>
+        </div>
+      </div>
+      <div *ngIf="categories[4]" class="col-md-7 pb-4" (click)="goToSubCategory(categories[4])">
+        <div class="img-card cursor-pointer" *ngIf="categories[4]">
+          <img src={{categories[4].img}}>
+          <span>{{categories[4].name}}</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="categories.length > 5" class="row mt-2">
+      <div class="col-md-3 pb-4" *ngFor="let category of categories | slice:5:categories.length; index as i"
+        (click)="goToSubCategory(category)">
+        <div class="img-card cursor-pointer">
+          <img src={{category.img}}>
+          <span>{{category.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

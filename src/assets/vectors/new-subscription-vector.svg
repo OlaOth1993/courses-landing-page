@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="162.577" height="68.73" viewBox="0 0 162.577 68.73">
+  <g id="new-subscription-vector" transform="translate(-11213 373.244)">
+    <g id="Group_12501" data-name="Group 12501" transform="translate(-18 -7.61)">
+      <path id="Fill_3" data-name="Fill 3" d="M6.873,0a6.873,6.873,0,1,0,0,13.746h7.98A6.873,6.873,0,0,0,14.853,0Z" transform="translate(11243.272 -310.652)" fill="#edeff7"/>
+      <path id="Fill_5" data-name="Fill 5" d="M130.315.07a6.924,6.924,0,0,0-.93-.07H42.412a6.873,6.873,0,0,0,0,13.746h3.313v.008a6.867,6.867,0,0,1,0,13.73v.008H6.873a6.873,6.873,0,0,0,0,13.746H55.9v.008a6.866,6.866,0,0,1,0,13.729v.008H54.381a6.873,6.873,0,1,0,0,13.746h75.005a6.925,6.925,0,0,0,.93-.07,34.359,34.359,0,0,0,0-68.589Z" transform="translate(11231 -365.635)" fill="#edeff7"/>
+      <path id="Fill_28" data-name="Fill 28" d="M23.91,4.842H2.421A2.421,2.421,0,0,1,2.421,0H23.91a2.421,2.421,0,0,1,0,4.842" transform="translate(11347.689 -350.242)" fill="#fff"/>
+    </g>
+    <g id="Group_6105" data-name="Group 6105" transform="translate(11589.745 -56.169)">
+      <rect id="Rectangle_2104" data-name="Rectangle 2104" width="37.86" height="4.699" rx="2.349" transform="translate(-314.663 -286.314)" fill="#2f57e5"/>
+      <path id="Path_12496" data-name="Path 12496" d="M-276.986-205.74H-314.48a4.99,4.99,0,0,0-4.99,4.99v18.485a4.99,4.99,0,0,0,4.99,4.99h37.494a4.99,4.99,0,0,0,4.99-4.99V-200.75A4.99,4.99,0,0,0-276.986-205.74Zm-12.236,14.651-4.813,2.781-4.815,2.779a.486.486,0,0,1-.728-.42v-11.117a.485.485,0,0,1,.728-.42l4.815,2.779,4.813,2.779A.484.484,0,0,1-289.221-191.088Z" transform="translate(0 -71.071)" fill="#2f57e5"/>
+      <rect id="Rectangle_2105" data-name="Rectangle 2105" width="28.37" height="4.699" rx="2.349" transform="translate(-309.917 -295.817)" fill="#2f57e5"/>
+    </g>
+  </g>
+</svg>

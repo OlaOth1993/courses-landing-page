@@ -1,0 +1,97 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+.text-gray {
+    color: $base-text-color!important;
+}
+
+small {
+    font-size: 60%;
+}
+
+p.description {
+    font-size: $medium-text;
+    @include text-dimensions($large-line-height)
+}
+
+.heading-1 {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.title-text {
+    font-size: $larg-text;
+    line-height: $large-line-height;
+}
+
+.base-text {
+    font-size: $medium-text!important;
+    line-height: $large-line-height!important;
+}
+
+
+.small-text {
+    font-size: $small-text!important;
+}
+
+.xsmall-text {
+    font-size: $xsmall-text !important;
+}
+
+p .title-text {
+    font-weight: $font-weight-medium;
+}
+
+.colored-link {
+    color: $primary-color!important;
+    text-decoration: underline!important;
+}
+
+.weight-light {
+    font-weight: $font-weight-light!important;
+}
+
+.weight-normal {
+    font-weight: $font-weight-normal!important;
+}
+
+.weight-medium {
+    font-weight: $font-weight-medium!important;
+}
+
+.weight-semibold {
+    font-weight: $font-weight-semibold!important;
+}
+
+.weight-bold {
+    font-weight: $font-weight-bold!important;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.primary {
+    color: $primary-color!important;
+}
+
+.text-white {
+    color: $white !important;
+}

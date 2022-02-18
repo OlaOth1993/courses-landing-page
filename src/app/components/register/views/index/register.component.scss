@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;500;700&display=swap");
+img {
+    border-radius: 20px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.divImage {
+    height: 625px;
+}
+
+.login-footer {
+    position: relative;
+}
+
+.secondary-grey-btn span {
+    margin-left: 10px;
+}
+
+a {
+    font: normal normal medium 12px/25px Poppins;
+    text-decoration: underline !important;
+    color: #2f57e5;
+}
+
+#planet-right {
+    display: flex;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    position: absolute;
+}
+
+.container {
+    height: 100%;
+}
+
+.rowHome {
+    height: inherit;
+    align-items: center;
+}
+
+.formRegister {
+    padding-right: 50px;
+}
+
+.passwordBtn {
+    background-color: transparent;
+}

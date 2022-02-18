@@ -1,0 +1,711 @@
+<div class="container">
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit(courseForm.value)">
+        <ng-container *ngIf="!isCourseLoaded; else basicSekelton">
+            <div class="row" style="height: 400px">
+                <ngx-skeleton-loader appearance="circle" [theme]="{ width: '100%', height: '100%', 'border-radius': '12px' }">
+                </ngx-skeleton-loader>
+            </div>
+        </ng-container>
+
+        <!-- Basic -->
+
+        <ng-template #basicSekelton>
+            <div class="card basic-course p-0">
+                <div class="row">
+                    <!-- Left Side Elements -->
+                    <div class="col-md-3 rightBorder bottomBorder formsLinks">
+                        <div class="d-flex flex-column bd-highlight">
+                            <!-- Add Image -->
+                            <div class="bottomBorder">
+                                <a (click)="imgFile.click()">
+                                    <div class="p-4 bd-highlight text-center addImage">
+                                        <ng-container *ngIf="selectImg; else elseTemplate">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <img [src]="urlImg" alt="" width="200px" height="200px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #elseTemplate>
+                                            <img class="mt-md-4" src="../../../../../assets/icons/add-img-icon.svg" alt=" Add Image " />
+                                            <p>Add photo to your course</p>
+                                        </ng-template>
+
+                                        <div class="form-group">
+                                            <input type="file" accept=".jpg, .jpeg, .png" hidden #imgFile formControlName="imageFile" (input)="storeImage($event.target.files)" />
+                                            <p class="text-danger" *ngIf="courseForm.get('ImgFile').errors?.fileSizeImg">this file must be at most 5 MB</p>
+                                            <app-field-error-display field="imageFile"></app-field-error-display>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Add Video -->
+                            <div class="p-4 bd-highlight text-center">
+                                <ng-container *ngIf="selectVideo; else elseVideoOld">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="card" (click)="ShowDialog(previewVideo)" style="cursor: pointer">
+                                                <div style="
+                            width: 35px;
+                            position: absolute;
+                            top: 37%;
+                            left: 44%;
+                          ">
+                                                    <img class="w-100 h-100" src="assets/icons/play-video-icon.svg" />
+                                                </div>
+
+                                                <video [src]="urlVideo" contols></video>
+                                            </div>
+                                            <p class="mt-2" (click)="CancelVideo()" style="cursor: pointer; text-decoration: underline">
+                                                remove video
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <ng-template #elseVideoOld>
+                                    <a (click)="videoFile.click()">
+                                        <img src="../../../../../assets/icons/add-vedio-icon.svg" alt="Add Video " />
+                                        <p>Add video intro to your course</p>
+                                        <div class="form-group">
+
+                                        </div>
+                                    </a>
+                                    <p class="text-danger" *ngIf="courseForm.get('Video').errors?.fileSizeVideo&&!formSubmit">this file must be at most 10 MB</p>
+                                    <app-field-error-display field="Video"></app-field-error-display>
+                                </ng-template>
+                            </div>
+                        </div>
+
+                        <img src="assets/vectors/planet.svg" id="planet-left" alt="" />
+                    </div>
+
+                    <!-- Right Side Elements -->
+                    <div class="col-md-9 p-4">
+                        <!-- Name -->
+                        <div class="form-group">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Name of Course</mat-label>
+                                        <input matInput type="text" formControlName="name" />
+                                    </mat-form-field>
+                                    <app-field-error-display field="name"></app-field-error-display>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Description of Course</mat-label>
+                                        <textarea matInput type="text" formControlName="description" rows="4"></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <app-field-error-display field="description"></app-field-error-display>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="form-group">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Price of Course</mat-label>
+                                        <input matInput min="1" type="number" formControlName="price" />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <app-field-error-display field="price"></app-field-error-display>
+                        </div>
+
+                        <!-- Goals -->
+                        <div class="from-group">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Goals of Course</mat-label>
+                                        <textarea matInput type="text" formControlName="target" rows="4"></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <app-field-error-display field="target"></app-field-error-display>
+                        </div>
+
+                        <!-- Requirement -->
+                        <div class="row mt-3">
+                            <div class="col">
+                                <div class="requirement">
+                                    <h6>Requirement of Course</h6>
+                                    <div class="row align-items-center" *ngFor="let item of skillList; let i = index">
+                                        <div class="col-md-1 numSkill">{{ i + 1 }}.</div>
+                                        <div class="col-md-9">
+                                            <mat-form-field>
+                                                <mat-label>Skill</mat-label>
+                                                <input type="text" matInput (input)="item.skill = $event.target.value" [value]="item.skill" />
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button *ngIf="i != skillList.length - 1" class="primary-btn px-3" type="button" (click)="skillList.splice(i, 1)">
+                        -
+                      </button>
+                                            <button [disabled]="skillList[i].skill == ''" *ngIf="i == skillList.length - 1" class="primary-btn px-3" type="button" (click)="skillList.push({ skill: '' })">
+                        +
+                      </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col mt-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Category</mat-label>
+                                        <mat-select formControlName="baseCategory" (valueChange)="GetSubCategories($event)" #categoryId [disabled]="isUpdated">
+                                            <mat-option *ngFor="let item of categoriesList; let i = index" [value]="item.id" (click)="categoryName = categoriesList[i].name">
+                                                {{ item.name }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <app-field-error-display field="baseCategory"></app-field-error-display>
+                        </div>
+
+                        <!-- SubCategory -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col mt-3">
+                                    <mat-form-field appearance="outline" [floatLabel]="
+                      isLoadingSubCategory || !categoryId.value
+                        ? 'never'
+                        : 'auto'
+                    ">
+                                        <mat-select formControlName="category_id" [disabled]="!categoryId.value || isUpdated" placeholder="SubCategory" [panelClass]="
+                        isLoadingSubCategory || !categoryId.value
+                          ? 'hide-dummy-option'
+                          : ''
+                      ">
+                                            <mat-option *ngFor="let option of subCategoriesList" [value]="option.id">{{ option.name }}
+                                            </mat-option>
+                                        </mat-select>
+
+                                        <mat-label *ngIf="isLoadingSubCategory">
+                                            <div class="select-placeholder-container">
+                                                <span>Loading...</span
+                        ><i class="fa fa-spinner faa-spin animated"></i>
+                      </div>
+                    </mat-label>
+                  </mat-form-field>
+                </div>
+              </div>
+              <app-field-error-display
+                field="category_id"
+              ></app-field-error-display>
+            </div>
+
+            <!-- Level -->
+            <div class="form-group">
+              <div class="row">
+                <div class="col mt-3">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Course level</mat-label>
+                    <mat-select formControlName="level">
+                      <mat-option
+                        *ngFor="let item of levelCourseList"
+                        [value]="item"
+                      >
+                        {{ item }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <app-field-error-display field="level"></app-field-error-display>
+            </div>
+
+            <!-- Language -->
+            <div class="form-group">
+              <div class="row">
+                <div class="col mt-3">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Course languages</mat-label>
+                    <mat-select formControlName="language_id">
+                      <mat-option
+                        *ngFor="let item of languagesList"
+                        [value]="item.id"
+                      >
+                        {{ item.english }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <app-field-error-display
+                field="language_id"
+              ></app-field-error-display>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <div *ngIf="isCourseLoaded">
+      <!-- Counters -->
+      <div class="row">
+        <!-- Effort -->
+
+        <div class="col-md-6 mt-4">
+          <div class="card p-3 counterscard">
+            <div
+              class="
+                d-flex
+                bd-highlight
+                flex-wrap
+                align-items-baseline
+                justify-content-between
+              "
+            >
+              <div class="p-2 bd-highlight">
+                <p>Effort after session/min</p>
+              </div>
+              <div class="bd-highlight">
+                <div class="form-group">
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      effortCounter =
+                        effortCounter - 1 >= 1 ? effortCounter - 1 : 1
+                    "
+                  >
+                    -
+                  </button>
+                  <input
+                    class="counters"
+                    type="number"
+                    [value]="('0' + effortCounter).slice(-2)"
+                    min="1"
+                    max="100"
+                    readonly
+                    formControlName="effort"
+                  />
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      effortCounter =
+                        effortCounter + 1 <= 100 ? effortCounter + 1 : 100
+                    "
+                  >
+                    +
+                  </button>
+                  <app-field-error-display
+                    field="effort"
+                  ></app-field-error-display>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Students Count -->
+
+        <div class="col-md-6 mt-4">
+          <div class="card p-3 counterscard">
+            <div
+              class="
+                d-flex
+                bd-highlight
+                flex-wrap
+                align-items-baseline
+                justify-content-between
+              "
+            >
+              <div class="p-2 bd-highlight">
+                <p>Student count about course</p>
+              </div>
+              <div class="bd-highlight">
+                <div class="form-group">
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      studentsCounter =
+                        studentsCounter - 1 >= 1 ? studentsCounter - 1 : 1
+                    "
+                  >
+                    -
+                  </button>
+                  <input
+                    class="counters"
+                    type="number"
+                    [value]="('0' + studentsCounter).slice(-2)"
+                    min="1"
+                    max="100"
+                    readonly
+                    formControlName="student_number"
+                  />
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      studentsCounter =
+                        studentsCounter + 1 <= 100 ? studentsCounter + 1 : 100
+                    "
+                  >
+                    +
+                  </button>
+                  <app-field-error-display
+                    field="student_number"
+                  ></app-field-error-display>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Counters -->
+      <div class="row">
+        <!-- Duration -->
+
+        <div class="col-md-6 mt-4">
+          <div class="card p-3 counterscard">
+            <div
+              class="
+                d-flex
+                bd-highlight
+                flex-wrap
+                align-items-baseline
+                justify-content-between
+              "
+            >
+              <div class="p-2 bd-highlight">
+                <p>Course duration/hour</p>
+              </div>
+              <div class="bd-highlight">
+                <div class="form-group">
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      courseDurationCounter =
+                        courseDurationCounter - 1 >= 1
+                          ? courseDurationCounter - 1
+                          : 1
+                    "
+                  >
+                    -
+                  </button>
+                  <input
+                    class="counters"
+                    type="number"
+                    [value]="('0' + courseDurationCounter).slice(-2)"
+                    min="01"
+                    max="100"
+                    readonly
+                    formControlName="number_hour"
+                  />
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      courseDurationCounter =
+                        courseDurationCounter + 1 <= 100
+                          ? courseDurationCounter + 1
+                          : 100
+                    "
+                  >
+                    +
+                  </button>
+                  <app-field-error-display
+                    field="number_hour"
+                  ></app-field-error-display>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Session Duration -->
+
+        <div class="col-md-6 mt-4">
+          <div class="card p-3 counterscard">
+            <div
+              class="
+                d-flex
+                bd-highlight
+                flex-wrap
+                align-items-baseline
+                justify-content-between
+              "
+            >
+              <div class="p-2 bd-highlight">
+                <p>Session duration/min</p>
+              </div>
+              <div class="bd-highlight">
+                <div class="form-group">
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      sessionDurationCounter =
+                        sessionDurationCounter - 1 >= 1
+                          ? sessionDurationCounter - 1
+                          : 1
+                    "
+                  >
+                    -
+                  </button>
+                  <input
+                    class="counters"
+                    type="number"
+                    [value]="('0' + sessionDurationCounter).slice(-2)"
+                    min="01"
+                    max="100"
+                    readonly
+                    formControlName="duration"
+                  />
+                  <button
+                    class="primary-btn px-3"
+                    type="button"
+                    (click)="
+                      sessionDurationCounter =
+                        sessionDurationCounter + 1 <= 100
+                          ? sessionDurationCounter + 1
+                          : 100
+                    "
+                  >
+                    +
+                  </button>
+                  <app-field-error-display
+                    field="duration"
+                  ></app-field-error-display>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Date Picker -->
+      <div class="card p-0 mt-4 ngx-datepicker">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="pr-3 pb-3 mt-4">
+              <p class="header-datepicker">Course start at:</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="pr-3 pb-3 mt-4">
+              <p class="header-datepicker">Course end at:</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <bs-daterangepicker-inline
+              [bsConfig]="{ showWeekNumbers: false }"
+              [bsValue]="bsInlineRangeValue"
+              (bsValueChange)="valueDatePicker($event)"
+            ></bs-daterangepicker-inline>
+            <p class="text-danger justify-content-center msgErrors">
+              {{ msgDate }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Week Calender -->
+      <div class="card p-5 mt-4">
+        <h4>Weekly Calendar</h4>
+        <div
+          class="row mt-4 week-calender"
+          *ngFor="let session of sessionsCalenderList; let i = index"
+        >
+          <!-- Session Num -->
+          <div class="col-md-2 num-session">Session {{ i + 1 }}:</div>
+
+          <!-- Time -->
+          <div class="col-md-2">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                [value]="session.time"
+                class="withoutAMPM text-center"
+                type="time"
+                (input)="session.time = c24to12($event.target.value)"
+              />
+            </mat-form-field>
+          </div>
+
+          <!-- Am-PM -->
+          <div class="col-md-2 mt-1">
+            <mat-form-field appearance="outline" class="am-pm-select">
+              <div class="form-group">
+                <mat-select
+                  [value]="session.amPM"
+                  (selectionChange)="session.amPM = $event.value"
+                >
+                  <mat-option value="PM">PM</mat-option>
+                  <mat-option value="AM">AM</mat-option>
+                </mat-select>
+              </div>
+            </mat-form-field>
+          </div>
+
+          <!-- Week Day -->
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-select
+                class="weeks text-center"
+                [value]="processWeekDay(session.day,i)"
+                (selectionChange)="session.day = $event.value"
+              >
+                <mat-option *ngFor="let item of weekDaysList" [value]="item">
+                  {{ item }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- Cancel Session -->
+
+          <div
+            style="cursor: pointer; transform: translateY(-4px)"
+            (click)="sessionsCalenderList.splice(i, 1)"
+            class="col-md-2"
+            *ngIf="sessionsCalenderList.length != 1"
+          >
+            <img
+              src="assets/icons/delete-calender-icon.svg"
+              alt="Cancel Session"
+            />
+          </div>
+        </div>
+
+        <!-- Add Session -->
+        <div
+          class="row opcity-calender mt-4 week-calender"
+          (click)="
+            sessionsCalenderList.push({
+              time: '12:00',
+              amPM: 'PM',
+              day: weekDaysList[0]
+            })
+          "
+        >
+          <div class="col-md-2 num-session">
+            Session {{ sessionsCalenderList.length + 1 }}:
+          </div>
+          <div class="col-md-2">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                value="12:00"
+                class="withoutAMPM text-center"
+                type="time"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-md-2">
+            <mat-form-field appearance="outline" class="am-pm-select">
+              <mat-select value="PM">
+                <mat-option value="PM">PM</mat-option>
+                <mat-option value="AM">AM</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="outline">
+              <mat-select class="text-center weeks" [value]="weekDaysList[0]">
+                <mat-option *ngFor="let item of weekDaysList" [value]="item">
+                  {{ item }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <p class="text-danger justify-content-center msgErrors">
+          {{ msgSessions }}
+        </p>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="row justify-content-end mt-4">
+        <div class="col-md-3 pb-2">
+          <button
+            class="light-btn w-100 large"
+            type="button"
+            (click)="Cancel(confirmCancel)"
+          >
+            Cancel
+          </button>
+        </div>
+        <div class="col-md-3 pb-2">
+          <button class="primary-btn w-100 large" type="submit">
+            {{ isUpdated ? "Edit" : "Add" }}
+            <i *ngIf="loading" class="fa fa-spinner faa-spin animated"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <ng-template #confirmCancel let-modal>
+    <div class="modal-body">
+      <div class="row m-2">
+        <h6>Are you sure to ignore updates and cancel ?</h6>
+        <div class="d-flex justify-content-end">
+          <button class="base-text btn" type="button" (click)="close()">
+            Cancel
+          </button>
+          <button class="base-text btn primary" type="button" (click)="ok()">
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #previewVideo let-modal>
+    <div class="modal-body">
+      <div class="row m-2">
+        <video [src]="urlVideo" controls autoplay></video>
+        <div class="d-flex justify-content-end">
+          <button class="base-text btn" type="button " (click)="close()">
+            Close
+          </button>
+          <button
+            class="base-text btn primary"
+            type="button "
+            (click)="videoFile.click()"
+          >
+            Choose Another Video
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<input
+  type="file"
+  accept=".mp3, .mp4, .wmv .webm .mov .m4p .m4v"
+  hidden
+  #videoFile
+  formControlName="Video"
+  (input)="storeVideo($event.target.files)"
+/>

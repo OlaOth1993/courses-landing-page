@@ -1,0 +1,141 @@
+<div class="card mt-4 px-0 py-2" style="height: auto;">
+    <div class="row  mb-4">
+
+        <div class="col-md-9 col-sm-12 border-right">
+            <div class="mx-4 mb-3">
+                <span class="base-text  weight-semibold "> Discussion Chat </span>
+
+            </div>
+            <form [formGroup]="messageSection" (ngSubmit)="sendMessage(messageSection.value)">
+                <div class="chat " style="overflow: scroll;     height: 530px;">
+                    <div class="row b-gray  mt-3" *ngFor="let message of messageList">
+                        <div class="col-md-12 ">
+                            <div class="card-chat">
+                                <div class="d-flex justify-content-start mb-1">
+                                    <img *ngIf="message.sender.user.profile_img" class="avatar-none-border d-inline mr-3" [src]="message.sender.user.profile_img" width="50px" height="50px" />
+                                    <img *ngIf="message.sender.user.profile_img == null" class="d-inline avatar-1 mx-2" src="assets/vectors/planet.svg" width="50px" height="50px" />
+
+                                    <p class=" small mt-1 mx-3 bg-light  text-dark d-inline-block"> {{message.sender.user.full_name}} <span *ngIf="message.sender.teacher_id" class="sticker-chat mx-2 p-2 small-text">Instructor</span> <br> <span> {{message.created_at | date:'hh:mm:ss'}} </span></p>
+                                </div>
+                                <p class="mb-3 d-block">{{message.message}}
+                                </p>
+
+                                <div class=" position-relative">
+                                    <button (click)="openFileModal(addReply,message)" type="button" class="gray-btn large mt-2 mb-2 p-2"> 
+                                        <span class="mx-2 small"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                                        <g id="money-back-gurantee-icon" transform="translate(0 0.207)">
+                                          <rect id="Rectangle_2003" data-name="Rectangle 2003" width="30" height="30" rx="10" transform="translate(0 -0.207)" fill="transparent"/>
+                                          <g id="share" transform="translate(8.68 9.815)">
+                                            <path id="Path_12298" data-name="Path 12298" d="M128.144,4.66l4.34-4.507a.5.5,0,0,1,.861.348v2.17h.167a6.517,6.517,0,0,1,6.51,6.51v1a.494.494,0,0,1-.39.479.447.447,0,0,1-.11.013.518.518,0,0,1-.457-.285,5.477,5.477,0,0,0-4.926-3.045h-.793v2.17a.5.5,0,0,1-.861.347l-4.34-4.507a.5.5,0,0,1,0-.7Zm0,0" transform="translate(-128.003 -0.001)" fill="#B7B8BE"/>
+                                          </g>
+                                        </g>
+                                      </svg> 
+                                      Add Reply 
+                                        </span>
+                                    </button>
+                                    <span *ngIf="message.replies.length > 3" class="members count"> +{{message.replies.length - 3}} </span>
+                                    <!--  <span *ngIf="message.replies[0]">
+                                    <img *ngIf="message.replies[0].sender.user.profile_img" class="avatar-none-border d-inline members member-1" [src]="message.replies[0].sender.user.profile_img?message.replies[0].sender.user.profile_img:'message.replies[0].sender.user.profile_img'" width="60px" height="60px"
+                                    />
+                                    </span> -->
+                                    <img *ngIf="message.replies[0]" class="avatar-none-border d-inline members member-1" src="assets/images/default/default-profile.jpg" width="60px" height="60px" />
+                                    <!-- <span *ngIf="message.replies[2]">
+
+                                    <img *ngIf="message.replies[2].sender.user.profile_img" class="avatar-none-border d-inline members member-2" [src]="message.replies[2].sender.user.profile_img?message.replies[2].sender.user.profile_img:'message.replies[2].sender.user.profile_img'" width="60px" height="60px"
+                                    />
+                                    </span> -->
+                                    <img *ngIf="message.replies[2]" class="avatar-none-border d-inline members member-2" src="assets/images/default/default-profile.jpg" width="50px" height="50px" />
+                                    <!-- <span *ngIf="message.replies[1]">
+
+                                    <img *ngIf="message.replies[1].sender.user.profile_img" class="avatar-none-border d-inline members member-3" [src]="message.replies[1].sender.user.profile_img?message.replies[1].sender.user.profile_img:'message.replies[1].sender.user.profile_img'" width="60px" height="60px"
+                                    />
+                                    </span> -->
+                                    <img *ngIf="message.replies[1]" class="avatar-none-border d-inline members member-3" src="assets/images/default/default-profile.jpg" width="50px" height="50px" />
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row border-top p-4" *ngFor="let rep of message.replies">
+                            <div class="col-md-12 mt-3">
+                                <div class="card p-3">
+                                    <div class="d-flex justify-content-start mb-3 flex-wrap">
+                                        <img class="avatar-1 d-inline mr-3" src="assets/vectors/planet.svg" width="50px" height="50px" />
+
+                                        <p class=" small text-start mt-1 mx-3 d-inline bg-light  text-dark "> {{rep.sender.user.full_name}} <span *ngIf="rep.sender.teacher_id" class="sticker-chat mx-2 p-2 small-text">Instructor</span> <br> <span>{{rep.created_at | date:'hh:mm:ss'}}</span></p>
+                                    </div>
+                                    <p class="mb-2"> {{rep.message}} </p>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- input message here -->
+                <div class="row m-2 write-here " style="height: 40px;">
+                    <div class="col-md-12 col-sm-12 text">
+                        <input #message class="message-input w-100" placeholder="Type a message" formControlName="message" />
+
+                        <button type="submit" [disabled]="message.value == ''">
+                        <svg class="field-icon" id="send-message-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                                <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash" width="30" height="30" rx="12" fill="#2f57e5"/>
+                                <path id="Icon_ionic-ios-send" data-name="Icon ionic-ios-send" d="M16.159,4.53,4.652,9.545a.264.264,0,0,0,.009.48l3.113,1.758a.5.5,0,0,0,.574-.056l6.137-5.291c.041-.034.138-.1.176-.063s-.022.135-.056.176l-5.31,5.981a.5.5,0,0,0-.05.6l2.034,3.263a.265.265,0,0,0,.476-.006L16.513,4.878A.264.264,0,0,0,16.159,4.53Z" transform="translate(3.817 5.095)" fill="#fff"/>
+                              </svg>
+                            </button>
+                    </div>
+
+                </div>
+                <!-- close input message here -->
+
+            </form>
+        </div>
+        <div class="seprate"></div>
+
+        <div class="col-md-3 text-center ">
+            <p class="base-text uppercase m-1 mb-4">Course Members</p>
+            <div *ngIf="teacher" class="row p-2">
+                <div class="col-md-12 line-height" style=" text-align: left; ">
+
+                    <a class="mx-4 d-inline ">
+                        <img *ngIf="teacher.profile_img == null" class="d-inline avatar-1 mx-2" src="assets/vectors/planet.svg" width="50px" height="50px" />
+                        <img *ngIf="teacher.profile_img" class="d-inline avatar-none-border mx-2" src={{teacher.profile_img}} width="50px" height="50px" />
+
+                        <span> {{teacher.full_name}}</span>
+                    </a>
+                    <br> <span class="small marginL-82 text-primary"> Instructor</span>
+                </div>
+            </div>
+
+            <div class="row p-2" *ngFor="let student of studentList">
+                <div class="col-md-12 " style=" text-align: left; ">
+
+                    <a class="mx-4">
+                        <img *ngIf="student.student.profile_img == null" class="avatar-1 mx-2" src="assets/vectors/planet.svg" width="50px" height="50px" />
+                        <img *ngIf="student.student.profile_img" class="avatar-none-border mx-2" src={{student.student.profile_img}} width="50px" height="50px" />
+
+                        <span> {{student.student.full_name}} </span>
+                    </a>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-4">&nbsp;</div>
+<ng-template #addReply let-modal>
+    <div class="modal-body ">
+        <app-add-reply-form [courseID]="course_id" [repliesList]="replies_list" [messageObject]="message_obj" [messageListR]="messageList" [modalRef]="modalRef"></app-add-reply-form>
+    </div>
+</ng-template>

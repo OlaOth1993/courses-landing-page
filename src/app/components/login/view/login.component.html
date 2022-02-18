@@ -1,0 +1,137 @@
+<div class="container containerLogin">
+  <div class="row rowHome">
+    <div class="card p-5 mt-4">
+      <div class="row">
+        <!--Form Login-->
+        <div class="col-md-6 formLogin">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+            <!-- Header -->
+            <h1 class="uppercase">Login</h1>
+            <p>Welcome again, input your information to log in website</p>
+
+            <!-- Email -->
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input
+                      matInput
+                      type="text"
+                      formControlName="email"
+                      [@inputAnimate]="state"
+                    />
+                  </mat-form-field>
+                  <app-field-error-display
+                    field="email"
+                  ></app-field-error-display>
+                </div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group mt-2">
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                  formControlName="password"
+                />
+                <button
+                  id="passwordBtn"
+                  mat-icon-button
+                  matSuffix
+                  type="button"
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <app-field-error-display
+                field="password"
+              ></app-field-error-display>
+            </div>
+
+            <!-- Remember Me -->
+            <div class="d-flex bd-highlight mt-2">
+              <div class="p-2 bd-highlight">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="defaultCheck1"
+                />
+              </div>
+              <div class="p-2 bd-highlight">
+                <label class="form-check-label mt-1" for="defaultCheck1"
+                  >Remember Me</label
+                >
+              </div>
+              <div class="ms-auto p-2 bd-highlight">
+                <a href="#"> <small>Forget password?</small></a>
+              </div>
+            </div>
+
+            <!-- Sign In -->
+            <button
+              class="mt-md-4 p-2 primary-btn w-100"
+              type="submit"
+              [@submit]="state"
+            >
+              Sign in
+              <i *ngIf="loading" class="fa fa-spinner faa-spin animated"></i>
+            </button>
+
+            <!-- Socail Media -->
+            <p class="mt-4 text-center">Or login with :</p>
+            <div class="row">
+              <!-- Google -->
+              <div class="col-md-12 mt-2">
+                <button
+                  (click)="signInWithGoogle()"
+                  type="button"
+                  [@social]="state"
+                  class="secondary-grey-btn w-100 d-flex align-items-center justify-content-center p-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16.161"
+                    height="16.426"
+                    viewBox="0 0 16.161 16.426"
+                  >
+                    <path
+                      id="google-register-icon"
+                      d="M16.161,8.968a7.627,7.627,0,0,1-7.948,8.021,8.213,8.213,0,1,1,0-16.426A7.9,7.9,0,0,1,13.72,2.712L11.485,4.861c-2.924-2.822-8.362-.7-8.362,3.914a5.145,5.145,0,0,0,5.09,5.186,4.441,4.441,0,0,0,4.663-3.54H8.213V7.6h7.819A7.2,7.2,0,0,1,16.161,8.968Z"
+                      transform="translate(0 -0.563)"
+                      fill=""
+                    />
+                  </svg>
+                  <span>Google</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Register -->
+            <p class="mt-4 text-center">
+              Don't Have account?
+              <a href="" routerLink="/register">Sign up</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Right Side Image -->
+        <div class="col-md-6 divImage pl-md-5" [@fade]="state">
+          <img src="assets/images/login.jpg" alt="Login" />
+        </div>
+      </div>
+
+      <!-- Planet -->
+      <img src="assets/vectors/planet.svg" id="planet-right" alt="" />
+    </div>
+  </div>
+</div>

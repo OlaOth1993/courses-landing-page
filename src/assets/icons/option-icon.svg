@@ -1,0 +1,8 @@
+<svg id="option-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <path id="Path_18507" data-name="Path 18507" d="M6,0h8a6,6,0,0,1,6,6v8a6,6,0,0,1-6,6H6a6,6,0,0,1-6-6V6A6,6,0,0,1,6,0Z" fill="#b7b8be"/>
+  <g id="Icon_ionic-ios-menu" data-name="Icon ionic-ios-menu" transform="translate(30.886 4.104) rotate(90)">
+    <path id="Path_18558" data-name="Path 18558" d="M5.954,13.11A1.489,1.489,0,0,1,4.5,11.617h0a1.473,1.473,0,1,1,2.946,0h0A1.5,1.5,0,0,1,5.954,13.11Z" transform="translate(0 4)" fill="#fff"/>
+    <path id="Path_18559" data-name="Path 18559" d="M6.032,19.86A1.506,1.506,0,0,1,4.5,18.367h0a1.512,1.512,0,0,1,3.024,0h0A1.5,1.5,0,0,1,6.032,19.86Z" transform="translate(0 2.334)" fill="#fff"/>
+    <path id="Path_18560" data-name="Path 18560" d="M6.032,26.61A1.506,1.506,0,0,1,4.5,25.117h0a1.512,1.512,0,0,1,3.024,0h0A1.5,1.5,0,0,1,6.032,26.61Z" transform="translate(0 0.669)" fill="#fff"/>
+  </g>
+</svg>

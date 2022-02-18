@@ -1,0 +1,27 @@
+@use '../abstract/variables' as *;
+.toast {
+  border-radius:$border-radius!important;
+  width: 400px!important;
+  margin-top: 0.3rem!important;
+}
+
+.custom{
+  border: 1px solid #EAEAEA!important;
+  background: #F9F9F9!important;
+
+}
+
+ /*right bottom position*/
+ .ngb-toasts{
+  top: auto!important;
+  bottom: 0;
+}
+
+.toast-body{
+  // padding:unset!important;
+  display: flex;
+  flex-direction: row;
+  .icon{
+    width: 90px;
+  }
+}

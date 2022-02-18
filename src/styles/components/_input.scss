@@ -1,0 +1,155 @@
+@use '../abstract' as *;
+@use 'bootstrap' as b;
+
+.option-panel{
+  border-radius: $border-radius!important;
+}
+//mat form field outline border radius
+.mat-form-field{
+  width: 100%!important;
+  font-size: $medium-text!important;
+}
+.mat-form-field-outline-start,
+.mat-form-field-outline-end {
+  min-width: $border-radius!important;
+}
+
+.mat-form-field-outline-start {
+  border-radius: $border-radius 0 0 $border-radius!important;
+  border-right-style: none;
+}
+
+.mat-form-field-outline-end {
+  border-radius: 0 $border-radius $border-radius 0!important;
+  border-left-style: none;
+  flex-grow: 1;
+}
+//end
+//mat form field outline height
+.mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.6em 0px !important;
+}
+.mat-form-field-label-wrapper {
+  top: -1.3em!important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.25em) scale(0.75)!important;
+  width: 133.33333%;
+  left: 3px!important;
+}
+//end
+.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: -.25em!important;
+}
+//bootsrap checkbox
+//change checked input color
+.form-check-input:checked {
+  background-color: $primary-color!important;
+  border-color: $primary-color!important;
+}
+//end
+
+// search input
+.has-search .form-control {
+  height: 55px;
+  padding-left: 3.375rem;
+  border-radius: $border-radius-3;
+  background: rgb(236, 236, 236,0.4);
+  border: none;
+  font-size: $small-text;
+  color: $dark-gray;
+  opacity: 0.4;
+}
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 3.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: $gray!important;
+  margin-left: 1rem;
+}
+//end
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #7a8099!important;
+  // opacity: 0.4!important; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #4D5160!important;
+}
+
+//input HTML tag must be like this ..
+// <div class="form-field">
+// <input class="form-input" type="text" id="label" placeholder="text here..">
+// <label class="form-label" for="label">text input</label>
+// </div>
+.form-input {
+  display: block;
+  border: $input-border-stack !important;
+  border-radius: $border-radius;
+  background-color: transparent;
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  width: $full-width;
+  height: $input-height;
+  padding-left: $label-input-margin;
+  color: $base-text-color;
+  font-weight: $font-weight-bold;
+  &:focus {
+    border-color: $primary-color !important;
+    color: $primary-color !important;
+    outline: none;
+    + .form-label {
+      color: $primary-color !important;
+    }
+  }
+
+}
+.form-field {
+  display: block;
+  position: relative;
+}
+.form-label {
+  position: absolute;
+  cursor: text;
+  font-style: $label-font-stack !important;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  top: -0.6em;
+  margin-left: $label-input-margin;
+  padding: 0 6px;
+  background-color: #fcfcfc;
+  color: $base-text-color;
+}
+
+.form-field
+  .form-input:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.form-field .form-input:placeholder-shown:not(:focus) + * {
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-size: 100%;
+  z-index: -1;
+  letter-spacing: 0px;
+  font-size: $medium-text;
+  font-family: Poppins;
+  font-weight: regular;
+  color: $gray;
+}
+
+.input-border-error {
+  border-color: $color-warning !important;
+}

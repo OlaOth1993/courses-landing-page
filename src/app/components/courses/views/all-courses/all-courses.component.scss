@@ -1,0 +1,23 @@
+@use './../../../../../styles/abstract/variables' as *;
+@use './../../../../../styles/abstract/mixins' as *;
+div {
+    @include reset-spaces;
+}
+
+.img {
+    border-radius: $border-radius;
+}
+
+.float-right {
+    float: right;
+    text-align: end;
+    margin: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

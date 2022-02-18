@@ -1,0 +1,131 @@
+@use "../abstract" as *;
+@use "bootstrap" as b;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  @include for-phone {
+    font-size: 14px !important;
+  }
+}
+
+html,
+body {
+  background: #fcfcfc;
+  // height: 100%;
+  font-family: Poppins;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+button {
+  background: unset;
+}
+
+img:not(.avatar) {
+  width: 100%;
+  object-fit: cover;
+}
+
+.modal-content {
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.icon-border-avatar {
+  width: 35px;
+  height: 17px;
+  font-size: 10px;
+  background-color: #2f57e5;
+  margin-top: -10px;
+  border-radius: 4px;
+  color: white;
+  border: 2px solid #ffffff;
+}
+
+.flex-avatar-icon {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+/* Tabs active and expired*/
+
+.nav-pills {
+  @include card-theme;
+}
+
+.nav-pills .nav-link {
+  border-radius: $border-radius;
+  font-size: $medium-text;
+  color: $base-text-color;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: white !important;
+  background-color: $primary-color !important;
+  &#expired-tab {
+    background-color: $dark-gray !important;
+  }
+}
+
+/*end*/
+
+.full-size {
+  height: 56vh;
+}
+
+.p-breadcrumb {
+  background: none;
+  border: none;
+  border-radius: unset;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 1.3rem;
+  position: relative;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: $base-text-color;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 7px;
+  left: 2px;
+  transform: rotate(-45deg);
+}
+
+//* mat-slider for live volume level
+.mat-slider-track-background {
+  background-color: rgba(247, 247, 247, 0.4) !important;
+}
+
+.mat-slider-thumb {
+  background-color: rgba(247, 247, 247, 1) !important;
+  border: 5px solid rgba(47, 87, 229, 1) !important;
+}
+
+.mat-slider-track-fill {
+  background-color: rgba(247, 247, 247, 1) !important;
+}
+
+//*

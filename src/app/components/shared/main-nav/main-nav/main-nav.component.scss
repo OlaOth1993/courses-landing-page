@@ -1,0 +1,76 @@
+@use './../../../../../styles/abstract/variables' as *;
+@use './../../../../../styles/abstract/mixins' as *;
+div {
+    @include reset-spaces;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    color: transparent;
+}
+
+div.dropdown-menu {
+    top: 40px !important;
+    // width: fit-content;
+    width: 340px !important;
+    text-align: left;
+}
+
+.navbar .navigation-icon a {
+    /*     height: 36px !important;
+ */
+    line-height: 6px !important;
+}
+
+.ml {
+    margin-left: 70px;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+a:hover {
+    background-color: none !important;
+    text-decoration: none !important;
+}
+
+.sticker-1 {
+    background: none !important;
+    z-index: 5;
+    position: absolute;
+    left: 38px;
+    margin-top: 28px;
+    //top: 108px;
+}
+
+.menu-drop {
+    height: 200px;
+    border-radius: 15px;
+    overflow-y: scroll;
+    //  width: min-content !important;
+}
+
+::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+ ::-webkit-scrollbar-track {
+    background: #ffffff !important;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: $primary !important;
+    opacity: 30% !important;
+    border-radius: 20px !important;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(31, 56, 124) !important;
+}
+
+.avatar-1 {
+    width: 50px !important;
+    height: 50px !important;
+}

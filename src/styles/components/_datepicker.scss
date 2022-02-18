@@ -1,0 +1,56 @@
+.bs-datepicker-head {
+    background-color: transparent !important;
+}
+
+.bs-datepicker {
+    box-shadow: none !important;
+}
+
+th.ng-star-inserted {
+    color: #2f57e5 !important;
+    font: normal normal bold 14px/21px Poppins !important;
+}
+
+.theme-green .bs-datepicker-body table td span.selected,
+.theme-green .bs-datepicker-body table td.selected span,
+.theme-green .bs-datepicker-body table td span[class*="select-"]::after,
+.theme-green .bs-datepicker-body table td[class*="select-"] span::after {
+    border-radius: 10px !important;
+    background-color: #2f57e5 !important;
+    color: white !important;
+}
+
+.bs-datepicker-body {
+    border: none !important;
+}
+
+.bs-datepicker-body table td span.is-other-month,
+.bs-datepicker-body table td.is-other-month span {
+    color: rgba(0, 0, 0, 0.25) !important;
+}
+
+bs-days-calendar-view.ng-star-inserted,
+.bs-datepicker-container.ng-trigger.ng-trigger-datepickerAnimation,
+bs-datepicker-inline-container.bottom.ng-star-inserted,
+.bs-datepicker.theme-green.ng-star-inserted,
+.bs-media-container.ng-tns-c49-18.ng-star-inserted,
+.bs-calendar-container.ng-tns-c49-18,
+.bs-datepicker-container.ng-tns-c49-18.ng-trigger.ng-trigger-datepickerAnimation,
+.bs-datepicker.ng-tns-c49-18.theme-green.ng-star-inserted,
+bs-daterangepicker-inline-container.bottom.ng-tns-c49-18.ng-star-inserted,
+bs-month-calendar-view.ng-tns-c49-18.bs-datepicker-multiple.ng-star-inserted,
+bs-years-calendar-view.ng-tns-c49-18.bs-datepicker-multiple.ng-star-inserted {
+    width: 100% !important;
+}
+
+bs-days-calendar-view.ng-tns-c49-18.bs-datepicker-multiple.ng-star-inserted {
+    border-right: 1px solid rgba(112, 112, 112, 0.1);
+}
+
+.bs-datepicker.theme-green.ng-star-inserted {
+    width: 100% !important;
+}
+
+bs-days-calendar-view.ng-tns-c49-18.bs-datepicker-multiple.ng-star-inserted {
+    border-right: 1px solid rgba(112, 112, 112, 0.1);
+}

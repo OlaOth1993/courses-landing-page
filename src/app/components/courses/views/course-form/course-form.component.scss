@@ -1,0 +1,149 @@
+.counters {
+    width: 65px;
+    padding-left: 19px;
+    border: none;
+    font: bold;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.rightBorder {
+    border-right: 1px solid rgba(112, 112, 112, 0.1);
+    padding: 0;
+}
+
+.bottomBorder {
+    border-bottom: 1px solid rgba(112, 112, 112, 0.1);
+}
+
+img {
+    height: auto;
+    width: auto;
+}
+
+.flex-column p {
+    font: normal normal normal 14px/22px Poppins;
+}
+
+.addImage {
+    height: 200px;
+}
+
+.Images {
+    margin: 0;
+}
+
+#planet-left {
+    display: flex;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    // height: 150px;
+    object-fit: cover;
+    position: absolute;
+}
+
+.formsLinks {
+    position: relative;
+}
+
+.basic-course {
+    position: relative;
+}
+
+p {
+    font: normal normal normal 14px/25px Poppins;
+}
+
+.card .row {
+    margin: 0px;
+}
+
+.counterscard p {
+    width: 100%;
+}
+
+.header-datepicker {
+    text-align: center;
+    font: normal normal 600 16px/25px Poppins;
+}
+
+::-webkit-datetime-edit-ampm-field,
+::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-minute-field {
+    margin: 0px 20px;
+}
+
+.weeks {
+    text-align: center;
+}
+
+.week-calender {
+    align-items: baseline;
+}
+
+.num-session {
+    font: normal normal normal 16px/25px Poppins;
+}
+
+.cancel-session {
+    border: 1px solid #f36f56;
+    border-radius: 12px;
+    background-color: transparent;
+    color: #f36f56;
+    font-size: 22px;
+    width: 35px;
+}
+
+.parent-cancel {
+    text-align: right;
+}
+
+.opcity-calender {
+    opacity: 0.5 !important;
+}
+
+// ::ng-deep .mat-form-field-underline {
+//     display: none;
+// }
+.fa-spinner {
+    font-size: 25px !important;
+}
+
+.numSkill {
+    text-align: right;
+}
+
+.msgErrors {
+    display: flex;
+}
+
+:host ::ng-deep.am-pm-select>div {
+    background-color: #edeff7 !important;
+    padding: 0px;
+    border-radius: 10px !important;
+}
+
+img {
+    object-fit: cover;
+}
+
+:host ::ng-deep.select-placeholder-container {
+    display: flex;
+    align-items: center;
+}
+
+:host ::ng-deep.select-placeholder-container span {
+    color: crimson;
+}
+
+.hide-dummy-option {
+    display: none !important;
+}

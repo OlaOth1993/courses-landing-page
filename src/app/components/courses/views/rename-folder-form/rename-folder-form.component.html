@@ -1,0 +1,16 @@
+<p class="uppercase">rename folder</p>
+<form [formGroup]="renameFolder" (ngSubmit)="updateFolder(renameFolder)">
+    <div class="mb-3">
+        <mat-form-field appearance="outline">
+            <mat-label>Folder Name</mat-label>
+            <input matInput type="text" #name formControlName="name">
+        </mat-form-field>
+        <app-field-error-display field="name"> </app-field-error-display>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn" (click)="hide()" type="button">Cancel</button>
+        <button class="btn primary" type="submit">Send
+<!--           <i  class="fa fa-spinner faa-spin animated"></i>
+ -->        </button>
+    </div>
+</form>

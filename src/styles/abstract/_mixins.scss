@@ -1,0 +1,72 @@
+@use '../abstract/variables' as *;
+
+@mixin reset-spaces {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin primary-theme{
+  background-color: $primary-color;
+  color: white !important;
+}
+
+
+@mixin text-title {
+  font-size: $medium-text;
+  line-height: $small-line-height;
+  font-weight: $font-weight-medium;
+}
+
+@mixin text-dimensions($line-height ,$font-weight:400, $opacity:1){
+  line-height: $line-height;
+  font-weight: $font-weight;
+  opacity: $opacity;
+}
+@mixin text-subtitle {
+  font-size: $small-text;
+  line-height: $medium-line-height;
+  font-weight: $font-weight-medium;
+}
+ @mixin card-theme {
+  display: flex;
+  overflow: hidden;
+  border-radius: $border-radius;
+  background: #fff;
+  box-shadow: $box-shadow;
+ }
+
+
+@mixin opacity($color,$opacity) {
+  color: $color;
+  opacity: $opacity;
+}
+
+@mixin  custom-breakpoint ($max-width) {
+  @media only screen and (max-width:$max-width){
+    @content;
+  }
+}
+
+@mixin  custom-breakpoint-range ($min-width ,$max-width) {
+  @media only screen and (min-width: $min-width) and (max-width:$max-width){
+    @content;
+  }
+}
+
+@mixin  for-phone {
+  @media only screen and (max-width:$larg-phone){
+    @content;
+  }
+}
+
+@mixin  for-tablet {
+  @media only screen and (max-width:$tablet){
+    @content;
+  }
+}
+
+@mixin  for-desktop {
+  @media only screen and (max-width:$desktop){
+    @content;
+  }
+}

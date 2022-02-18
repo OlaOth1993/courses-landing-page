@@ -1,0 +1,116 @@
+<div class="courses">
+  <div class="space-between">
+    <p style="opacity: 0;">test</p>
+    <ul class="nav justify-content-end nav-pills mb-3 p-1" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="active-tab" data-bs-toggle="pill" data-bs-target="#active" type="button"
+          role="tab" aria-controls="active" aria-selected="true">Active</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="expired-tab" data-bs-toggle="pill" data-bs-target="#expired" type="button"
+          role="tab" aria-controls="expired" aria-selected="false">Expired</button>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="active-tab">
+      <div class="row" *ngIf="activeCourses.length>0">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let course of activeCourses">
+          <div class="card">
+            <circle-progress class="float-progres"
+              [percent]="course.complete_ratio"
+              [radius]="20" [outerStrokeWidth]="4"
+              [innerStrokeWidth]="4"
+              [showInnerStroke]="true"
+              [outerStrokeColor]="'#2F57E5'"
+              [animation]="true"
+              [animationDuration]="300"
+              [titleFontSize]="12"
+              [showSubtitle]="false"
+              [space]="-4"
+              [innerStrokeColor]="'#e7e8ea'"
+              [titleColor]='"#2F57E5"'
+              [unitsColor]='"#2F57E5"'>
+            </circle-progress>
+            <img *ngIf="course.img" class="top-img" src="{{course.img}}" />
+            <img *ngIf="!course.img" class="top-img" src="assets/images/default/course.jpg" />
+            <div class="card-body pb-0 px-2">
+              <span class="sticker">{{course.price}} $</span>
+              <p class="title">{{course.name}}</p>
+              <p class="subtitle">Keanu McCoy</p>
+            </div>
+            <div class="card-footer">
+              <div class="info d-flex">
+                <div class="me-auto">
+                  <svg class="footer-icon me-2" xmlns="http://www.w3.org/2000/svg" width="12.94" height="12.94"
+                    viewBox="0 0 12.94 12.94">
+                    <path id="time-course-icon"
+                      d="M9.845,3.375a6.47,6.47,0,1,0,6.47,6.47A6.469,6.469,0,0,0,9.845,3.375Zm.435,7.03a.437.437,0,0,1-.435.435H6.859a.435.435,0,0,1,0-.871H9.41V5.864a.435.435,0,1,1,.871,0Z"
+                      transform="translate(-3.375 -3.375)" fill="#4d5160" />
+                  </svg>
+                  <span class="small-text">{{course.end_time | date:'d MMMM'}},({{course.number_hour}})</span>
+                </div>
+                <div class="me-auto">
+                  <img src="assets/icons/course-level-icon.svg" class="footer-icon me-2" />
+                  <span class="small-text">For {{course.level}}</span>
+                </div>
+                <div class="me-auto">
+                  <img src="assets/icons/student-count-icon.svg" class="footer-icon me-2" />
+                  <span class="small-text">{{course.student_number}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row full-size align-content-center text-center" *ngIf="activeCourses.length==0">
+        <img class="contain" src="assets/vectors/no-courses-yet-icon.svg" height="150" width="100" />
+        <p class="base-text mt-2">No Courses Yet</p>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="expired" role="tabpanel" aria-labelledby="expired-tab">
+      <div class="row" *ngIf="expiredCourses.length>0">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let course of expiredCourses">
+          <div class="card">
+            <div class="sticker">
+              <img class="contain" src="assets/icons/expired-icon.svg" height="16" width="16" />
+              <span class="small-text primary mx-2">Expired</span>
+            </div>
+            <img *ngIf="course.img" class="top-img" src="{{course.img}}" />
+            <img *ngIf="!course.img" class="top-img" src="assets/images/default/course.jpg" />
+            <div class="card-body pb-0 px-2">
+              <span class="sticker">{{course.price}} $</span>
+              <p class="title">{{course.name}}</p>
+              <p class="subtitle">Keanu McCoy</p>
+            </div>
+            <div class="card-footer">
+              <div class="info d-flex">
+                <div class="me-auto">
+                  <svg class="footer-icon me-2" xmlns="http://www.w3.org/2000/svg" width="12.94" height="12.94"
+                    viewBox="0 0 12.94 12.94">
+                    <path id="time-course-icon"
+                      d="M9.845,3.375a6.47,6.47,0,1,0,6.47,6.47A6.469,6.469,0,0,0,9.845,3.375Zm.435,7.03a.437.437,0,0,1-.435.435H6.859a.435.435,0,0,1,0-.871H9.41V5.864a.435.435,0,1,1,.871,0Z"
+                      transform="translate(-3.375 -3.375)" fill="#4d5160" />
+                  </svg>
+                  <span class="small-text">{{course.end_time | date:'d MMMM'}},({{course.number_hour}})</span>
+                </div>
+                <div class="me-auto">
+                  <img src="assets/icons/course-level-icon.svg" class="footer-icon me-2" />
+                  <span class="small-text">For {{course.level}}</span>
+                </div>
+                <div class="me-auto">
+                  <img src="assets/icons/student-count-icon.svg" class="footer-icon me-2" />
+                  <span class="small-text">{{course.student_number}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row full-size align-content-center text-center" *ngIf="expiredCourses.length==0">
+        <img class="contain" src="assets/vectors/no-courses-yet-icon.svg" height="150" width="100" />
+        <p class="base-text mt-2">No Courses Yet</p>
+      </div>
+    </div>
+  </div>
+</div>

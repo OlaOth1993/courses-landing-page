@@ -1,0 +1,64 @@
+@use './../../../../styles/abstract/mixins' as *;
+@use './../../../../styles/abstract/variables' as *;
+div {
+    @include reset-spaces;
+}
+
+.img {
+    border-radius: $border-radius;
+}
+
+.float-right {
+    float: right;
+    text-align: end;
+    margin-right: 82px;
+}
+
+.card {
+    border: none;
+    background: white;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    margin: 1rem 1rem;
+    padding: 15px 15px;
+    .top-img {
+        margin-bottom: 0;
+        border-radius: $border-radius;
+    }
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        .title {
+            @include text-title;
+            color: $dark-gray;
+        }
+        .subtitle {
+            @include text-subtitle;
+            @include opacity($dark-gray, 0.8);
+            margin-bottom: 0px;
+        }
+    }
+    .card-footer {
+        padding: 1rem 1rem 0rem 1rem;
+        flex: 1 1 auto;
+        border-top: 1px solid rgb(112, 112, 112, 0.15) !important;
+        text-align: center;
+        .subtitle {
+            color: $dark-gray;
+        }
+    }
+    .card-panel {
+        color: $white !important;
+        opacity: 1;
+        z-index: 2;
+        position: absolute;
+        background-color: $blue;
+        height: 28px;
+        width: 56px;
+        border-radius: 7px;
+        bottom: 128px;
+        right: 30px;
+        text-align: center;
+        line-height: 28px;
+    }
+}

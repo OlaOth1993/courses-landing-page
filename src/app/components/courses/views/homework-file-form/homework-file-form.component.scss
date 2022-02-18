@@ -1,0 +1,39 @@
+@use './../../../../../styles/abstract/variables' as *;
+@use './../../../../../styles/abstract/mixins' as *;
+.line {
+    border-bottom: 1px solid $light-gray;
+}
+
+.gray-btn {
+    border: none;
+    background: $light-blue;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 2px !important;
+}
+
+ ::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+
+/*  ::-webkit-scrollbar-thumb {
+    background: $primary !important;
+    opacity: 30% !important;
+    border-radius: 20px !important;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(31, 56, 124) !important;
+} */
+
+::ng-deep.modal-content::-webkit-scrollbar {
+    width: 3px;
+}
+
+::ng-deep.modal-content::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}

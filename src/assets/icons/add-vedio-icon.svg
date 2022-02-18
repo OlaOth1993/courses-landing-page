@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="53.289" height="43.433" viewBox="0 0 53.289 43.433">
+  <g id="add-vedio-icon" transform="translate(-182.141 -293.098)">
+    <path id="Icon_awesome-video" data-name="Icon awesome-video" d="M28,4.5H3.981A3.981,3.981,0,0,0,0,8.481V32.5a3.981,3.981,0,0,0,3.981,3.981H28A3.981,3.981,0,0,0,31.982,32.5V8.481A3.981,3.981,0,0,0,28,4.5ZM43.775,7.64l-9.128,6.3V27.045l9.128,6.288a2.67,2.67,0,0,0,4.2-2.149V9.789A2.672,2.672,0,0,0,43.775,7.64Z" transform="translate(182.141 288.598)" fill="#2f57e5"/>
+    <g id="Group_6316" data-name="Group 6316" transform="translate(219.208 320.308)">
+      <circle id="Ellipse_237" data-name="Ellipse 237" cx="8.111" cy="8.111" r="8.111" fill="#4d5160"/>
+      <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M7.061,5.238H4.617V2.793a.543.543,0,0,0-.543-.543H3.531a.543.543,0,0,0-.543.543V5.238H.543A.543.543,0,0,0,0,5.781v.543a.543.543,0,0,0,.543.543H2.988V9.311a.543.543,0,0,0,.543.543h.543a.543.543,0,0,0,.543-.543V6.867H7.061A.543.543,0,0,0,7.6,6.324V5.781A.543.543,0,0,0,7.061,5.238Z" transform="translate(4.309 2.059)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

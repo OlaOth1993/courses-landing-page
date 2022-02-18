@@ -1,0 +1,8 @@
+<div>
+  <div class="container" [ngClass]="{ 'display-none': isLiveRout }">
+    <app-main-nav *ngIf="!isLiveRout"></app-main-nav>
+    <app-path></app-path>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+@use '../../../../../styles/abstract/mixins' as m;
+@use '../../../../../styles/abstract/variables' as v;
+
+.float-progres{
+  width: max-content;
+  position: absolute;
+  right: 23px;
+  top: 21px;
+}

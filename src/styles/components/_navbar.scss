@@ -1,0 +1,84 @@
+@use "../abstract" as *;
+@use "bootstrap" as b;
+
+.navbar {
+  background-color: #fefefe;
+  margin-top: $margin-nav-vertical;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: unset;
+  @include for-tablet {
+    padding: $padding-nav-vertical $padding-nav-horizontal;
+  }
+
+  a {
+    vertical-align: middle;
+
+    &:not(.btn):not(.dropdown-item) {
+      color: $navbar-link-color;
+      font-size: $medium-text !important;
+      font-weight: $font-weight-medium;
+      text-transform: inherit !important;
+    }
+  }
+  .navbar-brand {
+    padding-top: unset;
+    padding-bottom: unset;
+    padding-left: 1rem;
+  }
+  .search-form {
+    height: 40px;
+    .has-search {
+      display: flex;
+      align-items: center;
+      .form-control-feedback {
+        line-height: 2.375rem !important;
+      }
+      .form-control {
+        height: 40px !important;
+      }
+    }
+  }
+  .form-control {
+    width: 375px;
+  }
+  .navigation-icon {
+    a {
+      display: inline-block;
+      margin: 0 0.5rem;
+    }
+  }
+
+  .nav-link {
+    padding: $padding-nav-link-vertical $padding-nav-link-horizontal !important;
+  }
+  .nav-item.active .nav-link {
+    border-bottom: 2px solid $primary-color;
+  }
+  button {
+    font-size: 0.75rem;
+    margin: 0 0.5rem;
+    line-height: $large-line-height;
+  }
+
+  .nav-avatar {
+    a {
+      padding: 0 0.5rem !important;
+    }
+    .dropdown-toggle::after {
+      border: none;
+    }
+  }
+}
+
+.dropdown-menu {
+  @include card-theme;
+  width: max-content;
+  min-width: fit-content;
+  text-align: center;
+  border: none;
+  display: none;
+  a:hover {
+    text-decoration: underline !important;
+  }
+}

@@ -1,0 +1,43 @@
+
+<div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+        <div class="card m-1">
+            <img class="img " style="height: 140px;" src={{subCategory.img}} alt=" SubCategory image">
+
+        </div>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 ">
+        <div class="card m-1" style="height: 140px;">
+            <div class="card-body">
+                <p class="card-title weight-semibold"> {{subCategory.name}} </p>
+                <p class="subtitle"> {{subCategory.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div *ngFor="let course of courses;" class="col-12 col-md-4 col-sm-6 col-xs-12">
+        <app-course-card [courseOb]="course"></app-course-card>
+
+    </div>
+    <div *ngIf="second_page_url != null">
+        <button type="button" (click)="loadSecondPageCourses(subCategory.id, currenPage+1)" class="secondary-btn large float-right" style="height: 40px;" [ngClass]="{'hide': !secondPage, 'show': secondPage} ">Load More
+            <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354" viewBox="0 0 23.098 11.354">
+              <path id="arrow-icon"
+                d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                transform="translate(0 -10.258)" />
+            </svg>
+          </button>
+        <div *ngIf="!secondPage">
+
+            <div *ngFor="let course of secondPageCourses;" class="col-12 col-md-4 col-sm-6 col-xs-12">
+                <app-course-card [courseOb]="course"></app-course-card>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+
+</div>

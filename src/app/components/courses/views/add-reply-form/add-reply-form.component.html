@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-between m-1 ">
+    <span class="uppercase my-1 "> Add Reply To Message</span>
+
+    <a (click)="hide()">
+        <svg class="gray-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 56 56">
+        <defs>
+          <filter id="joanna-kosinska-LAaSoL0LrYs-unsplash" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse">
+            <feOffset dy="2" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feFlood flood-color="#2f57e5" flood-opacity="0.102"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+          </filter>
+        </defs>
+        <g id="cancel-icon" transform="translate(-1142 -483)">
+          <g transform="matrix(1, 0, 0, 1, 1142, 483)" filter="url(#joanna-kosinska-LAaSoL0LrYs-unsplash)">
+            <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash-2" data-name="joanna-kosinska-LAaSoL0LrYs-unsplash" width="20" height="20" rx="10" transform="translate(18 16)" fill="#2f57e5" opacity="0"/>
+          </g>
+          <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M15.854,14.981l2.638-2.638a.618.618,0,1,0-.874-.874l-2.638,2.638-2.638-2.638a.618.618,0,1,0-.874.874l2.638,2.638-2.638,2.638a.618.618,0,1,0,.874.874l2.638-2.638,2.638,2.638a.618.618,0,0,0,.874-.874Z" transform="translate(1155.021 494.019)" fill="#4d5160"/>
+        </g>
+      </svg>
+    </a>
+</div>
+<div class="row chat" style="overflow: scroll;">
+    <div class="col-md-12">
+        <form [formGroup]="messageSection" (ngSubmit)="sendMessage(messageSection.value)">
+            <div *ngIf="messageLoad" class="row b-gray ">
+                <div class="col-md-12">
+                    <div class="card-chat">
+                        <div class="  justify-content-start mb-1 flex-wrap">
+                            <img class="avatar-1 d-inline mr-3" src="assets/vectors/planet.svg" width="50px" height="50px" />
+
+                            <p class=" small mt-1 mx-3 bg-light  text-dark d-inline-block ">{{messageLoad.sender.user.full_name}}
+                                <!-- <span *ngIf="messageObj.sender.teacher_id" class="sticker-chat mx-2 p-2 small-text">Instructor</span> --><br> <span class="marginLeft-48">{{messageLoad.created_at | date:'hh:mm:ss'}}</span></p>
+                            <!--                             <img class="avatar-none-border d-inline members member-1" src="assets/images/default/default-profile-female.jpg" width="60px" height="60px" />
+                            <img class="avatar-none-border d-inline members member-2" src="assets/images/default/default-profile-female.jpg" width="60px" height="60px" />
+                            <img class="avatar-none-border d-inline members member-3" src="assets/images/default/default-profile.jpg" width="60px" height="60px" />
+ --><span *ngIf="repliesList.length > 3" class="members count"> +{{repliesList.length - 3}} </span>
+                            <span *ngIf="repliesList[0]">
+                                <img class="avatar-none-border d-inline members member-1" src="assets/images/default/default-profile-female.jpg" width="60px" height="60px" />
+
+                        </span>
+                            <!--                                     <img *ngIf="message.replies[0].sender.user.profile_img==null" class="avatar-none-border d-inline members member-1" src="assets/vectors/planet.svg" width="50px" height="50px" />
+--><span *ngIf="repliesList[2]">
+
+    <img class="avatar-none-border d-inline members member-2" src="assets/images/default/default-profile-female.jpg" width="60px" height="60px" />
+
+                            </span>
+                            <!--                                     <img *ngIf="message.replies[2].sender.user.profile_img==null" class="avatar-none-border d-inline members member-2" src="assets/vectors/planet.svg" width="50px" height="50px" />
+--><span *ngIf="repliesList[1]">
+
+    <img class="avatar-none-border d-inline members member-3" src="assets/images/default/default-profile.jpg" width="60px" height="60px" />
+
+                            </span>
+
+                            <p class="mb-3 d-block">{{messageLoad.message}}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row border-top p-4" *ngFor="let rep of repliesList">
+                    <div class="col-md-12 mt-3">
+                        <div class="card p-3">
+                            <div class="d-flex justify-content-start mb-3 flex-wrap">
+                                <img class="avatar-1 d-inline mr-3" src="assets/vectors/planet.svg" width="50px" height="50px" />
+
+                                <p class=" small text-start mt-1 mx-3 d-inline bg-light  text-dark "> {{rep.sender.user.full_name}} <span *ngIf="rep.sender.teacher_id" class="sticker-chat mx-2 p-2 small-text">Instructor</span> <br> <span> {{rep.created_at | date:'hh:mm:ss'}} </span></p>
+                            </div>
+                            <p class="mb-2"> {{rep.message}} </p>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div></div>
+
+            <!-- close input message here -->
+            <div class="row m-2 write-here ">
+                <div class="col-md-12 col-sm-12 ">
+                    <input class="message-input w-100" type="text" #message formControlName="message" placeholder="Type a message">
+                    <button type="submit" [disabled]="message.value == ''">
+                        <svg class="field-icon" id="send-message-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                            <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash" width="30" height="30" rx="12" fill="#2f57e5"/>
+                            <path id="Icon_ionic-ios-send" data-name="Icon ionic-ios-send" d="M16.159,4.53,4.652,9.545a.264.264,0,0,0,.009.48l3.113,1.758a.5.5,0,0,0,.574-.056l6.137-5.291c.041-.034.138-.1.176-.063s-.022.135-.056.176l-5.31,5.981a.5.5,0,0,0-.05.6l2.034,3.263a.265.265,0,0,0,.476-.006L16.513,4.878A.264.264,0,0,0,16.159,4.53Z" transform="translate(3.817 5.095)" fill="#fff"/>
+                          </svg>
+                        </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

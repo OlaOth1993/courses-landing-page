@@ -1,0 +1,54 @@
+<nav class="navbar sticky-top navbar-light container navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/vectors/scholar-logo.svg" alt="scholar">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="navbar-toggler-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2  mb-lg-0" ngbNav >
+        <li class="nav-item" >
+          <a class="nav-link "   aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" href="#category"   >Categories</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" href="#courses" >Courses</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link"  href="#contact" >Contact</a>
+        </li>
+      </ul>
+      <li *ngIf="checkUsertoken()" class="nav-avatar dropdown p-2">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img *ngIf="!user||!user.profile_img" class="avatar" src="assets/images/default/default-profile.jpg" alt="" width="40" height="40">
+          <img *ngIf="user&&user.profile_img" class="avatar" src="{{user.profile_img}}" alt="" width="40" height="40">
+        </a>
+        <ul class="dropdown-menu p-2" aria-labelledby="navbarDropdownMenuLink">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img *ngIf="!user||!user.profile_img" class="avatar my-3" src="assets/images/default/default-profile.jpg" alt="" width="80" height="80">
+            <img *ngIf="user&&user.profile_img" class="avatar my-3" src="{{user.profile_img}}" alt="" width="80" height="80">
+          </a>
+          <a class="base-text weight-semibold mb-3" routerLink="/profile">{{user.full_name}}</a>
+          <div class="menu mt-2">
+            <li><a routerLink="/profile/my-wallet">My-E-Wallet</a></li>
+            <li><a routerLink="/profile/edit-subscription">Update Subscription</a></li>
+            <li><a href="#">Feedback</a></li>
+            <li><a (click)="logout()">Log Out</a></li>
+          </div>
+        </ul>
+      </li>
+      <form class="d-flex">
+        <button *ngIf="!checkUsertoken()" class="secondary-btn" type="submit" (click)='login()'>Login</button>
+        <button *ngIf="!checkUsertoken()" class="primary-btn" type="submit" (click)='register()'>Signup</button>
+        <button *ngIf="checkUsertoken()" class="primary-btn" type="submit" (click)='categories()'>Start</button>
+      </form>
+
+    </div>
+  </div>
+</nav>

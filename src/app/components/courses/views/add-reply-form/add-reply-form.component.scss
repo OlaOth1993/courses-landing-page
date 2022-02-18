@@ -1,0 +1,121 @@
+@use './../../../../../styles/abstract/variables' as *;
+@use './../../../../../styles/abstract/mixins' as *;
+.card-chat {
+    background-color: $snow !important;
+    padding: 2.5rem;
+}
+
+.border-top {
+    border-top: 0.5px solid opacity($gray);
+}
+
+.b-gray {
+    background-color: $snow !important;
+}
+
+.sticker-chat {
+    color: $white !important;
+    opacity: 1;
+    background-color: $blue;
+    text-align: center;
+    height: 28px;
+    width: max-content !important;
+    border-radius: 7px;
+    line-height: 28px;
+}
+
+div {
+    @include reset-spaces;
+}
+
+input:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #4D5160 !important;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #4D5160;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #4D5160;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #4D5160;
+}
+
+.chat::-webkit-scrollbar {
+    width: 3px;
+}
+
+//input
+.message-input {
+    padding: 15px;
+    background: #EDEFF7;
+    height: 55px;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+}
+
+.write-here {
+    z-index: 3000;
+    border-radius: 20px;
+    position: relative;
+}
+
+.field-icon {
+    position: absolute;
+    z-index: 100;
+    cursor: pointer;
+    top: 12px;
+    right: 12px
+}
+
+.gray-btn {
+    background: $light-blue;
+    padding: 2px;
+    border-radius: 10px;
+    border: none;
+}
+
+.members {
+    position: absolute;
+    opacity: 1;
+    z-index: 2;
+}
+
+.member-1 {
+    right: 38px;
+    top: 70px;
+    z-index: 2;
+}
+
+.member-2 {
+    right: 52px;
+    top: 94px;
+    z-index: 1;
+}
+
+.member-3 {
+    left: 384px;
+    top: 96px;
+    z-index: 3;
+}
+
+.count {
+    right: 104px;
+    top: 100px;
+}
+
+.marginLeft-48 {
+    margin-left: 48 !important;
+}

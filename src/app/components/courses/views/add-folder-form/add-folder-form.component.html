@@ -1,0 +1,32 @@
+<p class="uppercase">add folder</p>
+<form *ngIf="folderID == undefined" [formGroup]="addfolder" (ngSubmit)="addFolder(addfolder)">
+    <div class="mb-3">
+        <mat-form-field appearance="outline">
+            <mat-label>Folder Name</mat-label>
+            <input matInput type="text" #name formControlName="name">
+        </mat-form-field>
+        <app-field-error-display field="fname"> </app-field-error-display>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn" (click)="hide()" type="button">Cancel</button>
+        <button class="btn primary" type="submit">Send
+<!--           <i  class="fa fa-spinner faa-spin animated"></i>
+ -->        </button>
+    </div>
+</form>
+
+<form *ngIf="folderID" [formGroup]="addfolder" (ngSubmit)="addFolderInsideFolder(addfolder)">
+    <div class="mb-3">
+        <mat-form-field appearance="outline">
+            <mat-label>Folder Name</mat-label>
+            <input matInput type="text" #name formControlName="name">
+        </mat-form-field>
+        <app-field-error-display field="fname"> </app-field-error-display>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn" (click)="hide()" type="button">Cancel</button>
+        <button class="btn primary" type="submit">Send
+<!--           <i  class="fa fa-spinner faa-spin animated"></i>
+ -->        </button>
+    </div>
+</form>

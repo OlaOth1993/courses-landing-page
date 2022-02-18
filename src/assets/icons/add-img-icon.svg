@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="53.296" height="46.427" viewBox="0 0 53.296 46.427">
+  <g id="add-img-icon" transform="translate(-179.996 -284.338)">
+    <g id="Icon_ionic-md-camera" data-name="Icon ionic-md-camera" transform="translate(179.996 284.338)">
+      <path id="Path_18356" data-name="Path 18356" d="M26.926,21.935a6.678,6.678,0,1,1-6.678-6.678,6.678,6.678,0,0,1,6.678,6.678Z" transform="translate(3.495 0.959)" fill="#2f57e5"/>
+      <path id="Path_18357" data-name="Path 18357" d="M45.5,7.892H36.168L32.777,4.5H19.209L15.817,7.892H6.49a4.24,4.24,0,0,0-4.24,4.24V40.962A4.24,4.24,0,0,0,6.49,45.2H45.5a4.24,4.24,0,0,0,4.24-4.24V12.132A4.24,4.24,0,0,0,45.5,7.892Zm-19.5,31.374A11.871,11.871,0,1,1,37.864,27.395,11.872,11.872,0,0,1,25.993,39.266Z" transform="translate(-2.25 -4.5)" fill="#2f57e5"/>
+    </g>
+    <g id="Group_6316" data-name="Group 6316" transform="translate(217.19 314.663)">
+      <circle id="Ellipse_237" data-name="Ellipse 237" cx="8.051" cy="8.051" r="8.051" fill="#4d5160"/>
+      <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M7.009,5.215H4.583V2.789a.539.539,0,0,0-.539-.539H3.5a.539.539,0,0,0-.539.539V5.215H.539A.539.539,0,0,0,0,5.754v.539a.539.539,0,0,0,.539.539H2.965V9.259A.539.539,0,0,0,3.5,9.8h.539a.539.539,0,0,0,.539-.539V6.833H7.009a.539.539,0,0,0,.539-.539V5.754A.539.539,0,0,0,7.009,5.215Z" transform="translate(4.277 2.027)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

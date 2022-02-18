@@ -1,0 +1,433 @@
+<ng-container *ngIf="isPageDownload; else elseTemplate">
+    <div class="row">
+        <!-- <div class="row"  (window:scroll)="onWindowScroll($event)"> -->
+        <div class="col-md-9 col-12">
+            <div class="card p-0" id="Instructor">
+                <video *ngIf="course.url_video" controls #videoPlayer class="w-100 border-redues-top height-video">
+          <source  src="{{ course.url_video }}" type="video/mp4" />
+          Browser not supported
+        </video>
+                <img *ngIf="!course.url_video" src="{{course.img}}" alt="" class="w-100 border-redues-top height-video">
+
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <p class="large-text uppercase m-0">{{ course.name }}.</p>
+
+                        <h2 class="primary">{{ course.price }}$</h2>
+                    </div>
+                    <p class="description">
+                        {{ course.description }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 mt-3 col-12 d-none d-md-block d-lg-block">
+                    <div class="card-nav">
+                        <div class="card card-instruct" id="stickytypeheader">
+                            <ul class="list">
+                                <li>
+                                    <a href="/courses/course-detail#Instructor">Instructor</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/course-detail#Cmember">Course Member</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/course-detail#Details">Details</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/course-detail#Requirement">Requirement</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/course-detail#Ccomplete">Course complete</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/course-detail#Wcalendar">Weekly calendar
+                  </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="down-card-instruct"></div>
+                </div>
+                <div class="col-md-9 col-12">
+                    <div class="card p-0 mt-3" id="Instructor">
+                        <div class="card-body">
+                            <span class="base-text weight-semibold uppercase">Course Instructor</span
+              >
+              <div class="d-flex justify-content-between mt-4">
+                <div class="d-flex">
+                  <img
+                    src="{{
+                      course.teacher.profile_img
+                        ? course.teacher.profile_img
+                        : 'assets/images/default/default-profile.jpg'
+                    }}"
+                    class="img-box"
+                  />
+
+                  <div class="mx-3 align-self-center">
+                    <p class="large-text uppercase m-0">
+                      {{ course.teacher.full_name }}
+                    </p>
+
+                    <p class="description mb-0">
+                      {{ course.teacher.teacher_courses_count }} Courses
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  class="btn primary-btn"
+                  (click)="goToTeacherCourses(course.teacher.id)"
+                >
+                  <!-- <i class="fa fa-user">-></i> -->
+                  <svg
+                    class="m-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="23.098"
+                    height="11.354"
+                    viewBox="0 0 23.098 11.354"
+                  >
+                    <path
+                      id="arrow-icon"
+                      d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                      transform="translate(0 -10.258)"
+                      fill=""
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card p-0 mt-3" id="Cmember">
+            <div class="card-body">
+              <span class="base-text weight-semibold uppercase"
+                >course Members</span
+              >
+
+              <p class="description"></p>
+
+              <img
+                *ngFor="let item of course.users"
+                class="avatar img-circle-m"
+                src="{{
+                  item.user.profile_img
+                    ? item.user.profile_img
+                    : 'assets/images/default/default-profile.jpg'
+                }}"
+                width="40px"
+                height="40px"
+              />
+
+              <span class="circle-icon"
+                ><i class="fa fa-ellipsis-h icon"></i
+              ></span>
+                        </div>
+                    </div>
+                    <div class="card p-0 mt-3" id="Details">
+                        <div class="card-body">
+                            <span class="base-text weight-semibold uppercase">course detail</span
+              >
+
+              <div class="row mt-4">
+                <div class="col-md-6 col-12">
+                  <p class="weight-medium small-text-14">
+                    Category:
+                    <span class="base-text">{{ course.category.name }}</span>
+                            </p>
+                            <p class="title-text small-text-14">
+                                Language:
+                                <span class="base-text">{{ course.language.english }}</span>
+                            </p>
+                            <p class="title-text small-text-14">
+                                Time:
+                                <span class="base-text">{{
+                      course.start_time | date: "MMM  d, y"
+                    }}</span>
+                            </p>
+                            <p class="title-text small-text-14">
+                                Course duration:
+                                <span class="base-text">{{ course.number_hour }}</span>
+                            </p>
+                            <p class="title-text small-text-14">
+                                Effort: <span class="base-text">{{ course.effort }}</span>
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="title-text small-text-14">
+                                Course level:
+                                <span class="base-text">{{ course.level }}</span>
+                            </p>
+                            <p class="title-text small-text-14">
+                                Students count:
+                                <span class="base-text">{{ course.student_number }}</span>
+                            </p>
+                            <p class="title-text small-text-14">
+                                Course ID: <span class="base-text">{{ course.id }}</span>
+                            </p>
+                            <p class="title-text small-text-14">
+                                Session duration:
+                                <span class="base-text">{{ course.duration }}</span>
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <p class="title-text small-text-14">
+                                Goals:
+                                <span class="base-text">{{ course.target }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-0 mt-3" id="Requirement">
+                <div class="card-body">
+                    <span class="base-text weight-semibold uppercase p-0">REQUIREMENT</span
+              >
+              <div class="mt-4">
+                <p
+                  class="base-text"
+                  *ngFor="let item of course.prev_skill; let i = index"
+                >
+                  {{ i + 1 }}- {{ item.skill }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-0 mt-3" id="Ccomplete">
+            <div class="card-body">
+              <span class="base-text weight-semibold uppercase p-0"
+                >course complete</span
+              >
+              <div class="row">
+                <div class="col-9 align-self-end">
+                  <div class="progresses py-4">
+                    <ul
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <!-- [ngClass]="{'old-active': course.complete_ratio>0},{'active-now': course.complete_ratio==0}" -->
+                      <li
+                        id="step-0"
+                        class="me-2"
+                        [ngClass]="{
+                          'old-active': course.complete_ratio > 0,
+                          'active-now': course.complete_ratio == 0
+                        }"
+                      ></li>
+                      <li
+                        id="step-1"
+                        [ngClass]="{
+                          'old-active': course.complete_ratio > 25,
+                          'not-active': course.complete_ratio < 25,
+                          'active-now': course.complete_ratio == 25
+                        }"
+                      ></li>
+                      <li
+                        id="step-2"
+                        [ngClass]="{
+                          'old-active': course.complete_ratio > 50,
+                          'not-active': course.complete_ratio < 50,
+                          'active-now': course.complete_ratio == 50
+                        }"
+                      ></li>
+                      <li
+                        id="step-3"
+                        [ngClass]="{
+                          'old-active': course.complete_ratio > 75,
+                          'not-active': course.complete_ratio < 75,
+                          'active-now': course.complete_ratio == 75
+                        }"
+                      ></li>
+                      <li
+                        id="step-4"
+                        class="me-1"
+                        [ngClass]="{
+                          'old-active': course.complete_ratio > 100,
+                          'not-active': course.complete_ratio < 100,
+                          'active-now': course.complete_ratio == 100
+                        }"
+                      ></li>
+                    </ul>
+                    <div>
+                      <div class="progress">
+                        <div
+                          id="progress-bar"
+                          class="progress-bar"
+                          [ngStyle]="{ width: course.complete_ratio + '%' }"
+                          role="progressbar"
+                          aria-valuenow="10"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3 text-center">
+                  <h1 class="primary m-0 p-0 h1">
+                    {{ course.complete_ratio }}%
+                  </h1>
+                  <p class="base-text m-0 p-0">completed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-0 mt-3" id="Wcalendar">
+            <div class="card-body">
+              <span class="base-text weight-semibold uppercase"
+                >Weekly Calendar</span
+              >
+
+              <div class="mt-4">
+                <div
+                  *ngFor="let item of course.schedule; let i = index"
+                  class="border-width-multi d-flex justify-content-between mt-3"
+                >
+                  <p class="base-text weight-bold p-0 m-0">
+                    Session {{ i + 1 }}:
+                  </p>
+                  <p class="base-text p-0 m-0">{{ item.weekday }}</p>
+                  <p class="base-text p-0 m-0 opacity-8">{{ item.time }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-12 position-relative">
+      <div class="card p-0 position-relative align-items-center mt-md-0 mt-4">
+        <div class="card-body align-items-center center">
+          <div class="flex-avatar-avatar">
+            <!-- <img class="img-user-circle" src="assets\imge-user.jfif" /> -->
+            <img
+              class="avatar"
+              src="assets/vectors/planet.svg"
+              width="110px"
+              height="110px"
+            />
+
+            <div class="icon-border-avatar">live</div>
+
+            <p class="large-text uppercase mt-4 mb-2">
+              {{ course.teacher.full_name }}
+            </p>
+
+            <p class="mb-4">Session</p>
+          </div>
+        </div>
+
+              <button
+              class="primary-btn xlarge position-absolute btn-botton"
+              (click)="goLive(3)"
+              >
+              Start live
+              </button>
+
+              <button
+              class="primary-btn xlarge position-absolute btn-botton"
+              style="bottom: -70px"
+              (click)="joinLive(6)"
+              >
+              Join live
+              </button>
+            </div>
+
+            <div class="card p-0 mt-65">
+                <div class="card-body">
+                    <h6 class="mb-3">Accessor</h6>
+                    <a *ngIf="!course.is_teacher && course.is_joined" (click)="goToResource()">
+                        <img class="my-2 icon" src="assets\icons\course-detail\resources-icon.svg" />
+                        <p class="d-inline m-3 description">Resources files</p>
+                    </a>
+                    <br />
+                    <a *ngIf="course.is_teacher" (click)="goToTeacherResource()">
+                        <img class="my-2 icon" src="assets\icons\course-detail\resources-icon.svg" />
+                        <p class="d-inline m-3 description">Resources files</p>
+                    </a>
+                    <br />
+                    <a *ngIf="!course.is_teacher && course.is_joined" (click)="goToCourseHomework(course.teacher.id)">
+                        <img class="my-2 icon" src="assets\icons\course-detail\homework-iocn.svg" />
+                        <p class="d-inline m-3 description">Homework</p>
+                    </a>
+                    <a *ngIf="course.is_teacher " (click)="goToTeacherDiscussHomework()">
+                        <img class="my-2 icon" src="assets\icons\course-detail\homework-iocn.svg" />
+                        <p class="d-inline m-3 description">Homework</p>
+                    </a>
+                    <br>
+                    <a (click)="goToChatGroup(course.teacher.id)">
+                        <img class="my-2 icon" src="assets\icons\course-detail\resources-icon.svg" />
+                        <p class="d-inline m-3 description">Chat group</p>
+                    </a>
+                </div>
+            </div>
+
+      <div class="card p-0 mt-5">
+        <div class="card-body">
+          <h6 class="mb-3">Start learning now</h6>
+          <img
+            class="mt-2 icon"
+            src="assets\icons\course-detail\online-course-icon.svg"
+          />
+          <p class="d-inline m-3 description">Online course</p>
+          <br />
+
+          <img
+            class="mb-2 mt-4 icon"
+            src="assets\icons\course-detail\money-back-gurantee-icon.svg"
+          />
+          <p class="d-inline-flex description" style="margin-left: 13px">
+            100% <br />Money back gurantee
+          </p>
+          <br />
+
+          <div class="w-100 text-center mt-3">
+            <button class="primary-btn large w-100">Subscribed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="mt-5">
+    <h5 class="uppercase">Related COURSES</h5>
+    <div class="mt-4 row">
+      <div
+        *ngFor="let course of coursesList; let i = index"
+        class="col-12 col-md-4 col-sm-6 col-xs-12"
+      >
+        <div *ngIf="i < 3">
+          <app-course-card [courseOb]="course"></app-course-card>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <button class="secondary-btn large">
+        View all
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="23.098"
+          height="11.354"
+          viewBox="0 0 23.098 11.354"
+        >
+          <path
+            id="arrow-icon"
+            d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+            transform="translate(0 -10.258)"
+            fill=""
+          />
+        </svg>
+      </button>
+    </div>
+  </section>
+</ng-container>
+<ng-template #elseTemplate>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+    <!-- <p class="text-center">please wait for Downloading ........... </p>  -->
+</ng-template>

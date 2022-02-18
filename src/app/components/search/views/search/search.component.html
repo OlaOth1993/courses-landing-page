@@ -1,0 +1,215 @@
+<div class="search">
+  <div class="bg-gray fixed-header border-bottom">
+    <div class="row">
+      <form class="d-flex my-3 mx-auto">
+        <div class="form-group w-100 has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input class="form-control search" type="search" placeholder="Search here..." [(ngModel)]="course_name" name="course_name" (input)="getCourses()"
+            aria-label="Search" >
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="selectedCategory" (selectionChange)="getSubCategories($event.value)"
+            panelClass="option-panel">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>subCategory</mat-label>
+          <mat-select [(ngModel)]="selectedsubCategory" (selectionChange)="getCourses()">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.id">{{subCategory.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Course Level</mat-label>
+          <mat-select [(ngModel)]="selectedLevel" (selectionChange)="getCourses()">
+            <mat-option>None</mat-option>
+            <mat-option value="beginner">Beginner</mat-option>
+            <mat-option value="medium">Medium</mat-option>
+            <mat-option value="expert">Expert</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <mat-select [(ngModel)]="selectedPrice">
+            <mat-option>None</mat-option>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Language</mat-label>
+          <mat-select [(ngModel)]="selectedLanguage" (selectionChange)="getCourses()">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let language of languages" [value]="language.id">{{language.english}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <!-- <section class="rated-teacher mx-1 py-3 ">
+    <div class="row">
+      <div class="col mb-2">
+        <div class="card pt-4 text-center">
+          <p class="base-text align-self-start">Filter by rate</p>
+          <div class="mb-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="five-stars">
+              <label class="form-check-label" for="five-stars">
+                <ngb-rating class="rating" [(rate)]="rates[4]" [starTemplate]="t" [max]="5" [readonly]="true">
+                </ngb-rating>
+              </label>
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="four-stars">
+              <label class="form-check-label" for="four-stars">
+                <ngb-rating class="rating" [(rate)]="rates[3]" [starTemplate]="t" [max]="5" [readonly]="true">
+                </ngb-rating>
+              </label>
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="three-stars">
+              <label class="form-check-label" for="three-stars">
+                <ngb-rating class="rating" [(rate)]="rates[2]" [starTemplate]="t" [max]="5" [readonly]="true">
+                </ngb-rating>
+              </label>
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="tow-stars">
+              <label class="form-check-label" for="tow-stars">
+                <ngb-rating class="rating" [(rate)]="rates[1]" [starTemplate]="t" [max]="5" [readonly]="true">
+                </ngb-rating>
+              </label>
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="one-star">
+              <label class="form-check-label" for="one-star">
+                <ngb-rating class="rating" [(rate)]="rates[0]" [starTemplate]="t" [max]="5" [readonly]="true">
+                </ngb-rating>
+              </label>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card text-center">
+          <div class="my-3">
+            <img class="avatar" src="assets/vectors/planet.svg" width="80px" height="80px" />
+          </div>
+          <h6>Emma Stanley</h6>
+          <span class="small-text uppercase mb-1 o-8">2 Courses</span>
+          <ngb-rating class="rating m-auto my-3" [(rate)]="rates[4]" [starTemplate]="t" [max]="5"></ngb-rating>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card text-center">
+          <div class="my-3">
+            <img class="avatar" src="assets/vectors/planet.svg" width="80px" height="80px" />
+          </div>
+          <h6>Emma Stanley</h6>
+          <span class="small-text uppercase mb-1 o-8">2 Courses</span>
+          <ngb-rating class="rating m-auto my-3" [(rate)]="rates[4]" [starTemplate]="t" [max]="5"></ngb-rating>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card text-center">
+          <div class="my-3">
+            <img class="avatar" src="assets/vectors/planet.svg" width="80px" height="80px" />
+          </div>
+          <h6>Emma Stanley</h6>
+          <span class="small-text uppercase mb-1 o-8">2 Courses</span>
+          <ngb-rating class="rating m-auto my-3" [(rate)]="rates[4]" [starTemplate]="t" [max]="5"></ngb-rating>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card text-center">
+          <div class="my-3">
+            <img class="avatar" src="assets/vectors/planet.svg" width="80px" height="80px" />
+          </div>
+          <h6>Emma Stanley</h6>
+          <span class="small-text uppercase mb-1 o-8">2 Courses</span>
+          <ngb-rating class="rating m-auto my-3" [(rate)]="rates[3]" [starTemplate]="t" [max]="5"></ngb-rating>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <section class="courses mx-1 py-3">
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4" *ngFor="let course of courses">
+        <div class="card">
+          <img *ngIf="course.img" class="top-img" src="{{course.img}}" />
+          <img *ngIf="!course.img" class="top-img" src="assets/images/default/course.jpg" />
+          <div class="card-body pb-0">
+            <span class="sticker">{{course.price}} $</span>
+            <p class="title">{{course.name}}</p>
+            <p class="subtitle">Keanu McCoy</p>
+          </div>
+          <div class="card-footer">
+            <div class="info d-flex">
+              <div class="me-auto">
+                <svg class="footer-icon me-2" xmlns="http://www.w3.org/2000/svg" width="12.94" height="12.94"
+                  viewBox="0 0 12.94 12.94">
+                  <path id="time-course-icon"
+                    d="M9.845,3.375a6.47,6.47,0,1,0,6.47,6.47A6.469,6.469,0,0,0,9.845,3.375Zm.435,7.03a.437.437,0,0,1-.435.435H6.859a.435.435,0,0,1,0-.871H9.41V5.864a.435.435,0,1,1,.871,0Z"
+                    transform="translate(-3.375 -3.375)" fill="#4d5160" />
+                </svg>
+                <span class="small-text">{{course.end_time | date:'d MMMM'}},({{course.number_hour}})</span>
+              </div>
+              <div class="me-auto">
+                <img src="assets/icons/course-level-icon.svg" class="footer-icon me-2" />
+                <span class="small-text">For {{course.level}}</span>
+              </div>
+              <div class="me-auto">
+                <img src="assets/icons/student-count-icon.svg" class="footer-icon me-2" />
+                <span class="small-text">{{course.student_number}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- stars rating template -->
+  <ng-template #t let-fill="fill">
+    <span class="star me-2" [class.full]="fill === 100">
+      <span class="half" [style.width.%]="fill">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21.243" height="20.333" viewBox="0 0 21.243 20.333">
+          <path id="star-icon"
+            d="M10.923.706,8.331,5.964l-5.8.846a1.271,1.271,0,0,0-.7,2.168l4.2,4.09-.993,5.777a1.27,1.27,0,0,0,1.842,1.338l5.19-2.728,5.19,2.728A1.271,1.271,0,0,0,19.1,18.845L18.1,13.067l4.2-4.09a1.271,1.271,0,0,0-.7-2.168l-5.8-.846L13.2.706A1.272,1.272,0,0,0,10.923.706Z"
+            transform="translate(-1.441 0.001)" fill="" />
+        </svg>
+      </span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="21.243" height="20.333" viewBox="0 0 21.243 20.333">
+        <path id="star-icon"
+          d="M10.923.706,8.331,5.964l-5.8.846a1.271,1.271,0,0,0-.7,2.168l4.2,4.09-.993,5.777a1.27,1.27,0,0,0,1.842,1.338l5.19-2.728,5.19,2.728A1.271,1.271,0,0,0,19.1,18.845L18.1,13.067l4.2-4.09a1.271,1.271,0,0,0-.7-2.168l-5.8-.846L13.2.706A1.272,1.272,0,0,0,10.923.706Z"
+          transform="translate(-1.441 0.001)" fill="" />
+      </svg>
+    </span>
+  </ng-template>
+</div>

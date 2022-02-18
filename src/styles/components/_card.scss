@@ -1,0 +1,81 @@
+@use '../abstract' as *;
+@use 'bootstrap' as b;
+div {
+    @include reset-spaces;
+}
+
+.card {
+    border: none;
+    .card-footer{
+      background: unset;
+    }
+}
+
+.card {
+    background: white;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    padding: $card-padding-base;
+    .top-img {
+        // margin: 0.5rem 0.5rem;
+        margin-bottom: 0;
+        border-radius: $border-radius;
+        height: 16rem;
+    }
+    .card-body {
+        padding: 1.5rem 1.5rem;
+        position: relative;
+        .sticker{
+          position: absolute;
+          border-radius: $border-radius;
+          padding: 0.3rem 0.5rem;
+          right: 30px;
+          top: -20px;
+          font-size: $medium-text;
+          @include primary-theme;
+        }
+        .title {
+            @include text-title;
+            color: $dark-gray;
+        }
+        .subtitle {
+            @include text-subtitle;
+            @include opacity($dark-gray, 0.8)
+        }
+    }
+    .card-footer{
+      .info{
+        @include custom-breakpoint (478px){
+          flex-direction: column;
+        }
+        @include custom-breakpoint-range (768px , 1200px){
+          flex-direction: column;
+        }
+      }
+    }
+}
+
+.img-card{
+  @include card-theme;
+  height: 100%;
+  position: relative;
+  img{
+    height: inherit;
+  }
+  span{
+    position: absolute;
+    color: #fff;
+    bottom: 0px;
+    margin: 10px;
+  }
+}
+/*div have sticker class contain text or/and icon stick in top right corner of card */
+.sticker{
+  @include card-theme;
+  width: max-content;
+  padding: 5px 9px;
+  position: absolute;
+  right: 27px;
+  top: 24px;
+}

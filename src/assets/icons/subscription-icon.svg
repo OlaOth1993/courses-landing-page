@@ -1,0 +1,8 @@
+<svg id="subscription-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <rect id="Rectangle_2003" data-name="Rectangle 2003" width="30" height="30" rx="10" fill="#edeff7"/>
+  <g id="Group_6105" data-name="Group 6105" transform="translate(327.156 303.006)">
+    <rect id="Rectangle_2104" data-name="Rectangle 2104" width="11.685" height="1.45" rx="0.725" transform="translate(-317.986 -292.884)" fill="#4d5160"/>
+    <path id="Path_12496" data-name="Path 12496" d="M-306.358-205.74H-317.93a1.54,1.54,0,0,0-1.54,1.54v5.705a1.54,1.54,0,0,0,1.54,1.54h11.572a1.54,1.54,0,0,0,1.54-1.54V-204.2A1.54,1.54,0,0,0-306.358-205.74Zm-3.776,4.522-1.485.858-1.486.858a.15.15,0,0,1-.225-.13v-3.431a.15.15,0,0,1,.225-.13l1.486.858,1.485.858A.149.149,0,0,1-310.134-201.218Z" transform="translate(0 -84.211)" fill="#4d5160"/>
+    <rect id="Rectangle_2105" data-name="Rectangle 2105" width="8.756" height="1.45" rx="0.725" transform="translate(-316.522 -295.817)" fill="#4d5160"/>
+  </g>
+</svg>

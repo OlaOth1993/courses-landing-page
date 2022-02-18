@@ -1,0 +1,28 @@
+@use '../abstract' as *;
+@use 'bootstrap' as b;
+
+.menu {
+  li {
+    font-size: $medium-text;
+    text-decoration: underline;
+    margin-bottom: 0.7rem;
+  }
+}
+
+.list {
+  text-align: start;
+  li {
+    color: $dark-gray;
+    font-size: $medium-text;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+    &::before {
+      content: "\2022";
+      color: $primary-color;
+      font-weight: bold;
+      display: inline-block;
+      width: 2em;
+      margin-left: -2em;
+    }
+  }
+}

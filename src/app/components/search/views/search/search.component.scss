@@ -1,0 +1,33 @@
+@use './../../../../../styles/abstract/variables' as *;
+
+.fixed-header {
+  position: sticky;
+  top: 70px;
+  z-index: 1000;
+}
+.rating {
+  margin: auto;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  svg {
+    fill: #b0c4de !important;
+  }
+}
+.full {
+  svg {
+    fill: $primary-color !important;
+  }
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  svg {
+    fill: $primary-color !important;
+  }
+}
+
+

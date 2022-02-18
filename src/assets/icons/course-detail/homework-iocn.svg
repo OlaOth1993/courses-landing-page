@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="homework-iocn" transform="translate(0 0.028)">
+    <rect id="Rectangle_2003" data-name="Rectangle 2003" width="30" height="30" rx="10" transform="translate(0 -0.028)" fill="#edeff7"/>
+    <g id="Group_6157" data-name="Group 6157" transform="translate(8.058 5.613)">
+      <path id="Path" d="M1.555,0A1.549,1.549,0,0,0,0,1.539V12.317a1.549,1.549,0,0,0,1.555,1.539h8.57a1.549,1.549,0,0,0,1.555-1.539V1.539A1.549,1.549,0,0,0,10.126,0Z" transform="translate(1.099 2.525)" fill="#fff"/>
+      <path id="Path-2" data-name="Path" d="M11.225,16.032H2.654A2.644,2.644,0,0,1,0,13.4V2.627A2.644,2.644,0,0,1,2.654,0h8.57a2.644,2.644,0,0,1,2.654,2.627V13.4a2.644,2.644,0,0,1-2.654,2.627Z" transform="translate(0 1.437)" fill="#fff"/>
+      <path id="Fill_12" data-name="Fill 12" d="M1.651,1.02H.51A.51.51,0,0,1,.51,0H1.651a.51.51,0,0,1,0,1.02" transform="translate(5.859)" fill="#4d5160"/>
+      <path id="Fill_8" data-name="Fill 8" d="M9.909,14.016H1.954A1.956,1.956,0,0,1,0,12.063V1.954A1.956,1.956,0,0,1,1.954,0H9.909a1.956,1.956,0,0,1,1.954,1.954V12.063A1.956,1.956,0,0,1,9.909,14.016ZM3.4,9.568a.51.51,0,0,0,0,1.02H5.291a.51.51,0,0,0,0-1.02Zm0-2.74a.51.51,0,0,0,0,1.02H8.459a.51.51,0,1,0,0-1.02Zm0-2.74a.51.51,0,0,0,0,1.02H8.459a.51.51,0,1,0,0-1.02Z" transform="translate(1.008 2.445)" fill="#2f57e5"/>
+      <path id="Fill_20" data-name="Fill 20" d="M1.2,2.692A1.2,1.2,0,0,1,0,1.5V.51A.51.51,0,0,1,.51,0H4.559a.51.51,0,0,1,.51.51V1.5a1.2,1.2,0,0,1-1.2,1.2Z" transform="translate(4.405 0.523)" fill="#4d5160"/>
+    </g>
+  </g>
+</svg>

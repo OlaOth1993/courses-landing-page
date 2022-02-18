@@ -1,0 +1,16 @@
+@use './../../../../../styles/abstract/variables' as *;
+@use './../../../../../styles/abstract/mixins' as *;
+@use './../../../shared/course-card/course-card.component.scss' as *;
+.img {
+    margin: 0 auto;
+    border-radius: 30px;
+    border: 3px solid blue;
+}
+
+.gray-star {
+    fill: $gray;
+}
+
+.blue-star {
+    fill: $blue;
+}

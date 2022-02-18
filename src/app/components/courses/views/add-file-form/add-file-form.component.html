@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between m-1">
+    <span>&nbsp;</span>
+    <a (click)="close()">
+        <svg class="gray-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 56 56">
+    <defs>
+      <filter id="joanna-kosinska-LAaSoL0LrYs-unsplash" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse">
+        <feOffset dy="2" input="SourceAlpha"/>
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feFlood flood-color="#2f57e5" flood-opacity="0.102"/>
+        <feComposite operator="in" in2="blur"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    </defs>
+    <g id="cancel-icon" transform="translate(-1142 -483)">
+      <g transform="matrix(1, 0, 0, 1, 1142, 483)" filter="url(#joanna-kosinska-LAaSoL0LrYs-unsplash)">
+        <rect id="joanna-kosinska-LAaSoL0LrYs-unsplash-2" data-name="joanna-kosinska-LAaSoL0LrYs-unsplash" width="20" height="20" rx="10" transform="translate(18 16)" fill="#2f57e5" opacity="0"/>
+      </g>
+      <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M15.854,14.981l2.638-2.638a.618.618,0,1,0-.874-.874l-2.638,2.638-2.638-2.638a.618.618,0,1,0-.874.874l2.638,2.638-2.638,2.638a.618.618,0,1,0,.874.874l2.638-2.638,2.638,2.638a.618.618,0,0,0,.874-.874Z" transform="translate(1155.021 494.019)" fill="#4d5160"/>
+    </g>
+  </svg>
+    </a>
+</div>
+<div class="d-flex justify-content-center">
+    <div class="row">
+        <a class="btn mb-2" (click)="file.click()">
+            <input hidden (change)="uploadFile($event)" type="file" #file>
+            <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+
+                    <img class="w-auto d-block mb-2 centerize" src="../../../../../assets/vectors/add-new-homework-vector.svg" alt="">
+                    <span class="text-gray uppercase base-text mx-1">add new file</span>
+                    <i *ngIf="loading" class="fa fa-spinner faa-spin animated"></i>
+                </ng-template>
+            </ngx-file-drop>
+        </a>
+        <p class="small-text text-center gray-color"> Browser your file to add file or drag file here</p>
+    </div>
+</div>

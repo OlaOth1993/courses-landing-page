@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="row rowHome">
+        <div class="card p-5 mt-4">
+
+            <!--Content Register-->
+            <div class="row">
+
+                <!-- Left Side Image -->
+                <div class="col-md-6 divImage px-md-4 ">
+                    <img src="assets/images/signup.jpg" alt="Sign Up" [@inputFade]="state">
+                </div>
+
+                <!--Form Register-->
+                <div class="col-md-6 formRegister px-md-4">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+
+
+                        <!-- Header -->
+                        <h1 class="mt-4 upper-case">Sign Up</h1>
+                        <p>When you sign up ,can subscribe with any course online!</p>
+
+                        <!-- FullName -->
+                        <div class="form-group mt-3" [@stateInput]="state">
+                            <div class="row">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Ful Name</mat-label>
+                                        <input matInput type="text" formControlName="full_name">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <app-field-error-display field="full_name"></app-field-error-display>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group mt-3" [@stateInput]="state">
+                            <div class="row">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Email</mat-label>
+                                        <input matInput type="email" formControlName="email">
+                                    </mat-form-field>
+                                    <app-field-error-display field="email"></app-field-error-display>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group mt-3" [@inputFade]="state">
+                            <div class="row">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Password</mat-label>
+                                        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+                                        <button class="passwordBtn" mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                                      <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
+                                    </mat-form-field>
+                                    <app-field-error-display field="password"></app-field-error-display>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="form-group mt-3" [@inputFade]="state">
+                            <div class="row">
+                                <div class="col">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Confirm Password</mat-label>
+                                        <input matInput [type]="hideConfirm ? 'password' : 'text'" formControlName="confirm">
+                                        <button class="passwordBtn" mat-icon-button matSuffix type="button" (click)="hideConfirm = !hideConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirm">
+                                      <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
+                                    </mat-form-field>
+                                    <app-field-error-display field="confirm"></app-field-error-display>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sign Up -->
+                        <button class="mt-4 p-2 primary-btn w-100 " type="submit" [@btnAnimateSubmit]="state ">Sign Up
+                            <i *ngIf="loading " class="fa fa-spinner faa-spin animated "></i>
+
+                        </button>
+
+                        <!-- Socail Media -->
+                        <p class="mt-3 text-center ">Or register with :</p>
+                        <div class="row">
+
+                            <!-- Google -->
+                            <div class="col-md-12 mt-2 ">
+                                <button (click)="signInWithGoogle()" type="button" [@socialMedia]="state " class="secondary-grey-btn w-100 d-flex align-items-center justify-content-center p-2 ">
+                                  <svg xmlns="http://www.w3.org/2000/svg " width="16.161 " height="16.426 " viewBox="0 0 16.161 16.426 "
+                                  >
+                                      <path id="google-register-icon " d="M16.161,8.968a7.627,7.627,0,0,1-7.948,8.021,8.213,8.213,0,1,1,0-16.426A7.9,7.9,0,0,1,13.72,2.712L11.485,4.861c-2.924-2.822-8.362-.7-8.362,3.914a5.145,5.145,0,0,0,5.09,5.186,4.441,4.441,0,0,0,4.663-3.54H8.213V7.6h7.819A7.2,7.2,0,0,1,16.161,8.968Z
+                                            " transform="translate(0 -0.563) " fill=" "/>
+                                    </svg>
+                              <span >Google</span>                              
+                              </button>
+                            </div>
+
+                        </div>
+
+                        <!-- Login -->
+                        <p class="mt-3 text-center">
+                            Have already account?
+                            <a href=" " routerLink="/login">Login</a>
+                        </p>
+
+                    </form>
+                </div>
+
+
+            </div>
+
+            <!-- Planet -->
+            <img src="assets/vectors/planet.svg" id="planet-right" alt=" ">
+        </div>
+    </div>
+</div>

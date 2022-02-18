@@ -1,0 +1,11 @@
+1) Use the following technique for improving performance.
+
+// in the template
+<li *ngFor="let item of items; trackBy: trackByFn">{{ item }}</li>
+
+// in the component
+trackByFn(index, item) {
+   return item.id; // unique id corresponding to the item
+}
+
+

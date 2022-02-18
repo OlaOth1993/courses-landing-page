@@ -1,0 +1,93 @@
+<div class="show-profile">
+  <div class="card mb-4 p-0">
+    <div class="row m-0">
+      <div class="col-md-3 p-4 text-center border-right">
+        <p class="base-text weight-semibold uppercase">Completed Information</p>
+        <circle-progress [percent]="percentage" [radius]="40" [outerStrokeWidth]="6" [showInnerStroke]="false"
+          [outerStrokeColor]="'#2F57E5'" [animation]="true" [animationDuration]="300">
+        </circle-progress>
+      </div>
+      <div class="col-md-9 p-4">
+        <div class="space-between">
+          <p class="base-text weight-semibold uppercase">Complete Your Profile Settings</p>
+          <a class="small-text colored-link" (click)="completInfo()">Complete Information</a>
+        </div>
+        <div class="progresses py-4">
+          <ul class="d-flex align-items-center justify-content-between">
+            <li id="step-0" class="not-active"></li>
+            <li id="step-1" class="active-now "></li>
+            <li id="step-2" class="not-active"></li>
+            <li id="step-3" class="not-active me-1"></li>
+          </ul>
+          <div >
+            <div class="progress">
+              <div id="progress-bar" class="progress-bar" style="width: 33%;"  role="progressbar" aria-valuenow="10"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-4 p-0">
+    <div class="row m-0">
+      <div class="col-md-3 p-4 text-center border-right">
+        <div class="mb-2">
+          <img *ngIf="!user||!user.profile_img" class="avatar" src="assets/images/default/default-profile.jpg" width="110px" height="110px" />
+          <img *ngIf="user&&user.profile_img" class="avatar" src="{{user.profile_img}}" width="110px" height="110px" />
+        </div>
+        <p *ngIf="user" class="title-text uppercase m-1">{{user.full_name}}</p>
+        <span class="small-text uppercase o-8">2 Courses</span>
+        <div class="menu mt-2">
+          <li><a routerLink="/profile/edit">Update Profile</a></li>
+          <li><a (click)="openPasswordModal(resetPassword)">Reset Password</a></li>
+          <li><a (click)="logout()">Log Out</a></li>
+        </div>
+      </div>
+      <div class="col-md-6 py-4 px-0">
+        <div class="mx-4 space-between">
+          <span class="base-text weight-semibold uppercase">Wallet information</span>
+          <a class="small-text colored-link" routerLink="./my-wallet">Show Details</a>
+        </div>
+
+        <div class="row m-4">
+          <div class="col-lg-6">
+            <p class="base-text">Total balance</p>
+            <p class="h1 primary">220$</p>
+          </div>
+          <div class="col-lg-6">
+            <p class="base-text">Withdrawable balance</p>
+            <p class="h1 primary">200$</p>
+          </div>
+        </div>
+        <div class="p-4 border-top">
+          <p class="base-text">Available balance within platform: <span class="primary">20$</span></p>
+          <p class="base-text">balance is not withdrawn: <span class="primary">20$</span></p>
+        </div>
+      </div>
+      <div class="col-md-3 py-4 px-5 text-center border-left">
+        <div class="px-3">
+          <div class="mb-4">
+            <img class="contain" src="assets/vectors/my-subscription-icon.svg" width="170" height="90" />
+          </div>
+          <h5 class="uppercase m-1 mb-4">My Subscription</h5>
+
+          <ul class="list">
+            <li>25 days left</li>
+            <li>60 students</li>
+            <li>70 hours left</li>
+          </ul>
+          <a class="primary-btn large my-2 w-100" routerLink="/profile/edit-subscription">Update</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #resetPassword let-modal>
+    <div class="modal-body">
+      <app-password-form [modalRef]="modalRef"></app-password-form>
+    </div>
+
+  </ng-template>
+</div>

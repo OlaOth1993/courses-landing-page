@@ -1,0 +1,12 @@
+@import "~bootstrap/scss/bootstrap";
+.responsive {
+  @include font-size(4rem);
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+.wrapped {
+  margin: auto;
+}

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div *ngIf="resourcesCheckedlength <= 1" class="col-3 d-flex justify-content-center align-items-center">
+      <h2 class="primary">{{extension | uppercase}}</h2>
+    </div>
+    <div *ngIf="resourcesCheckedlength > 1 && resourcesCheckedList" class="col-3 d-flex justify-content-center align-items-center">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="33.191" height="41.129" viewBox="0 0 33.191 41.129">
+          <g id="files-icon" transform="translate(-145.535 -158.936)">
+            <path id="Path_18820" data-name="Path 18820"
+              d="M168.977,194.913a2.672,2.672,0,0,1-2.856,2.661c-5.061.016-10.155.016-15.216,0a2.678,2.678,0,0,1-2.839-2.856V171.634a2.612,2.612,0,0,1,2.579-2.871v-2.515h-.259a5.028,5.028,0,0,0-4.851,5.013v23.782a4.961,4.961,0,0,0,4.77,4.98c5.564.065,11.112.049,16.66-.016a4.857,4.857,0,0,0,4.477-4.672V194.9C170.631,194.913,169.788,194.913,168.977,194.913Z"
+              fill="#2f57e5" />
+            <path id="Path_18821" data-name="Path 18821"
+              d="M170.875,175.527c-4.283.017-5.938.017-10.221.017a1.184,1.184,0,0,1-1.33-1.217,1.242,1.242,0,0,1,1.395-1.233H170.81c.876,0,1.379.454,1.4,1.233C172.205,175.073,171.767,175.527,170.875,175.527Zm.032,5.256h-5.143c-1.719,0-3.422.017-5.142,0a1.161,1.161,0,0,1-1.3-1.232,1.123,1.123,0,0,1,1.249-1.2q5.184-.024,10.366,0a1.16,1.16,0,0,1,1.266,1.265A1.18,1.18,0,0,1,170.907,180.783Zm.649,5.078a1.71,1.71,0,0,1-.86.179c-2.093.016-1.557.016-3.65.016h-6.262c-.876-.016-1.444-.471-1.46-1.2a1.253,1.253,0,0,1,1.412-1.3c4.2-.016,5.791,0,9.993,0a1.278,1.278,0,0,1,1.411.893A1.131,1.131,0,0,1,171.556,185.861Zm6.473-18.461c-1.331-1.411-2.628-2.855-3.991-4.234a39.769,39.769,0,0,0-3.18-3.017,4.481,4.481,0,0,0-2.287-1.136c-3.634-.114-7.284-.081-10.9-.032a5.037,5.037,0,0,0-4.867,5v23.782a4.98,4.98,0,0,0,4.785,5q6.789.048,13.546,0c.827,0,1.655-.017,2.482-.033h.617a4.847,4.847,0,0,0,4.493-4.672v-9.328c0-3.1-.016-6.2,0-9.3A2.776,2.776,0,0,0,178.029,167.4Z"
+              fill="#2f57e5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="col-9 ">
+      <div class="row d-flex justify-content-center mt-1">
+        <h6>Download from resources</h6>
+      </div>
+      <div class="row d-flex justify-content-center small text-gray">
+        <p>Your download was started</p>
+      </div>
+      <div *ngIf="resourcesCheckedlength > 1" class="row d-flex justify-content-center small text-gray">
+        <p class="col">Files:</p>
+        <div class="col" *ngFor="let resource of resourcesCheckedList">
+          <p> {{resource.file_name}},</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

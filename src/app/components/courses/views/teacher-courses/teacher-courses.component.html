@@ -1,0 +1,69 @@
+<div *ngIf="teacher " class="row ">
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+        <div class="card text-center mb-3">
+            <img *ngIf="teacher.profile_img" class="img" style="width: 60px;height: 60px;" src={{teacher.profile_img}}>
+            <img *ngIf="teacher.profile_img == null" class="img" style="width: 60px;height: 60px;" src='assets/vectors/planet.svg'>
+
+            <div class="card-body">
+                <p *ngIf="teacher" class="card-title">{{teacher.full_name}}</p>
+                <p class="subtitle"> {{teacher.teacher_courses_model_count}} Courses</p>
+
+            </div>
+            <div class="" *ngIf="teacher.review_avg_review">
+                <span class="m-1">
+                  <svg  [ngClass]="{'blue-star' :teacher.review_avg_review > 0, 'gray-star':teacher.review_avg_review == 0}" xmlns="http://www.w3.org/2000/svg" width="21.243" height="20.333" viewBox="0 0 21.243 20.333">
+                      <path id="star-icon" d="M10.923.706,8.331,5.964l-5.8.846a1.271,1.271,0,0,0-.7,2.168l4.2,4.09-.993,5.777a1.27,1.27,0,0,0,1.842,1.338l5.19-2.728,5.19,2.728A1.271,1.271,0,0,0,19.1,18.845L18.1,13.067l4.2-4.09a1.271,1.271,0,0,0-.7-2.168l-5.8-.846L13.2.706A1.272,1.272,0,0,0,10.923.706Z" transform="translate(-1.441 0.001)" />
+                  </svg>
+               </span>
+
+                <span class="m-1">
+                    <svg [ngClass]="{'blue-star' :teacher.review_avg_review > 1, 'gray-star':teacher.review_avg_review == 1}" xmlns="http://www.w3.org/2000/svg" width="21.243" height="20.333" viewBox="0 0 21.243 20.333">
+                        <path id="star-icon" d="M10.923.706,8.331,5.964l-5.8.846a1.271,1.271,0,0,0-.7,2.168l4.2,4.09-.993,5.777a1.27,1.27,0,0,0,1.842,1.338l5.19-2.728,5.19,2.728A1.271,1.271,0,0,0,19.1,18.845L18.1,13.067l4.2-4.09a1.271,1.271,0,0,0-.7-2.168l-5.8-.846L13.2.706A1.272,1.272,0,0,0,10.923.706Z" transform="translate(-1.441 0.001)" />
+                    </svg>
+                    </span>
+                <span class="m-1">
+                        <svg [ngClass]="{'blue-star' :teacher.review_avg_review > 2, 'gray-star':teacher.review_avg_review == 2}"  xmlns="http://www.w3.org/2000/svg" width="21.243" height="20.333" viewBox="0 0 21.243 20.333">
+                            <path id="star-icon" d="M10.923.706,8.331,5.964l-5.8.846a1.271,1.271,0,0,0-.7,2.168l4.2,4.09-.993,5.777a1.27,1.27,0,0,0,1.842,1.338l5.19-2.728,5.19,2.728A1.271,1.271,0,0,0,19.1,18.845L18.1,13.067l4.2-4.09a1.271,1.271,0,0,0-.7-2.168l-5.8-.846L13.2.706A1.272,1.272,0,0,0,10.923.706Z" transform="translate(-1.441 0.001)" />
+                        </svg>
+                 </span>
+                <span class="m-1">
+                            <svg [ngClass]="{'blue-star' :teacher.review_avg_review > 3, 'gray-star':teacher.review_avg_review == 3}" xmlns="http://www.w3.org/2000/svg" width="21.243" height="20.333" viewBox="0 0 21.243 20.333">
+                                <path id="star-icon" d="M10.923.706,8.331,5.964l-5.8.846a1.271,1.271,0,0,0-.7,2.168l4.2,4.09-.993,5.777a1.27,1.27,0,0,0,1.842,1.338l5.19-2.728,5.19,2.728A1.271,1.271,0,0,0,19.1,18.845L18.1,13.067l4.2-4.09a1.271,1.271,0,0,0-.7-2.168l-5.8-.846L13.2.706A1.272,1.272,0,0,0,10.923.706Z" transform="translate(-1.441 0.001)" />
+                            </svg>
+                 </span>
+                <span class="m-1">
+                                <svg [ngClass]="{'blue-star' :teacher.review_avg_review == 5, 'gray-star':teacher.review_avg_review == 4}" xmlns="http://www.w3.org/2000/svg" width="21.243" height="20.333" viewBox="0 0 21.243 20.333">
+                                    <path id="star-icon" d="M10.923.706,8.331,5.964l-5.8.846a1.271,1.271,0,0,0-.7,2.168l4.2,4.09-.993,5.777a1.27,1.27,0,0,0,1.842,1.338l5.19-2.728,5.19,2.728A1.271,1.271,0,0,0,19.1,18.845L18.1,13.067l4.2-4.09a1.271,1.271,0,0,0-.7-2.168l-5.8-.846L13.2.706A1.272,1.272,0,0,0,10.923.706Z" transform="translate(-1.441 0.001)" />
+                                </svg>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-8">
+
+        <div class="row">
+            <div *ngFor="let course of courses;" class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                <app-course-card [courseOb]="course"></app-course-card>
+
+            </div>
+            <div *ngIf="second_page_url != null">
+                <button type="button" (click)="loadSecondPageCourses(subCategory.id, currenPage+1)" class="secondary-btn large float-right" style="height: 40px;" [ngClass]="{'hide': !secondPage, 'show': secondPage} ">Load More
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354" viewBox="0 0 23.098 11.354">
+                      <path id="arrow-icon"
+                        d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                        transform="translate(0 -10.258)" />
+                    </svg>
+                  </button>
+                <div *ngIf="!secondPage">
+
+                    <div *ngFor="let course of secondPageCourses;" class="col-12 col-md-4 col-sm-6 col-xs-12">
+                        <app-course-card [courseOb]="course"></app-course-card>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

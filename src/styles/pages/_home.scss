@@ -1,0 +1,105 @@
+@use './../abstract' as *;
+.introduction {
+  .card {
+    background-image: url(./../../assets/vectors/planet-right.svg);
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 100%;
+  }
+}
+.statistics {
+  .icon-box {
+    @include card-theme;
+    width: 100px;
+    height: 100px;
+  }
+}
+.card {
+  .footer-icon {
+    width: 20px;
+  }
+}
+.statistics {
+  .icon-box {
+    @include card-theme;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.right {
+  height: 60px;
+  button {
+    float: right;
+  }
+}
+
+.feedback {
+  background-image: url("./../../assets/images/world-bg.png");
+  background-size: cover;
+}
+
+#carouselTeacherCaptions {
+  .carousel-inner {
+    .carousel-item {
+      h3 {
+        width: 30rem;
+      }
+    }
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .carousel-img {
+        width: 160px;
+        margin-bottom: 1rem;
+      }
+      p {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+#carouselQuotesCaptions {
+  .carousel-img {
+    height: 400px;
+    img {
+      height: 100%;
+    }
+  }
+  p {
+    opacity: 0.8;
+  }
+}
+
+.carousel {
+  .carousel-control-prev,
+  .carousel-control-next {
+    opacity: 1;
+    width: 60px;
+    height: 40px;
+    top: 90%;
+  }
+  .carousel-control-prev {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+  svg {
+    margin: unset !important;
+    margin: auto !important;
+  }
+  .carousel-actions {
+    position: absolute;
+    width: 10rem;
+    right: 0;
+    bottom: 7rem;
+    margin: 0 2rem;
+  }
+  @include for-tablet {
+    .carousel-actions {
+      bottom: 0;
+    }
+  }
+}

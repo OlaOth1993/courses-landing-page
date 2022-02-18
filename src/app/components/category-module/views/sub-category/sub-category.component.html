@@ -1,0 +1,691 @@
+<div class="container">
+    <!-- <app-path [title]="title" [path]="categoryRoute"></app-path> -->
+    <mat-tab-group *ngIf="checkCategoryLoaded()" animationDuration="0.5ms" (selectedTabChange)="tabChanged($event)" [(selectedIndex)]="categoryIndex">
+        <mat-tab *ngFor="let category of categories | slice:0:6;" label={{category.name}}>
+            <mat-tab-list *ngIf="checkSubLoaded()">
+                <div class="row mt-3 mb-2">
+                    <div *ngIf="subCategories[0]" class="col-md-4 pb-4">
+                        <div class="d-flex close-icon">
+                            <svg *ngIf="subCategories[0].isShown" (click)="subCategories[0].isShown && toggleShowCard(subCategories[0])" class=" mt-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="17.114" height="17.114" viewBox="0 0 17.114 17.114">
+                <g id="Icon_ionic-ios-close-circle-outline" data-name="Icon ionic-ios-close-circle-outline"
+                  transform="translate(-3.375 -3.375)">
+                  <path id="Path_18361" data-name="Path 18361"
+                    d="M18.757,17.825l-2.168-2.168,2.168-2.168a.657.657,0,1,0-.93-.93L15.66,14.728,13.492,12.56a.657.657,0,0,0-.93.93l2.168,2.168-2.168,2.168a.636.636,0,0,0,0,.93.653.653,0,0,0,.93,0l2.168-2.168,2.168,2.168a.66.66,0,0,0,.93,0A.653.653,0,0,0,18.757,17.825Z"
+                    transform="translate(-3.728 -3.726)" fill="#fff" />
+                  <path id="Path_18362" data-name="Path 18362"
+                    d="M11.932,4.527A7.4,7.4,0,1,1,6.695,6.695a7.356,7.356,0,0,1,5.237-2.168m0-1.152a8.557,8.557,0,1,0,8.557,8.557,8.555,8.555,0,0,0-8.557-8.557Z"
+                    fill="#fff" />
+                </g>
+              </svg>
+                        </div>
+                        <div class="img-card cursor-pointer" (click)="!subCategories[0].isShown && toggleShowCard(subCategories[0])">
+                            <img src={{subCategories[0].img}}>
+                            <span>{{subCategories[0].name}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="subCategories[1]" [ngClass]="{'col-md-8': !subCategories[2]}" class="col-md-3 pb-4">
+                        <div class="d-flex close-icon">
+                            <svg *ngIf="subCategories[1].isShown" (click)="subCategories[1].isShown && toggleShowCard(subCategories[1])" class=" mt-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="17.114" height="17.114" viewBox="0 0 17.114 17.114">
+                <g id="Icon_ionic-ios-close-circle-outline" data-name="Icon ionic-ios-close-circle-outline"
+                  transform="translate(-3.375 -3.375)">
+                  <path id="Path_18361" data-name="Path 18361"
+                    d="M18.757,17.825l-2.168-2.168,2.168-2.168a.657.657,0,1,0-.93-.93L15.66,14.728,13.492,12.56a.657.657,0,0,0-.93.93l2.168,2.168-2.168,2.168a.636.636,0,0,0,0,.93.653.653,0,0,0,.93,0l2.168-2.168,2.168,2.168a.66.66,0,0,0,.93,0A.653.653,0,0,0,18.757,17.825Z"
+                    transform="translate(-3.728 -3.726)" fill="#fff" />
+                  <path id="Path_18362" data-name="Path 18362"
+                    d="M11.932,4.527A7.4,7.4,0,1,1,6.695,6.695a7.356,7.356,0,0,1,5.237-2.168m0-1.152a8.557,8.557,0,1,0,8.557,8.557,8.555,8.555,0,0,0-8.557-8.557Z"
+                    fill="#fff" />
+                </g>
+              </svg>
+                        </div>
+                        <div class="img-card cursor-pointer" (click)="!subCategories[1].isShown && toggleShowCard(subCategories[1])">
+                            <img src={{subCategories[1].img}}>
+                            <span>{{subCategories[1].name}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="subCategories[2]" class="col-md-5 pb-4">
+                        <div class="d-flex close-icon">
+                            <svg *ngIf="subCategories[2].isShown" (click)="subCategories[2].isShown && toggleShowCard(subCategories[2])" class=" mt-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="17.114" height="17.114" viewBox="0 0 17.114 17.114">
+                <g id="Icon_ionic-ios-close-circle-outline" data-name="Icon ionic-ios-close-circle-outline"
+                  transform="translate(-3.375 -3.375)">
+                  <path id="Path_18361" data-name="Path 18361"
+                    d="M18.757,17.825l-2.168-2.168,2.168-2.168a.657.657,0,1,0-.93-.93L15.66,14.728,13.492,12.56a.657.657,0,0,0-.93.93l2.168,2.168-2.168,2.168a.636.636,0,0,0,0,.93.653.653,0,0,0,.93,0l2.168-2.168,2.168,2.168a.66.66,0,0,0,.93,0A.653.653,0,0,0,18.757,17.825Z"
+                    transform="translate(-3.728 -3.726)" fill="#fff" />
+                  <path id="Path_18362" data-name="Path 18362"
+                    d="M11.932,4.527A7.4,7.4,0,1,1,6.695,6.695a7.356,7.356,0,0,1,5.237-2.168m0-1.152a8.557,8.557,0,1,0,8.557,8.557,8.555,8.555,0,0,0-8.557-8.557Z"
+                    fill="#fff" />
+                </g>
+                            </svg>
+                        </div>
+                        <div class="img-card cursor-pointer" (click)="!subCategories[2].isShown && toggleShowCard(subCategories[2])">
+                            <img src={{subCategories[2].img}}>
+                            <span>{{subCategories[2].name}}</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2" *ngIf="subCategories[0] && subCategories[0].isShown">
+                        <div class="row">
+                            <div class="card col card-description">
+                                <div class="card-body">
+                                    <p class="card-title weight-semibold"> {{subCategories[0].name}} </p>
+                                    <p class="subtitle"> {{subCategories[0].description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('md') || mediaObserver.isActive('lg')">
+                            <div class="col">
+                                <div id="slider" class="carousel slide" data-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[0].courses |slice:0:3">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- carousel -->
+                                        <div class="carousel-item">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[0].courses |slice:3:subCategories[0].courses.length">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 card-item">
+                                                    <div class="card card-block course-card">
+                                                        <div class="d-flex top-img">
+                                                            <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                                        </div>
+                                                        <div class="card-body d-flex">
+                                                            <h6 class="card-title">Show all other items</h6>
+                                                        </div>
+                                                        <div class="card-footer bg-transparent d-flex">
+                                                            <button class="primary-btn" (click)="goToAllCourses(subCategories[0])">Show All</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-actions">
+                                        <button class="carousel-control-prev p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                                          viewBox="0 0 23.098 11.354">
+                                          <path id="arrow-icon"
+                                            d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                                            transform="translate(0 -10.258)" fill="" />
+                                        </svg>
+                    </button>
+
+
+                                        <button class="carousel-control-next p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="next">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('xs') || mediaObserver.isActive('sm')">
+                            <div class="col-md-4" *ngFor="let course of subCategories[0].courses">
+                                <div class="card-block">
+                                    <app-course-card [courseOb]="course"></app-course-card>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card card-block course-card">
+                                    <div class="d-flex top-img">
+                                        <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                    </div>
+                                    <div class="card-body d-flex">
+                                        <h6 class="card-title">Show all other items</h6>
+                                    </div>
+
+                                    <div class="card-footer bg-transparent d-flex">
+                                        <button class="primary-btn" (click)="goToAllCourses(subCategories[0])">Show All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row  scroll d-flex flex-row flex-nowrap mt-2">
+              <div class="col-md-4 card-item" *ngFor="let course of subCategories[0].courses">
+                <div class="card-block">
+                  <app-course-card [courseOb]="course"></app-course-card>
+                </div>
+              </div>
+              <div class="col-md-3 card-item">
+                <div class="card card-block course-card">
+                  <div class="d-flex top-img">
+                    <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                  </div>
+                  <div class="card-body d-flex">
+                    <h6 class="card-title">Show all other items</h6>
+                  </div>
+
+                  <div class="card-footer bg-transparent d-flex">
+                    <button class="primary-btn" (click)="goToAllCourses(subCategories[0])">Show All</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+                    </div>
+                    <div class="row mt-2 mb-2" *ngIf="subCategories[1] && subCategories[1].isShown">
+                        <div class="row">
+                            <div class="card col card-description">
+                                <div class="card-body">
+                                    <p class="card-title weight-semibold"> {{subCategories[1].name}} </p>
+                                    <p class="subtitle"> {{subCategories[1].description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('md') || mediaObserver.isActive('lg')">
+                            <div class="col">
+                                <div id="slider" class="carousel slide" data-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[1].courses |slice:0:3">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[1].courses |slice:3:subCategories[1].courses.length">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                                <!-- show all -->
+                                                <div class="col-md-3 card-item">
+                                                    <div class="card card-block course-card">
+                                                        <div class="d-flex top-img">
+                                                            <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                                        </div>
+                                                        <div class="card-body d-flex">
+                                                            <h6 class="card-title">Show all other items</h6>
+                                                        </div>
+                                                        <div class="card-footer bg-transparent d-flex">
+                                                            <button class="primary-btn" (click)="goToAllCourses(subCategories[1])">Show All</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-actions">
+                                        <button class="carousel-control-prev p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                        <button class="carousel-control-next p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="next">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('xs') || mediaObserver.isActive('sm')">
+                            <div class="col-md-4 card-item" *ngFor="let course of subCategories[1].courses">
+                                <div class="card-block">
+                                    <app-course-card [courseOb]="course"></app-course-card>
+                                </div>
+                            </div>
+                            <div class="col-md-3 card-item">
+                                <div class="card card-block course-card">
+                                    <div class="d-flex top-img">
+                                        <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                    </div>
+                                    <div class="card-body d-flex">
+                                        <h6 class="card-title">Show all other items</h6>
+                                    </div>
+
+                                    <div class="card-footer bg-transparent d-flex">
+                                        <button class="primary-btn" (click)="goToAllCourses(subCategories[1])">Show All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2" *ngIf="subCategories[2] && subCategories[2].isShown">
+                        <div class="row">
+                            <div class="card col card-description">
+                                <div class="card-body">
+                                    <p class="card-title weight-semibold"> {{subCategories[2].name}} </p>
+                                    <p class="subtitle"> {{subCategories[2].description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('md') || mediaObserver.isActive('lg')">
+                            <div class="col">
+                                <div id="slider" class="carousel slide" data-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[2].courses |slice:0:3">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[2].courses |slice:3:subCategories[2].courses.length">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 card-item">
+                                                    <div class="card card-block course-card">
+                                                        <div class="d-flex top-img">
+                                                            <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                                        </div>
+                                                        <div class="card-body d-flex">
+                                                            <h6 class="card-title">Show all other items</h6>
+                                                        </div>
+                                                        <div class="card-footer bg-transparent d-flex">
+                                                            <button class="primary-btn" (click)="goToAllCourses(subCategories[2])">Show All</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-actions">
+                                        <button class="carousel-control-next p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                        <button class="carousel-control-next p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="next">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="#743" />
+                      </svg>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('xs') || mediaObserver.isActive('sm')">
+                            <div class="col-md-4 card-item" *ngFor="let course of subCategories[2].courses">
+                                <div class="card-block">
+                                    <app-course-card [courseOb]="course"></app-course-card>
+                                </div>
+                            </div>
+                            <div class="col-md-3 card-item">
+                                <div class="card card-block course-card">
+                                    <div class="d-flex top-img">
+                                        <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                    </div>
+                                    <div class="card-body d-flex">
+                                        <h6 class="card-title">Show all other items</h6>
+                                    </div>
+
+                                    <div class="card-footer bg-transparent d-flex">
+                                        <button class="primary-btn" (click)="goToAllCourses(subCategories[2])">Show All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="subCategories[3]" class="col-md-5 pb-4">
+                        <div class="d-flex close-icon">
+                            <svg *ngIf="subCategories[3].isShown" (click)="subCategories[3].isShown && toggleShowCard(subCategories[3])" class=" mt-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="17.114" height="17.114" viewBox="0 0 17.114 17.114">
+                <g id="Icon_ionic-ios-close-circle-outline" data-name="Icon ionic-ios-close-circle-outline"
+                  transform="translate(-3.375 -3.375)">
+                  <path id="Path_18361" data-name="Path 18361"
+                    d="M18.757,17.825l-2.168-2.168,2.168-2.168a.657.657,0,1,0-.93-.93L15.66,14.728,13.492,12.56a.657.657,0,0,0-.93.93l2.168,2.168-2.168,2.168a.636.636,0,0,0,0,.93.653.653,0,0,0,.93,0l2.168-2.168,2.168,2.168a.66.66,0,0,0,.93,0A.653.653,0,0,0,18.757,17.825Z"
+                    transform="translate(-3.728 -3.726)" fill="#fff" />
+                  <path id="Path_18362" data-name="Path 18362"
+                    d="M11.932,4.527A7.4,7.4,0,1,1,6.695,6.695a7.356,7.356,0,0,1,5.237-2.168m0-1.152a8.557,8.557,0,1,0,8.557,8.557,8.555,8.555,0,0,0-8.557-8.557Z"
+                    fill="#fff" />
+                </g>
+              </svg>
+                        </div>
+                        <div class="img-card cursor-pointer" (click)="!subCategories[3].isShown && toggleShowCard(subCategories[3])">
+                            <img src={{subCategories[3].img}}>
+                            <span>{{subCategories[3].name}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="subCategories[4]" class="col-md-7 pb-4">
+                        <div class="d-flex close-icon">
+                            <svg *ngIf="subCategories[4].isShown" (click)="subCategories[4].isShown && toggleShowCard(subCategories[4])" class=" mt-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="17.114" height="17.114" viewBox="0 0 17.114 17.114">
+                <g id="Icon_ionic-ios-close-circle-outline" data-name="Icon ionic-ios-close-circle-outline"
+                  transform="translate(-3.375 -3.375)">
+                  <path id="Path_18361" data-name="Path 18361"
+                    d="M18.757,17.825l-2.168-2.168,2.168-2.168a.657.657,0,1,0-.93-.93L15.66,14.728,13.492,12.56a.657.657,0,0,0-.93.93l2.168,2.168-2.168,2.168a.636.636,0,0,0,0,.93.653.653,0,0,0,.93,0l2.168-2.168,2.168,2.168a.66.66,0,0,0,.93,0A.653.653,0,0,0,18.757,17.825Z"
+                    transform="translate(-3.728 -3.726)" fill="#fff" />
+                  <path id="Path_18362" data-name="Path 18362"
+                    d="M11.932,4.527A7.4,7.4,0,1,1,6.695,6.695a7.356,7.356,0,0,1,5.237-2.168m0-1.152a8.557,8.557,0,1,0,8.557,8.557,8.555,8.555,0,0,0-8.557-8.557Z"
+                    fill="#fff" />
+                </g>
+              </svg>
+                        </div>
+                        <div class="img-card cursor-pointer" (click)="!subCategories[4].isShown && toggleShowCard(subCategories[4])">
+                            <img src={{subCategories[4].img}}>
+                            <span>{{subCategories[4].name}}</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2" *ngIf="subCategories[3] && subCategories[3].isShown">
+                        <div class="row">
+                            <div class="card col card-description">
+                                <div class="card-body">
+                                    <p class="card-title weight-semibold"> {{subCategories[3].name}} </p>
+                                    <p class="subtitle"> {{subCategories[3].description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('md') || mediaObserver.isActive('lg')">
+                            <div class="col">
+                                <div id="slider" class="carousel slide" data-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[3].courses |slice:0:3">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[3].courses |slice:3:subCategories[3].courses.length">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 card-item">
+                                                    <div class="card card-block course-card">
+                                                        <div class="d-flex top-img">
+                                                            <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                                        </div>
+                                                        <div class="card-body d-flex">
+                                                            <h6 class="card-title">Show all other items</h6>
+                                                        </div>
+                                                        <div class="card-footer bg-transparent d-flex">
+                                                            <button class="primary-btn" (click)="goToAllCourses(subCategories[3])">Show All</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-actions">
+                                        <button class="carousel-control-prev p-0 secondary-grey-btn" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                        <button class="carousel-control-next p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="next">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('xs') || mediaObserver.isActive('sm')">
+                            <div class="col-md-4 card-item" *ngFor="let course of subCategories[3].courses">
+                                <div class="card-block">
+                                    <app-course-card [courseOb]="course"></app-course-card>
+                                </div>
+                            </div>
+                            <div class="col-md-3 card-item">
+                                <div class="card card-block course-card">
+                                    <div class="d-flex top-img">
+                                        <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                    </div>
+                                    <div class="card-body d-flex">
+                                        <h6 class="card-title">Show all other items</h6>
+                                    </div>
+
+                                    <div class="card-footer bg-transparent d-flex">
+                                        <button class="primary-btn" (click)="goToAllCourses(subCategories[0])">Show All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2" *ngIf="subCategories[4] && subCategories[4].isShown">
+                        <div class="row">
+                            <div class="card col card-description">
+                                <div class="card-body">
+                                    <p class="card-title weight-semibold"> {{subCategories[0].name}} </p>
+                                    <p class="subtitle"> {{subCategories[0].description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('md') || mediaObserver.isActive('lg')">
+                            <div class="col">
+                                <div id="slider" class="carousel slide" data-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[4].courses |slice:0:3">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="row mt-2">
+                                                <div class="col-md-4 card-item" *ngFor="let course of subCategories[4].courses |slice:3:subCategories[4].courses.length">
+                                                    <div class="card-block">
+                                                        <app-course-card [courseOb]="course"></app-course-card>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 card-item">
+                                                    <div class="card card-block course-card">
+                                                        <div class="d-flex top-img">
+                                                            <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                                        </div>
+                                                        <div class="card-body d-flex">
+                                                            <h6 class="card-title">Show all other items</h6>
+                                                        </div>
+                                                        <div class="card-footer bg-transparent d-flex">
+                                                            <button class="primary-btn" (click)="goToAllCourses(subCategories[4])">Show All</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-actions">
+                                        <button class="carousel-control-prev p-0 secondary-grey-btn" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                        <button class="carousel-control-next p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="next">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                        viewBox="0 0 23.098 11.354">
+                        <path id="arrow-icon"
+                          d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                          transform="translate(0 -10.258)" fill="" />
+                      </svg>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="mediaObserver.isActive('xs') || mediaObserver.isActive('sm')">
+                            <div class="col-md-4 card-item" *ngFor="let course of subCategories[4].courses">
+                                <div class="card-block">
+                                    <app-course-card [courseOb]="course"></app-course-card>
+                                </div>
+                            </div>
+                            <div class="col-md-3 card-item">
+                                <div class="card card-block course-card">
+                                    <div class="d-flex top-img">
+                                        <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                    </div>
+                                    <div class="card-body d-flex">
+                                        <h6 class="card-title">Show all other items</h6>
+                                    </div>
+
+                                    <div class="card-footer bg-transparent d-flex">
+                                        <button class="primary-btn" (click)="goToAllCourses(subCategories[4])">Show All</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-0 p-0" *ngFor="let n of numbers">
+                        <div class="col-md-3 pb-4" *ngFor="let subCategory of subCategories | slice:(4*n)+5:(4*n)+9; index as i">
+                            <div *ngIf="subCategory">
+                                <div class="d-flex close-icon">
+                                    <svg *ngIf="subCategory.isShown" (click)="subCategory.isShown && toggleShowCard(subCategory)" class=" mt-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="17.114" height="17.114" viewBox="0 0 17.114 17.114">
+                    <g id="Icon_ionic-ios-close-circle-outline" data-name="Icon ionic-ios-close-circle-outline"
+                      transform="translate(-3.375 -3.375)">
+                      <path id="Path_18361" data-name="Path 18361"
+                        d="M18.757,17.825l-2.168-2.168,2.168-2.168a.657.657,0,1,0-.93-.93L15.66,14.728,13.492,12.56a.657.657,0,0,0-.93.93l2.168,2.168-2.168,2.168a.636.636,0,0,0,0,.93.653.653,0,0,0,.93,0l2.168-2.168,2.168,2.168a.66.66,0,0,0,.93,0A.653.653,0,0,0,18.757,17.825Z"
+                        transform="translate(-3.728 -3.726)" fill="#fff" />
+                      <path id="Path_18362" data-name="Path 18362"
+                        d="M11.932,4.527A7.4,7.4,0,1,1,6.695,6.695a7.356,7.356,0,0,1,5.237-2.168m0-1.152a8.557,8.557,0,1,0,8.557,8.557,8.555,8.555,0,0,0-8.557-8.557Z"
+                        fill="#fff" />
+                    </g>
+                  </svg>
+                                </div>
+                                <div class="img-card cursor-pointer" (click)="!subCategory.isShown && toggleShowCard(subCategory)">
+                                    <img src={{subCategory.img}}>
+                                    <span>{{subCategory.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3 d-none" *ngFor="let subCategory of subCategories | slice:(4*n)+5:(4*n)+9; index as i" [ngClass]="{'d-flex': subCategory.isShown}">
+                            <div *ngIf="subCategory && subCategory.isShown">
+                                <div class="row">
+                                    <div class="card col card-description">
+                                        <div class="card-body">
+                                            <p class="card-title weight-semibold"> {{subCategory.name}} </p>
+                                            <p class="subtitle"> {{subCategory.description}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2" *ngIf="mediaObserver.isActive('md') || mediaObserver.isActive('lg')">
+                                    <div class="col">
+                                        <div id="slider" class="carousel slide" data-interval="false">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row mt-2">
+                                                        <div class="col-md-4 card-item" *ngFor="let course of subCategory.courses |slice:0:3">
+                                                            <div class="card-block">
+                                                                <app-course-card [courseOb]="course"></app-course-card>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row mt-2">
+                                                        <div class="col-md-4 card-item" *ngFor="let course of subCategory.courses |slice:3:subCategory.courses.length">
+                                                            <div class="card-block">
+                                                                <app-course-card [courseOb]="course"></app-course-card>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 card-item">
+                                                            <div class="card card-block course-card">
+                                                                <div class="d-flex top-img">
+                                                                    <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                                                </div>
+                                                                <div class="card-body d-flex">
+                                                                    <h6 class="card-title">Show all other items</h6>
+                                                                </div>
+                                                                <div class="card-footer bg-transparent d-flex">
+                                                                    <button class="primary-btn" (click)="goToAllCourses(subCategory)">Show All</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-actions">
+                                                <button class="carousel-control-prev p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                            viewBox="0 0 23.098 11.354">
+                            <path id="arrow-icon"
+                              d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                              transform="translate(0 -10.258)" fill="" />
+                          </svg>
+                        </button>
+                                                <button class="carousel-control-next p-0 primary-btn" type="button" data-bs-target="#slider" data-bs-slide="next">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="23.098" height="11.354"
+                            viewBox="0 0 23.098 11.354">
+                            <path id="arrow-icon"
+                              d="M16.186,13.873H.619A.619.619,0,0,0,0,14.491v2.887A.619.619,0,0,0,.619,18H16.186v2.375a1.237,1.237,0,0,0,2.112.875l4.437-4.437a1.237,1.237,0,0,0,0-1.75L18.3,10.623a1.237,1.237,0,0,0-2.112.875Z"
+                              transform="translate(0 -10.258)" fill="" />
+                          </svg>
+                        </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2" *ngIf="mediaObserver.isActive('xs') || mediaObserver.isActive('sm')">
+                                    <div class="col-md-4 card-item" *ngFor="let course of subCategory.courses">
+                                        <div class="card-block">
+                                            <app-course-card [courseOb]="course"></app-course-card>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 card-item">
+                                        <div class="card card-block course-card">
+                                            <div class="d-flex top-img">
+                                                <img src="../../../../../assets/vectors/no-courses-yet-icon.svg" alt="Course Image">
+                                            </div>
+                                            <div class="card-body d-flex">
+                                                <h6 class="card-title">Show all other items</h6>
+                                            </div>
+
+                                            <div class="card-footer bg-transparent d-flex">
+                                                <button class="primary-btn" (click)="goToAllCourses(subCategory)">Show All</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab-list>
+        </mat-tab>
+        <mat-tab disabled *ngIf="categories.length > 6">
+            <ng-template mat-tab-label>
+                <div (click)="goToCategories()">
+                    See all
+                </div>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+</div>

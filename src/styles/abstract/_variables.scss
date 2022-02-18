@@ -1,0 +1,84 @@
+//Colors
+$blue: #2F57E5;
+$white-blue: #5074F7;
+$black-blue :#2D51B4;
+$light-blue: #EDEFF7;
+$gray: #B7B8BE;
+$light-gray: #DFDFDF;
+$dark-gray: #4D5160;
+$white: #FFF;
+$color-warning:red;
+$ghost-white: #F8F8F9;
+$snow: #FBFBFB;
+//Theme
+$primary-color: $blue;
+$navbar-link-color: $dark-gray;
+$base-text-color: $dark-gray;
+$box-shadow: 0px 0px 15px #00000012;
+//components
+$padding-input-vertical: 11px !default;
+$padding-input-horizontal: 19px !default;
+$padding-btn-vertical: 0.2em;
+$padding-btn-horizontal: 1.3em;
+$padding-large-btn-vertical: 0.9em;
+$padding-large-btn-horizontal: 2em;
+$padding-nav-vertical: 1rem;
+$padding-nav-horizontal: 1rem;
+$padding-nav-link-vertical: 1.4rem;
+$padding-nav-link-horizontal: 1rem;
+$card-padding-base: 1rem;
+$margin-nav-vertical: 1rem;
+$margin-nav-horizontal: 1rem;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+//Font-sizes
+$larg-heading: 38px;
+$medium-heading: 28px;
+$small-heading: 18px;
+$larg-text: 1rem;
+$medium-text: 0.87rem;
+$small-text: 0.75rem;
+$small-text-14:14px;
+$xsmall-text: 0.6rem;
+$large-line-height: 25px;
+$medium-line-height: 21px;
+$small-line-height: 18px;
+$xsmall-line-height: 10px;
+$font-size-navbar: 1em;
+//screen break-points
+$small-phone: 320px;
+$larg-phone: 768px;
+$tablet: 960px;
+$desktop: 1200px;
+$larg-desktop: 1400px;
+//components
+$input-border-thick: 2px;
+$input-border-thin: 1px;
+$full-width: 100%;
+$input-height: 45px;
+$label-input-margin: 20px;
+$input-border-stack: $input-border-thin solid $light-gray;
+$label-font-stack: $medium-text Poppins,
+Regular $gray;
+$padding-input-vertical: 11px !default;
+$padding-input-horizontal: 19px !default;
+$padding-btn-vertical: 0.2rem;
+$padding-btn-horizontal: 1.3rem;
+$card-padding-base: 1rem;
+$margin-nav-vertical: 1rem;
+$margin-nav-horizontal: 1rem;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+//margin
+$default-space: 25px;
+//variables Override
+$primary: $blue;
+$border-radius: 0.6em;
+$border-radius-2: 1.25em;
+$border-radius-3: 2em;

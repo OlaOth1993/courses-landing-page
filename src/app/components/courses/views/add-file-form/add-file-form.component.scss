@@ -1,0 +1,34 @@
+@use './../../../../../styles/abstract/variables' as *;
+@use './../../../../../styles/abstract/mixins' as *;
+.gray-btn {
+    background: $light-blue;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.centerize {
+    margin: 0 auto;
+}
+
+.gray-color {
+    color: $gray !important;
+}
+
+::ng-deep .ngx-file-drop__drop-zone {
+    border: none !important;
+    height: 180px;
+    margin: auto;
+}
+
+::ng-deep .ngx-file-drop__content {
+    display: block !important;
+}
+
+.gray-btn {
+    border: none;
+}
